@@ -12,6 +12,7 @@
 % Line spacing
 \RequirePackage{setspace}
 
+\usepackage[utf8]{inputenc}
 % pacchetti per i font
 \usepackage[T1]{fontenc}
 % interlinea
@@ -65,7 +66,7 @@
       \vspace{10mm}
       {\Large UNIVERSIT\`A DEGLI STUDI ROMA TRE} \\
       \vspace{5mm}
-      {\LARGE Facolt\`a di Ingegneria} \\
+      {\LARGE Dipartimento di Ingegneria} \\
       {\Large Corso di Laurea Magistrale in Ingegneria Informatica} \\
       \vspace{15mm}
       {\LARGE Tesi Di Laurea} \\
@@ -77,14 +78,14 @@
 %
 % scommenta questo blocco...
 %
-%      {\large Relatore \\ \textbf{\@relatore}} \\
+      {\large Relatore \\ \textbf{\@relatore}} \\
 %
 % ... oppure scommenta questo blocco
 %
-      \begin{tabular}{c  @{\hspace{2.5cm}} c}
-        Relatore & Correlatore \\
-        \textbf{\@relatore} & \textbf{\@correlatore} \\
-      \end{tabular} \\
+ %     \begin{tabular}{c  @{\hspace{2.5cm}} c}
+   %     Relatore & Correlatore \\
+    %    \textbf{\@relatore} & \textbf{\@correlatore} \\
+     % \end{tabular} \\
 %
       \vfill
       {\large Anno Accademico \@annoAccademico} \\

@@ -1,3 +1,8 @@
 \select@language {english}
-\contentsline {chapter}{Contents}{iii}{section*.1}
-\contentsline {chapter}{Bibliography}{1}{section*.3}
+\contentsline {chapter}{Introduzione}{iii}{chapter*.1}
+\contentsline {chapter}{Contents}{iv}{section*.2}
+\contentsline {chapter}{\chapternumberline {1}Bitcoin \& Blockchain}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Cosa sono i Bitcoin?}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Cos'\IeC {\`e} la Blockchain?}{1}{section.1.2}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{2}{chapter*.3}
+\contentsline {chapter}{Bibliography}{3}{section*.5}
