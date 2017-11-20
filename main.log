@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  17 NOV 2017 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  20 NOV 2017 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,16 +1014,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [2] (./capitolo2.tex) [3
+) [2] [3] (./capitolo2.tex) [4
 
-] (./capitolo3.tex) [4
+] (./capitolo3.tex) [5
 
-] (./capitolo4.tex) [5
+] (./capitolo4.tex)
+[6
 
-]
-(./capitolo5.tex) [6
+] (./capitolo5.tex) [7
 
-] (./conclusioni.tex) [7
+] (./conclusioni.tex) [8
 
 
 ] (./main.bbl
@@ -1031,7 +1031,7 @@ bibitemlist
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [8
+) [9
 
 ]
 \tf@toc=\write5
@@ -1046,9 +1046,9 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A23F10F68BC724A2CBC50B32EF3B5E7A;923.
  ) 
 Here is how much of TeX's memory you used:
- 10602 strings out of 493014
- 145778 string characters out of 6133352
- 277032 words of memory out of 5000000
+ 10603 strings out of 493014
+ 145784 string characters out of 6133352
+ 278032 words of memory out of 5000000
  13973 multiletter control sequences out of 15000+600000
  16540 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1065,10 +1065,10 @@ xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on main.pdf (13 pages, 199444 bytes).
+Output written on main.pdf (14 pages, 201522 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 210 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
