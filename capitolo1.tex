@@ -89,23 +89,45 @@ Per risolvere il problema della biforcazione, ogni nodo Bitcoin seleziona sempre
 Le fork avvengono come risultato di inconsistenze temporanee tra versioni della blockchain,
 che vengono risolte con eventuali riconvergenze, ovvero i nuovi blocchi vengono aggiunti alla catena principale della biforcazione.
 
-Nelle figure seguenti, si può capire un esempio di una fork della blockchain.
+Nelle figure seguenti, si può capire un esempio di una fork della blockchain. Sebbene nelle figure si nota la rete globale, in realtà la topologia della rete bitcoin non è organizzata geograficamente, piuttosto forma una rete di nodi interconnessi, che potrebbero essere geograficamente molto lontani. Nella vera rete bitcoin, la \textit{distanza} tra i nodi è misurata in \textbf{hop} da nodo a nodo, non sulla loro distanza fisica. Un singolo hop è una porzione di percorso tra la sorgente e la destinazione. 
 
+Per scopi illustrativi, blocchi differenti sono mostrati con colori diversi, che si diffondono attraverso la rete e le connessioni attraversate vengono colorate con colori diversi.
+Nel primo diagramma (\textit{figura 1.1}), la rete appare con una singola prospettiva unificata della blockchain, con il blocco blu come estremità della catena principale.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8 \linewidth]{figure/fork1}
-	\caption{Fork - parte 1 \label{fig:fork1}}
+	\includegraphics[width=0.85 \linewidth]{figure/fork1}
+	\caption{\textit{Visualizzazione di un evento fork--prima della fork} \label{fig:fork1}}
 \end{figure}
 
+Un evento \textit{fork} avviene quando ci sono due diversi blocchi che sono candidati ad essere aggiunti contemporaneamente alla Blockchain. Ciò può accadere quando due diversi miner risolvono la proof of work con uno scarto di tempo molto piccolo tra entrambi. Di conseguenza, tali miner immediatamente rivelano la loro soluzione in modo broadcast, e il nuovo blocco creato viene trasmesso tempestivamente ai loro vicini, che propagano i blocchi nuovi attraverso la rete. 
 
-%By summing the difficulty recorded in each block in a chain, a node can calculate the total amount
-%of proof of work that has been expended to create that chain. As long as all nodes select
-%the longest cumulative difficulty chain, the global bitcoin network eventually converges
-%to a consistent state. Forks occur as temporary inconsistencies between versions of the
-%blockchain, which are resolved by eventual reconvergence as more blocks are added to
-%one of the forks.
+Ogni nodo che riceve un blocco valido, lo incorpora all'interno della propria versione della blockchain, allungandola di un blocco. Se tale nodo si rende conto di aver ricevuto un ulteriore blocco che soddisfa le condizioni, lo aggiunge creando una catena secondaria alternativa al blocco aggiunto appena prima.
 
+In \textit{figura 1.2} si possono notare due miner che hanno minato due diversi blocchi quasi simultaneamente.\\
+Entrambi i blocchi sono figli del blocco blu, ed hanno lo scopo di estendere la chain aggiungendosi sopra al blocco blu. Nella figura, un blocco è rappresentato in rosso e l'altro in verde.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85 \linewidth]{figure/fork2}
+	\caption{\textit{Visualizzazione di un evento fork: due blocchi minati simultaneamente} \label{fig:fork2}}
+\end{figure}
+Per esempio, si assuma che un miner in Canada trova una soluzione proof of work per il blocco "rosso" che estende la blockchain come figlio del blocco "blu". Quasi simultaneamente, un altro miner in Australia trova un'altra soluzione per il blocco "verde" al fine di estendere la blockchain. Entrambi i blocchi sono validi, entrambi contengono una soluzione valida alla proof of work, e tutti e due sono figli del blocco "blu". Inoltre, entrambi contengono quasi le stesse transazioni, con solo alcune piccole differenze.
+\begin{figure}[hbp]
+	\centering
+	\includegraphics[width=0.85 \linewidth]{figure/fork3}
+	\caption{\textit{Visualizzazione di un evento fork: due blocchi propagati, la rete biforca} \label{fig:fork3}}
+\end{figure}
 
+Appena i due blocchi vengono propagati, alcuni nodi ricevono il blocco "rosso" e altri il blocco "verde". Come si può vedere in \textit{figura 1.3}, la rete si divide in due diverse prospettive della blockchain, un lato con all'estremità il blocco rosso e l'altro lato con il blocco verde.
+
+Da quel momento, i nodi della rete che sono più vicini al nodo del Canada, aggiungeranno anch'essi il blocco "rosso" per primo, e creeranno una nuova blockchain con il blocco "rosso" come ultimo blocco, ignorando il blocco "verde", che è arrivato un po' più tardi. Nello stesso momento, i nodi più vicini al nodo dell'Australia prenderà il blocco "verde" come vincitore e lo userà per estendere la sua versione della blockchain, aggiungendolo al blocco "blu", ignorando il blocco "rosso" che è arrivato un po' più tardi degli altri. Di conseguenza, ogni miner che vede aggiungere il blocco "rosso" in testa alla chain, immediatamente cercherà di creare altri blocchi che si aggiungeranno al blocco "rosso", ed andrà a risolvere la proof of work per tali blocchi candidati. Invece, i miners che accettano il blocco "verde" cominceranno ad estendere la porzione di chain che si andrà ad attaccare a tale blocco.
+
+Le fork vengono quasi sempre risolte da un singolo blocco. Infatti, come parte del potere computazionale viene dedicato per aggiungere il blocco "rosso", un'altra parte della rete impiega le sue risorse per aggiungere il blocco "verde". Anche se il potere computazionale è quasi diviso in due parti, probabilmente un gruppo di miner troverà e propagherà la soluzione prima che lo faccia un altro gruppo di ulteriori miner. Per esempio, si supponga che i miner trovino un blocco "rosa" che estenda il blocco "verde", immediatamente lo propagherebbero all'intera rete (\textit{figura 1.4}).
+
+\begin{figure}[hbp]
+	\centering
+	\includegraphics[width=0.85 \linewidth]{figure/fork4}
+	\caption{\textit{Visualizzazione di un evento fork: un nuovo blocco estende un ramo della fork} \label{fig:fork4}}
+\end{figure}
 
 \section{Le Transazioni}
 
