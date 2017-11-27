@@ -8,7 +8,9 @@
 \RequirePackage[italian,english]{babel}
 
 % Load graphicx
-\RequirePackage{graphicx}
+\RequirePackage{graphicx, subfigure}
+\usepackage{subfigure}
+\usepackage[subfigure]{tocloft}
 % Line spacing
 \RequirePackage{setspace}
 

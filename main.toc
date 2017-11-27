@@ -5,8 +5,8 @@
 \contentsline {section}{\numberline {1.1}Cosa sono i Bitcoin?}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Cos'\IeC {\`e} la Blockchain?}{2}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Mining}{3}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Blockchain Forks}{3}{subsection.1.2.2}
-\contentsline {section}{\numberline {1.3}Le Transazioni}{6}{section.1.3}
+\contentsline {subsection}{\numberline {1.2.2}Blockchain Forks}{5}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}Le Transazioni}{5}{section.1.3}
 \contentsline {section}{\numberline {1.4}Grafo delle transazioni}{6}{section.1.4}
 \contentsline {section}{\numberline {1.5}Caratteristiche del grafo}{6}{section.1.5}
 \contentsline {chapter}{\chapternumberline {2}I comportamenti automatici}{7}{chapter.2}
