@@ -5,7 +5,7 @@
 \LoadClass[a4paper,11pt,oneside,italian]{memoir}
 
 % Si utilizza la sillabazione italiana
-\RequirePackage[italian,english]{babel}
+\RequirePackage[italian]{babel}
 
 % Load graphicx
 \RequirePackage{graphicx, subfigure}
@@ -120,8 +120,8 @@
 	\clearpage
 	%\fancyhead[L]{\textbf{\leftmark}}
 }
-\newcommand{\generaIndiceTabelle}{\newpage \listoftables}
-\newcommand{\generaIndiceFigure}{\newpage \listoffigures}
+%\newcommand{\generaIndiceTabelle}{\newpage \listoftables}
+%\newcommand{\generaIndiceFigure}{\newpage \listoffigures}
 
 % Bibliografia in ordine alfabetico
 \let \OldBib \bibliography

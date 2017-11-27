@@ -1,4 +1,7 @@
 % !TeX spellcheck = it_IT
+
+
+
 \section{Cosa sono i Bitcoin?}
 
 Bitcoin è una valuta elettronica creata nel 2008 da Satoshi Nakamoto, uno pseudonimo dietro al quale non si sa ancora con la precisione chi si nasconde.
@@ -54,9 +57,26 @@ La fornitura di valuta bitcoin è creata attraverso il mining, analogamente alla
 L'ammontare del premio del mining a Gennaio 2009 era di 50 bitcoin per blocco e a Novembre 2012 già si era dimezzato fino ad ottenere 25 bitcoin. Attualmente il guadagno del premio del mining risulta 12.5 bitcoin per blocco.
 Seguendo questo processo, il premio per il mining di un blocco, decrescerà esponenzialmente fino all'anno 2140, quando tutti i bitcoin (20.9999998 milioni) saranno emessi. All'incirca dopo il 2140 non saranno più prodotti nuovi bitcoin e il miner andrà a guadagnare solamente tramite le tasse applicate per ogni transazione.
 
-I miners guadagnano bitcoin per ogni transazione tramite le tasse. Esse vengono calcolate come eccesso di bitcoin tra le transazioni di input e quelle di output.
+I miners guadagnano bitcoin per ogni transazione tramite le tasse. Esse vengono calcolate come eccesso di bitcoin tra le transazioni di input e quelle di output. Infatti, il miner che riesce a creare il nuovo blocco "tiene il resto" di ogni transazione inclusa in quel blocco. \\ Dopo il 2140, tutti i bitcoin potranno essere guadagnati tramite tasse.
 
+La parola "mining", ovvero minare, potrebbe avere un significato ingannevole poichè sembrerebbe indicare l'estrazione di metallo prezioso, e quindi focalizza l'attenzione sul premio che viene ottenuto dal minatore.\\
+Sebbene il mining sia incentivato dal suo guadagno, il suo obiettivo principale non è il premio in denaro o la creazione di nuove monete.\\ 
+Mining è il processo principale per la decentralizzazione del sistema, nel quale le transazioni sono validate e chiare. Rappresenta una sicurezza per il sistema e permette lo sviluppo di una rete basata sul consenso, senza l'intervento di un'autorità centrale.
 
+\subsection{Consenso Decentralizzato}
+
+La Blockchain non essendo creata da un'autorità centrale, è assemblata indipendentemente da ogni nodo all'interno della rete. Perciò, ogni nodo della rete, agendo sulle informazioni che vengono trasmesse attraverso delle connessioni di rete non sicure, può arrivare alla stessa conclusione e assemblare una copia della stessa blockchain, come ogni altro nodo.
+
+La principale invenzione di Satoshi Nakamoto è il meccanismo decentralizzato del \textit{consenso emergente}. "Emergente" perchè il consenso generale non è raggiunto esplicitamente -- non esiste un'elezione o un momento prefissato quando il consenso viene espresso -- è un risultato dell'interazione asincrona di migliaia di nodi indipendenti tra loro, i quali basati sulle stesse regole.
+
+Tutte le proprietà dei bitcoin, inclusa la moneta, le transazioni, i pagamenti, il modello di sicurezza, i quali non dipendono da un'autorità centrale, derivano da questa invenzione.\\
+Il consenso decentralizzato dei Bitcoin viene fuori dall'interazione di quattro processi che si verificano indipendentemente sui nodi attraverso la rete. Tali processi sono:
+\begin{itemize}
+	\item la verifica indipendente di ogni transazione, basata su una lista globale di criteri
+	\item  l'aggregazione indipendente di tali transazioni all'interno di un nuovo blocco appena minato
+	\item la verifica indipendente del nuovo blocco da parte di ogni nodo, e l'unione di tale blocco all'interno della chain
+	\item la selezione indipendente, da parte di ogni nodo, della chain con la computazione che maggiormente raccoglie più transazioni e che è stata dimostrata correttamente tramite una \textit{proof of work}
+\end{itemize}
 
 \subsection{Blockchain Forks}
 
@@ -66,6 +86,17 @@ Sebbene un blocco abbia solo un genitore, esso può avere temporaneamente un div
 
 Per risolvere il problema della biforcazione, ogni nodo Bitcoin seleziona sempre e cerca di estendere la catena di blocchi che soddisfa il sistema \textit{proof-of-work}.
 
+Le fork avvengono come risultato di inconsistenze temporanee tra versioni della blockchain,
+che vengono risolte con eventuali riconvergenze, ovvero i nuovi blocchi vengono aggiunti alla catena principale della biforcazione.
+
+Nelle figure seguenti, si può capire un esempio di una fork della blockchain.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8 \linewidth]{figure/fork1}
+	\caption{Fork - parte 1 \label{fig:fork1}}
+\end{figure}
+
 
 %By summing the difficulty recorded in each block in a chain, a node can calculate the total amount
 %of proof of work that has been expended to create that chain. As long as all nodes select
@@ -74,22 +105,7 @@ Per risolvere il problema della biforcazione, ogni nodo Bitcoin seleziona sempre
 %blockchain, which are resolved by eventual reconvergence as more blocks are added to
 %one of the forks.
 
-\begin{figure}[htbp]
-	\centering%
-	\includegraphics[width= 0.8 \linewidth]{figure/fork1}
 
-	\caption{Fork - parte 1\label{fig:sottofigure}}
-\end{figure}
-
-
-
-%	Minare bitcoin
-%		come si fa x
-%		chi lo fa x
-%		guadagno x
-%		complessità computazionale
-%		merkle hash tree
-	
 
 \section{Le Transazioni}
 

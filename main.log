@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  27 NOV 2017 12:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  27 NOV 2017 17:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -351,12 +351,6 @@ File: babel.def 2016/04/23 3.9r Babel common definitions
 \it@lettering=\count138
 \it@doublequoteactive=\count139
 \it@ISOcompliance=\count140
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2012/08/20 v3.3p English support from the babel system
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
@@ -1049,7 +1043,7 @@ LaTeX Info: Redefining \nameref on input line 21.
 \openout4 = `main.out'.
 
 
-<figure/uniroma3-logo.pdf, id=68, 196.735pt x 109.40875pt>
+<figure/uniroma3-logo.pdf, id=72, 196.735pt x 109.40875pt>
 File: figure/uniroma3-logo.pdf Graphic file (type pdf)
 
 <use figure/uniroma3-logo.pdf>
@@ -1062,60 +1056,60 @@ Package pdftex.def Info: figure/uniroma3-logo.pdf used on input line 24.
 e/uniroma3-logo.pdf>] [2]
 (./ringraziamenti.tex) [3
 
-] (./introduzione.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--28
+] (./main.toc) [4] (./introduzione.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--29
 
  []
 
-[4
+[5
 
-] (./main.toc) [5] (./capitolo1.tex [1
 
+] (./capitolo1.tex [1
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 14--16
+Underfull \hbox (badness 10000) in paragraph at lines 17--19
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
 [2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 45.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 48.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
  [4]
-<figure/fork1.png, id=147, 897.3525pt x 461.725pt>
+[5] <figure/fork1.png, id=156, 897.3525pt x 461.725pt>
 File: figure/fork1.png Graphic file (type png)
  <use figure/fork1.png>
-Package pdftex.def Info: figure/fork1.png used on input line 79.
+Package pdftex.def Info: figure/fork1.png used on input line 90.
 (pdftex.def)             Requested size: 330.05322pt x 169.82104pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
-[5 <./figure/fork1.png>]) [6] (./capitolo2.tex) [7
+[6 <./figure/fork1.png>]) [7] (./capitolo2.tex) [8
 
-] (./capitolo3.tex) [8
+] (./capitolo3.tex) [9
 
 ]
-(./capitolo4.tex) [9
+(./capitolo4.tex) [10
 
-] (./capitolo5.tex) [10
+] (./capitolo5.tex) [11
 
-] (./conclusioni.tex) [11
+] (./conclusioni.tex) [12
 
 
 ]
@@ -1124,28 +1118,32 @@ bibitemlist
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [12
+) [13
 
 ]
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 48.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 25C80455F30DF2F6D5B556ED72AB19BD;984.
+(rerunfilecheck)             Checksum: 3ABC0ACCA5C6EEC4CAD1F3A986B27830;1060.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 10788 strings out of 493014
- 148493 string characters out of 6133352
- 279977 words of memory out of 5000000
- 14143 multiletter control sequences out of 15000+600000
+ 10772 strings out of 493014
+ 148074 string characters out of 6133352
+ 279805 words of memory out of 5000000
+ 14129 multiletter control sequences out of 15000+600000
  16540 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,45p,770b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,45p,770b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></u
@@ -1159,10 +1157,10 @@ live/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on main.pdf (17 pages, 610377 bytes).
+Output written on main.pdf (18 pages, 613405 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 200 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 248 PDF objects out of 1000 (max. 8388607)
+ 208 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
