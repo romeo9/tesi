@@ -1,7 +1,4 @@
 % !TeX spellcheck = it_IT
-
-
-
 \section{Cosa sono i Bitcoin?}
 
 Bitcoin è una valuta elettronica creata nel 2008 da Satoshi Nakamoto, uno pseudonimo dietro al quale non si sa ancora con la precisione chi si nasconde.
@@ -31,6 +28,30 @@ In questo paragrafo si andrà a tracciare il percorso di una singola transazione
 	\caption{\textit{Bitcoin overview} \label{fig:overview}}
 \end{figure}
 
+Si prendano in considerazione per esempio, due utenti Bitcoin: Alice e Bob. Alice vorrebbe effettuare la sua transazione, comprando una tazza di caffè al bar di Bob (Bob's Cafe). Il bar di Bob, di recente ha iniziato ad accettare pagamenti in bitcoin, aggiungendo alla cassa un punto di pagamento Bitcoin. I prezzi del bar sono elencati in dollari, ma alla cassa, i clienti hanno l'opzione di pagare sia in dollari che in bitcoin.
+
+Alice fa il suo ordine di una tazza di caffè e Bob inserisce la transazione nel registratore di cassa. Il punto di scambio di bitcoin, converte il prezzo totale dai dollari ai bitcoin secondo il tasso di mercato corrente, e mostra il prezzo nelle due valute, insieme ad un QR code contenente la \textit{payment request} (richiesta di pagamento) per tale transazione (\textit{figura \ref{fig:qrcode}}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width= 0.8 \linewidth]{figure/qrcode}
+	\caption{\textit{Payment request QR code} \label{fig:qrcode}}
+\end{figure}
+
+Se tale QR code viene scansionato, esso racchiude il seguente URL:
+\begin{lstlisting}
+	bitcoin:1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA?
+	amount=0.015&
+	label=Bob%27s%20Cafe&
+	message=Purchase%20at%20Bob%27s%20Cafe
+\end{lstlisting}
+
+Attraverso di esso si possono ottenere informazioni come: l'indirizzo bitcoin, l'ammontare del pagamento, un'etichetta per l'indirizzo del destinatario e una descrizione del pagamento.
+
+A differenza di un QR code che contiene semplicemente l'indirizzo bitcoin del destinatario, un \textit{payment request} è un QR-encoded URL che contiene un indirizzo di destinazione, il pagamento, e una descrizione generica come "Bob's Cafe". Questo permette all'applicazione del wallet di raccogliere le  informazioni usate per effettuare il pagamento, al fine di mostrarle successivamente quando richieste dal proprietario del wallet. Se Bob scansiona il QR code con un'applicazione per un wallet bitcoin, oltre a ottenere il denaro, vedrà i dettagli inseriti da Alice.
+
+Quindi, Bob dice: "Sono un dollaro e 50, oppure 15 millibitcoin"
+
+Alice usa il suo smartphone per cansionare il codice e visualizzarlo sul display. Esso le mostra il pagamento di 0.015 BTC al Bob's Cafe e seleziona \textit{Invia} per autorizzare il pagamento. In pochi secondi (all'incirca lo stesso tempo che ci mette una comune carta di credito), Bob potrà vedere la transazione sul registratore di cassa, conclusa.
 
 \section{Cos'è la Blockchain?}
 La Blockchain, letteralmente \textit{catena di blocchi}, è una base di dati distribuita, che permette la memorizzazione delle transazioni raggruppate in blocchi connessi tra loro, ognuno con il suo successivo. Ogni blocco è una struttura dati che contiene un numero variabile di transazioni, inserite dal \textit{miner} che ha minato il blocco, fino ad un tetto massimo di 1MB per singolo blocco.\\
@@ -118,37 +139,38 @@ Ogni nodo che riceve un blocco valido, lo incorpora all'interno della propria ve
 
 In \textit{figura \ref{fig:fork2}} si possono notare due miner che hanno minato due diversi blocchi quasi simultaneamente.\\
 Entrambi i blocchi sono figli del blocco blu, ed hanno lo scopo di estendere la chain aggiungendosi sopra al blocco blu. Nella figura, un blocco è rappresentato in rosso e l'altro in verde.
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork2}
 	\caption{\textit{Visualizzazione di un evento fork: due blocchi minati simultaneamente} \label{fig:fork2}}
 \end{figure}
+
 Per esempio, si assuma che un miner in Canada trova una soluzione proof of work per il blocco "rosso" che estende la blockchain come figlio del blocco "blu". Quasi simultaneamente, un altro miner in Australia trova un'altra soluzione per il blocco "verde" al fine di estendere la blockchain. Entrambi i blocchi sono validi, entrambi contengono una soluzione valida alla proof of work, e tutti e due sono figli del blocco "blu". Inoltre, entrambi contengono quasi le stesse transazioni, con solo alcune piccole differenze.
 
 Appena i due blocchi vengono propagati, alcuni nodi ricevono il blocco "rosso" e altri il blocco "verde". Come si può vedere in \textit{figura \ref{fig:fork3}}, la rete si divide in due diverse prospettive della blockchain, un lato con all'estremità il blocco rosso e l'altro lato con il blocco verde.
-\begin{figure}[hbp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork3}
 	\caption{\textit{Visualizzazione di un evento fork: due blocchi propagati, la rete biforca} \label{fig:fork3}}
 \end{figure}
+
 Da quel momento, i nodi della rete che sono più vicini al nodo del Canada, aggiungeranno anch'essi il blocco "rosso" per primo, e creeranno una nuova blockchain con il blocco "rosso" come ultimo blocco, ignorando il blocco "verde", che è arrivato un po' più tardi. Nello stesso momento, i nodi più vicini al nodo dell'Australia prenderà il blocco "verde" come vincitore e lo userà per estendere la sua versione della blockchain, aggiungendolo al blocco "blu", ignorando il blocco "rosso" che è arrivato un po' più tardi degli altri. Di conseguenza, ogni miner che vede aggiungere il blocco "rosso" in testa alla chain, immediatamente cercherà di creare altri blocchi che si aggiungeranno al blocco "rosso", ed andrà a risolvere la proof of work per tali blocchi candidati. Invece, i miners che accettano il blocco "verde" cominceranno ad estendere la porzione di chain che si andrà ad attaccare a tale blocco.
 
 Le fork vengono quasi sempre risolte da un singolo blocco. Infatti, come parte del potere computazionale viene dedicato per aggiungere il blocco "rosso", un'altra parte della rete impiega le sue risorse per aggiungere il blocco "verde". Anche se il potere computazionale è quasi diviso in due parti, probabilmente un gruppo di miner troverà e propagherà la soluzione prima che lo faccia un altro gruppo di ulteriori miner. Per esempio, si supponga che i miner trovino un blocco "rosa" che estenda il blocco "verde", immediatamente lo propagherebbero all'intera rete (\textit{figura \ref{fig:fork4}}).
-
-\begin{figure}[hbp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork4}
 	\caption{\textit{Visualizzazione di un evento fork: un nuovo blocco estende un ramo della fork} \label{fig:fork4}}
 \end{figure}
 
 Tutti i nodi che hanno scelto il blocco "verde" come vincitore nel round precedente, estenderanno la catena di un ulteriore blocco. I nodi che hanno scelto il blocco "rosso" come vincitore, quindi, vedranno due chain: quella blu-verde-rosa e quella blu-rossa. La chain blu-verde-rosa è la più lunga, ovvero è più difficile trovare una prook of work per essa. Inoltre, in \textit{figura \ref{fig:fork5}} si possono vedere i nodi che hanno scelto come catena principale la chain blu-verde-rosa e come chain secondaria quella blu-rossa.
-\begin{figure}[hbp]
+
+Questo processo è detto \textit{chain reconvergence}(letteralmente riconvergenza della catena), perchè tali nodi vengono forzati a cambiare il loro punto di vista della blockchain al fine di considerare la catena più lunga tra le due.\\ Ogni miner che lavora per estendere la chain blu-rossa non potrà più continuare poichè il blocco che stanno tentando di aggiungere al blocco rosso rimarrà "orfano", dato che il blocco rosso che dovrebbe fare da genitore non appartiene alla chain più lunga della blockchain. \\ Le transazioni che sono all'interno del blocco "rosso", vengono inserite di nuovo in coda per essere processate in un nuovo blocco, perchè, come si è già detto, il blocco a cui appartenevano non fa più parte della blockchain.
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork5}
 	\caption{\textit{Visualizzazione di un evento fork: la rete si riunisce in un'unica catena più lunga} \label{fig:fork5}}
 \end{figure}
-
-Questo processo è detto \textit{chain reconvergence}(letteralmente riconvergenza della catena), perchè tali nodi vengono forzati a cambiare il loro punto di vista della blockchain al fine di considerare la catena più lunga tra le due.\\ Ogni miner che lavora per estendere la chain blu-rossa non potrà più continuare poichè il blocco che stanno tentando di aggiungere al blocco rosso rimarrà "orfano", dato che il blocco rosso che dovrebbe fare da genitore non appartiene alla chain più lunga della blockchain. \\ Le transazioni che sono all'interno del blocco "rosso", vengono inserite di nuovo in coda per essere processate in un nuovo blocco, perchè, come si è già detto, il blocco a cui appartenevano non fa più parte della blockchain.
 
 L'intera rete, quindi, riconverge la blockchain in una catena singola che fa capo ai blocchi blu-verde-rosa, con il blocco "rosa" come ultimo blocco all'estremità della catena. Tutti i miner immediatamente cominceranno a candidare nuovi blocchi che si andranno ad attaccare al blocco "rosa", al fine di estendere la catena blu-verde-rosa.
 

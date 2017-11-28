@@ -5,16 +5,16 @@
 \contentsline {chapter}{\chapternumberline {1}Bitcoin \& Blockchain}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Cosa sono i Bitcoin?}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Bitcoin: Panoramica}{2}{subsection.1.1.1}
-\contentsline {section}{\numberline {1.2}Cos'\IeC {\`e} la Blockchain?}{3}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Mining}{4}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Consenso Decentralizzato}{6}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Blockchain Forks}{7}{subsection.1.2.3}
-\contentsline {section}{\numberline {1.3}Le Transazioni}{12}{section.1.3}
-\contentsline {section}{\numberline {1.4}Grafo delle transazioni}{12}{section.1.4}
-\contentsline {section}{\numberline {1.5}Caratteristiche del grafo}{12}{section.1.5}
-\contentsline {chapter}{\chapternumberline {2}I comportamenti automatici}{13}{chapter.2}
-\contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{14}{chapter.3}
-\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{15}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{16}{chapter.5}
-\contentsline {chapter}{Conclusioni e sviluppi futuri}{17}{chapter*.4}
-\contentsline {chapter}{Bibliografia}{18}{section*.6}
+\contentsline {section}{\numberline {1.2}Cos'\IeC {\`e} la Blockchain?}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Mining}{5}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Consenso Decentralizzato}{7}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Blockchain Forks}{8}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Le Transazioni}{13}{section.1.3}
+\contentsline {section}{\numberline {1.4}Grafo delle transazioni}{14}{section.1.4}
+\contentsline {section}{\numberline {1.5}Caratteristiche del grafo}{14}{section.1.5}
+\contentsline {chapter}{\chapternumberline {2}I comportamenti automatici}{15}{chapter.2}
+\contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{16}{chapter.3}
+\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{17}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{18}{chapter.5}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{19}{chapter*.4}
+\contentsline {chapter}{Bibliografia}{20}{section*.6}

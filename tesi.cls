@@ -13,7 +13,10 @@
 %\usepackage[subfigure]{tocloft}
 % Line spacing
 \RequirePackage{setspace}
-
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily, 
+}
 \usepackage[utf8]{inputenc}
 % pacchetti per i font
 \usepackage[T1]{fontenc}
