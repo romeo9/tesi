@@ -171,7 +171,7 @@ Questo processo è detto \textit{chain reconvergence}(letteralmente riconvergenz
 	\includegraphics[width=0.85 \linewidth]{figure/fork5}
 	\caption{\textit{Visualizzazione di un evento fork: la rete si riunisce in un'unica catena più lunga} \label{fig:fork5}}
 \end{figure}
-
+ 
 L'intera rete, quindi, riconverge la blockchain in una catena singola che fa capo ai blocchi blu-verde-rosa, con il blocco "rosa" come ultimo blocco all'estremità della catena. Tutti i miner immediatamente cominceranno a candidare nuovi blocchi che si andranno ad attaccare al blocco "rosa", al fine di estendere la catena blu-verde-rosa.
 
 Teoricamente potrebbe essere possibile per una fork estendere due blocchi diversi, ma solamente se tali blocchi vengono creati quasi simultaneamente da miner che sono su "lati" diversi di una fork precedente. Tuttavia, la probabilità che ciò accada è molto bassa. Anche se ci fosse una fork ogni settimana, una fork a due blocchi è molto rara.
@@ -182,10 +182,20 @@ L'intervallo tra un blocco e il suo successivo è all'incirca di 10 minuti, prop
 
 Come è stato detto in precedenza, una transazione è uno scambio di monete bitcoin tra due o più individui. Per esempio, se Alice vuole dare 1BTC a Bob, ha bisogno di effettuare una transazione inserendo come input l'importo da trasferire e l'indirizzo del wallet di Bob. \\ 
 
-Nella maggior parte dei casi, la quantità di denaro che partecipa alla transazione non è quasi mai
-Secondo la configurazione predefinita dal protocollo, quando viene effettuata una transazione che non implica la spesa dell'intero importo contenuto nel wallet del mittente, è previsto che venga creata un ulteriore transazione con il 
+In parole semplici, la transazione dice alla rete che il proprietario di un certo numero di bitcoin, ha autorizzato il trasferimento di alcuni di tali bitcoin ad un altro individuo. Il nuovo proprietario dei bitcoin allora può spenderli creando una nuova transazione che autorizza il trasferimento degli stessi ad un altro destinatario. Tutto ciò genera una catena di proprietà di bitcoin.
 
-Una caratteristica delle transazioni è che possono partecipare più wallet contemporaneamente: ad esempio, un individuo può inviare con la stessa transazione, una quantità di bitcoin a due individui diversi, in modo da recapitare ciascuno la quantità di bitcoin desiderata. 
+Le transazioni sono come una riga in un registro di contabilità dove vengono salvati i trasferimenti. In poche parole, ogni transazione contiene uno i più input, cioè l'addebito, ed uno o più output, cioè il credito aggiunto ad un altro account bitcoin. Gli input e gli output, rispettivamente l'addebito e il credito, non necessariamente devono essere la stessa cifra. Infatti, gli output aggiungono all'account destinatario una cifra leggermente minore di quella inviata negli input, la cui differenza rappresenta le \textit{transaction fee}(ovvero le tasse di transazione), che vengono elargite al miner che ha minato il blocco nel quale andrà ad aggiungersi la transazione in corso. Nella \textit{figura \ref{fig:bookkeeping}} viene mostrata una transazione come sarebbe all'interno di un registro di contabilità.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7 \linewidth]{figure/bookkeeping}
+	\caption{\textit{Una transazione come una riga del registro di contabilità} \label{fig:bookkeeping}}
+\end{figure}
+
+La transazione contiene anche la firma digitale del destinatario dell'importo dei bitcoin, in modo da fungere come prova di proprietà dal momento che nessun altro all'infuori del proprietario può validare la transazione e prendersi gli stessi bitcoin. In termini tecnici, "spendere" significa firmare una transazione che trasferisce il valore da una transazione effettuata in precedenza ad un nuovo proprietario identificato tramite il suo indirizzo bitcoin.
+
+Le transazioni muovono ammontare di bitcoin da \textit{transazioni in input} a \textit{transazioni in output}. Un input è dove la moneta arriva da un output di una transazione effettuata in precedenza. Un output assegna un nuovo proprietario al valore scambiato, associandogli la chiave. La chiave di destinazione è chiamata \textit{encumbrance}(letteralmente "ingombro").
+
+
 
 \section{Grafo delle transazioni}
 \section{Caratteristiche del grafo}
