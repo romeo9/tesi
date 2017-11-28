@@ -19,6 +19,19 @@ I bitcoin vengono creati tramite un processo, detto \textit{mining}, che permett
 
 Quando viene effettuato uno scambio di bitcoin tra due o più wallet, viene creata una \textit{transazione}. Ogni transazione viene conservata in una struttura dati chiamata \textbf{blocco}, il quale a sua volta va a costituire la \textbf{Blockchain}.
 
+\subsection{Bitcoin: Panoramica}
+
+Nella \textit{figura\ref{fig:overview}}, si può notare che il sistema bitcoin comprende: utenti con wallet che contengono chiavi, transazioni che sono propagate attraverso la rete, e miner che forniscono (attraverso una computazione competitiva) il consenso alla blockchain, la quale è il libro mastro di tutte le transazioni.
+
+In questo paragrafo si andrà a tracciare il percorso di una singola transazione quando viene propagata attraverso la rete, e le interazioni tra ogni componente del sistema, ad alto livello.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width= \linewidth]{figure/overview}
+	\caption{\textit{Bitcoin overview} \label{fig:overview}}
+\end{figure}
+
+
 \section{Cos'è la Blockchain?}
 La Blockchain, letteralmente \textit{catena di blocchi}, è una base di dati distribuita, che permette la memorizzazione delle transazioni raggruppate in blocchi connessi tra loro, ognuno con il suo successivo. Ogni blocco è una struttura dati che contiene un numero variabile di transazioni, inserite dal \textit{miner} che ha minato il blocco, fino ad un tetto massimo di 1MB per singolo blocco.\\
 
@@ -39,9 +52,9 @@ Ogni blocco all'interno della blockchain, è identificato da un codice hash, gen
 \subsection{Mining}
 
 Le monete bitcoin sono "coniate" durante la creazione di ciascun blocco ad un tasso fisso. Ogni blocco, generato all'incirca ogni 10 minuti, contiene nuovi bitcoin, creati da zero.
-Il \textit{mining} inoltre serve per proteggere il sistema bitcoin contro transazioni fraudolente o transazioni che cercano di spendere lo stesso numero di bitcoin più di una volta, problema conosciuto con il nome di \textit{double-spend} (doppia-spesa).
+Il \textit{mining} inoltre serve per proteggere il sistema bitcoin contro transazioni fraudolente o transazioni che cercano di spendere gli stessi bitcoin più di una volta, problema conosciuto con il nome di \textit{double-spend} (doppia-spesa).
 
-I miner validano le transazioni e le registrano sul \textit{ledger} globale, ovvero la Blockchain, creando un nuovo blocco e inserendo le transazioni al suo interno, per poi aggiungere il blocco alla catena. Perciò, i miner raccolgono un certo numero di transazioni e cercano di inserirle all'interno di un nuovo blocco creato appositamente. Tutte le transazioni che poi risultano alla fine all'interno di tale blocco, sono considerate \textit{confirmed} (ovvero confermate), ovvero una sorta di etichetta che permette al ricevente di tali bitcoin di spenderli successivamente.
+I miner validano le transazioni e le registrano sul \textit{ledger} globale, ovvero la Blockchain, creando un nuovo blocco e inserendo le transazioni al suo interno, per poi aggiungere il blocco alla chain (=catena). Perciò, i miner raccolgono un certo numero di transazioni e cercano di inserirle all'interno di un nuovo blocco creato appositamente. Tutte le transazioni che poi risultano alla fine all'interno di tale blocco, sono considerate \textit{confirmed} (=confermate), ovvero una sorta di etichetta che permette al ricevente di tali bitcoin di spenderli successivamente.
 
 Lo scopo dei miner è quello di guadagnare bitcoin, e possono ottenerli in due modi: 
 \begin{itemize}
@@ -92,7 +105,7 @@ che vengono risolte con eventuali riconvergenze, ovvero i nuovi blocchi vengono 
 Nelle figure seguenti, si può capire un esempio di una fork della blockchain. Sebbene nelle figure si nota la rete globale, in realtà la topologia della rete bitcoin non è organizzata geograficamente, piuttosto forma una rete di nodi interconnessi, che potrebbero essere geograficamente molto lontani. Nella vera rete bitcoin, la \textit{distanza} tra i nodi è misurata in \textbf{hop} da nodo a nodo, non sulla loro distanza fisica. Un singolo hop è una porzione di percorso tra la sorgente e la destinazione. 
 
 Per scopi illustrativi, blocchi differenti sono mostrati con colori diversi, che si diffondono attraverso la rete e le connessioni attraversate vengono colorate con colori diversi.
-Nel primo diagramma (\textit{figura 1.1}), la rete appare con una singola prospettiva unificata della blockchain, con il blocco blu come estremità della catena principale.
+Nel primo diagramma (\textit{figura \ref{fig:fork1}}), la rete appare con una singola prospettiva unificata della blockchain, con il blocco blu come estremità della catena principale.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork1}
@@ -103,7 +116,7 @@ Un evento \textit{fork} avviene quando ci sono due diversi blocchi che sono cand
 
 Ogni nodo che riceve un blocco valido, lo incorpora all'interno della propria versione della blockchain, allungandola di un blocco. Se tale nodo si rende conto di aver ricevuto un ulteriore blocco che soddisfa le condizioni, lo aggiunge creando una catena secondaria alternativa al blocco aggiunto appena prima.
 
-In \textit{figura 1.2} si possono notare due miner che hanno minato due diversi blocchi quasi simultaneamente.\\
+In \textit{figura \ref{fig:fork2}} si possono notare due miner che hanno minato due diversi blocchi quasi simultaneamente.\\
 Entrambi i blocchi sono figli del blocco blu, ed hanno lo scopo di estendere la chain aggiungendosi sopra al blocco blu. Nella figura, un blocco è rappresentato in rosso e l'altro in verde.
 \begin{figure}[h]
 	\centering
@@ -111,23 +124,37 @@ Entrambi i blocchi sono figli del blocco blu, ed hanno lo scopo di estendere la 
 	\caption{\textit{Visualizzazione di un evento fork: due blocchi minati simultaneamente} \label{fig:fork2}}
 \end{figure}
 Per esempio, si assuma che un miner in Canada trova una soluzione proof of work per il blocco "rosso" che estende la blockchain come figlio del blocco "blu". Quasi simultaneamente, un altro miner in Australia trova un'altra soluzione per il blocco "verde" al fine di estendere la blockchain. Entrambi i blocchi sono validi, entrambi contengono una soluzione valida alla proof of work, e tutti e due sono figli del blocco "blu". Inoltre, entrambi contengono quasi le stesse transazioni, con solo alcune piccole differenze.
+
+Appena i due blocchi vengono propagati, alcuni nodi ricevono il blocco "rosso" e altri il blocco "verde". Come si può vedere in \textit{figura \ref{fig:fork3}}, la rete si divide in due diverse prospettive della blockchain, un lato con all'estremità il blocco rosso e l'altro lato con il blocco verde.
 \begin{figure}[hbp]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork3}
 	\caption{\textit{Visualizzazione di un evento fork: due blocchi propagati, la rete biforca} \label{fig:fork3}}
 \end{figure}
-
-Appena i due blocchi vengono propagati, alcuni nodi ricevono il blocco "rosso" e altri il blocco "verde". Come si può vedere in \textit{figura 1.3}, la rete si divide in due diverse prospettive della blockchain, un lato con all'estremità il blocco rosso e l'altro lato con il blocco verde.
-
 Da quel momento, i nodi della rete che sono più vicini al nodo del Canada, aggiungeranno anch'essi il blocco "rosso" per primo, e creeranno una nuova blockchain con il blocco "rosso" come ultimo blocco, ignorando il blocco "verde", che è arrivato un po' più tardi. Nello stesso momento, i nodi più vicini al nodo dell'Australia prenderà il blocco "verde" come vincitore e lo userà per estendere la sua versione della blockchain, aggiungendolo al blocco "blu", ignorando il blocco "rosso" che è arrivato un po' più tardi degli altri. Di conseguenza, ogni miner che vede aggiungere il blocco "rosso" in testa alla chain, immediatamente cercherà di creare altri blocchi che si aggiungeranno al blocco "rosso", ed andrà a risolvere la proof of work per tali blocchi candidati. Invece, i miners che accettano il blocco "verde" cominceranno ad estendere la porzione di chain che si andrà ad attaccare a tale blocco.
 
-Le fork vengono quasi sempre risolte da un singolo blocco. Infatti, come parte del potere computazionale viene dedicato per aggiungere il blocco "rosso", un'altra parte della rete impiega le sue risorse per aggiungere il blocco "verde". Anche se il potere computazionale è quasi diviso in due parti, probabilmente un gruppo di miner troverà e propagherà la soluzione prima che lo faccia un altro gruppo di ulteriori miner. Per esempio, si supponga che i miner trovino un blocco "rosa" che estenda il blocco "verde", immediatamente lo propagherebbero all'intera rete (\textit{figura 1.4}).
+Le fork vengono quasi sempre risolte da un singolo blocco. Infatti, come parte del potere computazionale viene dedicato per aggiungere il blocco "rosso", un'altra parte della rete impiega le sue risorse per aggiungere il blocco "verde". Anche se il potere computazionale è quasi diviso in due parti, probabilmente un gruppo di miner troverà e propagherà la soluzione prima che lo faccia un altro gruppo di ulteriori miner. Per esempio, si supponga che i miner trovino un blocco "rosa" che estenda il blocco "verde", immediatamente lo propagherebbero all'intera rete (\textit{figura \ref{fig:fork4}}).
 
 \begin{figure}[hbp]
 	\centering
 	\includegraphics[width=0.85 \linewidth]{figure/fork4}
 	\caption{\textit{Visualizzazione di un evento fork: un nuovo blocco estende un ramo della fork} \label{fig:fork4}}
 \end{figure}
+
+Tutti i nodi che hanno scelto il blocco "verde" come vincitore nel round precedente, estenderanno la catena di un ulteriore blocco. I nodi che hanno scelto il blocco "rosso" come vincitore, quindi, vedranno due chain: quella blu-verde-rosa e quella blu-rossa. La chain blu-verde-rosa è la più lunga, ovvero è più difficile trovare una prook of work per essa. Inoltre, in \textit{figura \ref{fig:fork5}} si possono vedere i nodi che hanno scelto come catena principale la chain blu-verde-rosa e come chain secondaria quella blu-rossa.
+\begin{figure}[hbp]
+	\centering
+	\includegraphics[width=0.85 \linewidth]{figure/fork5}
+	\caption{\textit{Visualizzazione di un evento fork: la rete si riunisce in un'unica catena più lunga} \label{fig:fork5}}
+\end{figure}
+
+Questo processo è detto \textit{chain reconvergence}(letteralmente riconvergenza della catena), perchè tali nodi vengono forzati a cambiare il loro punto di vista della blockchain al fine di considerare la catena più lunga tra le due.\\ Ogni miner che lavora per estendere la chain blu-rossa non potrà più continuare poichè il blocco che stanno tentando di aggiungere al blocco rosso rimarrà "orfano", dato che il blocco rosso che dovrebbe fare da genitore non appartiene alla chain più lunga della blockchain. \\ Le transazioni che sono all'interno del blocco "rosso", vengono inserite di nuovo in coda per essere processate in un nuovo blocco, perchè, come si è già detto, il blocco a cui appartenevano non fa più parte della blockchain.
+
+L'intera rete, quindi, riconverge la blockchain in una catena singola che fa capo ai blocchi blu-verde-rosa, con il blocco "rosa" come ultimo blocco all'estremità della catena. Tutti i miner immediatamente cominceranno a candidare nuovi blocchi che si andranno ad attaccare al blocco "rosa", al fine di estendere la catena blu-verde-rosa.
+
+Teoricamente potrebbe essere possibile per una fork estendere due blocchi diversi, ma solamente se tali blocchi vengono creati quasi simultaneamente da miner che sono su "lati" diversi di una fork precedente. Tuttavia, la probabilità che ciò accada è molto bassa. Anche se ci fosse una fork ogni settimana, una fork a due blocchi è molto rara.
+
+L'intervallo tra un blocco e il suo successivo è all'incirca di 10 minuti, proprio perché è stato progettato per essere un compromesso tra la velocità dei tempi di ricezione delle conferme e la probabilità di una fork. Un intervallo più ristretto da un lato potrebbe rendere le transazioni più veloci, dall'altro potrebbe causare fork più frequenti. Al contrario, un intervallo più ampio farebbe diminuire il numero delle fork ma renderebbe più lenti i pagamenti.
 
 \section{Le Transazioni}
 

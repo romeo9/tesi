@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  27 NOV 2017 21:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  28 NOV 2017 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,7 +979,7 @@ LaTeX Info: Redefining \nameref on input line 21.
 \openout4 = `main.out'.
 
 
-<figure/uniroma3-logo.pdf, id=72, 196.735pt x 109.40875pt>
+<figure/uniroma3-logo.pdf, id=76, 196.735pt x 109.40875pt>
 File: figure/uniroma3-logo.pdf Graphic file (type pdf)
 
 <use figure/uniroma3-logo.pdf>
@@ -1008,67 +1008,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--19
 
  []
 
+<figure/overview.png, id=144, 1358.07375pt x 771.88374pt>
+File: figure/overview.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
-
-[2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 48.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
- [4]
-[5] <figure/fork1.png, id=156, 897.3525pt x 461.725pt>
-File: figure/fork1.png Graphic file (type png)
- <use figure/fork1.png>
-Package pdftex.def Info: figure/fork1.png used on input line 98.
-(pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
-
-[6] <figure/fork2.png, id=163, 898.35625pt x 461.725pt>
-File: figure/fork2.png Graphic file (type png)
- <use figure/fork2.png>
-Package pdftex.def Info: figure/fork2.png used on input line 110.
-(pdftex.def)             Requested size: 350.68274pt x 180.2411pt.
-
-<figure/fork3.png, id=164, 898.35625pt x 462.72874pt>
-File: figure/fork3.png Graphic file (type png)
- <use figure/fork3.png>
-Package pdftex.def Info: figure/fork3.png used on input line 116.
-(pdftex.def)             Requested size: 350.68274pt x 180.63293pt.
+<use figure/overview.png>
+Package pdftex.def Info: figure/overview.png used on input line 30.
+(pdftex.def)             Requested size: 412.56497pt x 234.48784pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7 <./figure/fork1.png>] [8 <./figure/fork2.png> <./figure/fork3.png>]
-<figure/fork4.png, id=180, 901.3675pt x 464.73625pt>
-File: figure/fork4.png Graphic file (type png)
- <use figure/fork4.png>
-Package pdftex.def Info: figure/fork4.png used on input line 128.
-(pdftex.def)             Requested size: 350.68274pt x 180.80675pt.
 
-[9 <./figure/fork4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
-) [10] (./capitolo2.tex) [11
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
-] (./capitolo3.tex) [12
+ []
 
-] (./capitolo4.tex) [13
+[3 <./figure/overview.png>] [4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 61.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+ [5] [6]
+<figure/fork1.png, id=172, 897.3525pt x 461.725pt>
+File: figure/fork1.png Graphic file (type png)
+ <use figure/fork1.png>
+Package pdftex.def Info: figure/fork1.png used on input line 111.
+(pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7] <figure/fork2.png, id=179, 898.35625pt x 461.725pt>
+File: figure/fork2.png Graphic file (type png)
+ <use figure/fork2.png>
+Package pdftex.def Info: figure/fork2.png used on input line 123.
+(pdftex.def)             Requested size: 350.68274pt x 180.2411pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figure/fork3.png, id=181, 898.35625pt x 462.72874pt>
+File: figure/fork3.png Graphic file (type png)
+ <use figure/fork3.png>
+Package pdftex.def Info: figure/fork3.png used on input line 131.
+(pdftex.def)             Requested size: 350.68274pt x 180.63293pt.
+
+[8 <./figure/fork1.png>] [9 <./figure/fork2.png> <./figure/fork3.png>]
+<figure/fork4.png, id=197, 901.3675pt x 464.73625pt>
+File: figure/fork4.png Graphic file (type png)
+ <use figure/fork4.png>
+Package pdftex.def Info: figure/fork4.png used on input line 140.
+(pdftex.def)             Requested size: 350.68274pt x 180.80675pt.
+
+<figure/fork5.png, id=199, 897.3525pt x 461.725pt>
+File: figure/fork5.png Graphic file (type png)
+ <use figure/fork5.png>
+Package pdftex.def Info: figure/fork5.png used on input line 147.
+(pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
+
+[10 <./figure/fork4.png>] [11 <./figure/fork5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+) [12] (./capitolo2.tex) [13
+
+] (./capitolo3.tex) [14
+
+] (./capitolo4.tex) [15
 
 ]
-(./capitolo5.tex) [14
+(./capitolo5.tex) [16
 
-] (./conclusioni.tex) [15
+] (./conclusioni.tex) [17
 
 
 ] (./main.bbl
@@ -1076,7 +1096,7 @@ bibitemlist
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [16
+) [18
 
 ]
 \tf@toc=\write5
@@ -1088,16 +1108,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3ABC0ACCA5C6EEC4CAD1F3A986B27830;1060.
+(rerunfilecheck)             Checksum: 894FD6674A91998DA0D1747FDF474D2E;1133.
  ) 
 Here is how much of TeX's memory you used:
- 10652 strings out of 493014
- 146350 string characters out of 6133352
- 279334 words of memory out of 5000000
- 14006 multiletter control sequences out of 15000+600000
+ 10670 strings out of 493014
+ 146642 string characters out of 6133352
+ 279539 words of memory out of 5000000
+ 14017 multiletter control sequences out of 15000+600000
  16540 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,45p,995b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,45p,983b,402s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></u
@@ -1111,10 +1131,10 @@ live/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on main.pdf (21 pages, 1965768 bytes).
+Output written on main.pdf (23 pages, 2538571 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 297 PDF objects out of 1000 (max. 8388607)
+ 242 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 180 words of extra memory for PDF output out of 10000 (max. 10000000)
 
