@@ -18,7 +18,7 @@ Quando viene effettuato uno scambio di bitcoin tra due o più wallet, viene crea
 
 \subsection{Bitcoin: Panoramica}
 
-Nella \textit{figura\ref{fig:overview}}, si può notare che il sistema bitcoin comprende: utenti con wallet che contengono chiavi, transazioni che sono propagate attraverso la rete, e miner che forniscono (attraverso una computazione competitiva) il consenso alla blockchain, la quale è il libro mastro di tutte le transazioni.
+Nella \textit{figura\ref{fig:overview}}, si può notare che il sistema bitcoin comprende: utenti con wallet che contengono chiavi, transazioni che sono propagate attraverso la rete, e miner che forniscono (attraverso una computazione competitiva) il consenso alla blockchain, la quale è il libro mastro di tutte le transazioni. \cite{antonopoulos2014mastering}
 
 In questo paragrafo si andrà a tracciare il percorso di una singola transazione quando viene propagata attraverso la rete, e le interazioni tra ogni componente del sistema, ad alto livello.
 
@@ -95,7 +95,7 @@ I miners guadagnano bitcoin per ogni transazione tramite le tasse. Esse vengono 
 
 La parola "mining", ovvero minare, potrebbe avere un significato ingannevole poichè sembrerebbe indicare l'estrazione di metallo prezioso, e quindi focalizza l'attenzione sul premio che viene ottenuto dal minatore.\\
 Sebbene il mining sia incentivato dal suo guadagno, il suo obiettivo principale non è il premio in denaro o la creazione di nuove monete.\\ 
-Mining è il processo principale per la decentralizzazione del sistema, nel quale le transazioni sono validate e chiare. Rappresenta una sicurezza per il sistema e permette lo sviluppo di una rete basata sul consenso, senza l'intervento di un'autorità centrale.
+Mining è il processo principale per la decentralizzazione del sistema, nel quale le transazioni sono validate e chiare. Rappresenta una sicurezza per il sistema e permette lo sviluppo di una rete basata sul consenso, senza l'intervento di un'autorità centrale.\cite{antonopoulos2014mastering}
 
 \subsection{Consenso Decentralizzato}
 
@@ -111,6 +111,7 @@ Il consenso decentralizzato dei Bitcoin viene fuori dall'interazione di quattro 
 	\item la verifica indipendente del nuovo blocco da parte di ogni nodo, e l'unione di tale blocco all'interno della chain
 	\item la selezione indipendente, da parte di ogni nodo, della chain con la computazione che maggiormente raccoglie più transazioni e che è stata dimostrata correttamente tramite una \textit{proof of work}
 \end{itemize}
+\cite{antonopoulos2014mastering}
 
 \subsection{Blockchain Forks}
 
@@ -176,7 +177,7 @@ L'intera rete, quindi, riconverge la blockchain in una catena singola che fa cap
 
 Teoricamente potrebbe essere possibile per una fork estendere due blocchi diversi, ma solamente se tali blocchi vengono creati quasi simultaneamente da miner che sono su "lati" diversi di una fork precedente. Tuttavia, la probabilità che ciò accada è molto bassa. Anche se ci fosse una fork ogni settimana, una fork a due blocchi è molto rara.
 
-L'intervallo tra un blocco e il suo successivo è all'incirca di 10 minuti, proprio perché è stato progettato per essere un compromesso tra la velocità dei tempi di ricezione delle conferme e la probabilità di una fork. Un intervallo più ristretto da un lato potrebbe rendere le transazioni più veloci, dall'altro potrebbe causare fork più frequenti. Al contrario, un intervallo più ampio farebbe diminuire il numero delle fork ma renderebbe più lenti i pagamenti.
+L'intervallo tra un blocco e il suo successivo è all'incirca di 10 minuti, proprio perché è stato progettato per essere un compromesso tra la velocità dei tempi di ricezione delle conferme e la probabilità di una fork. Un intervallo più ristretto da un lato potrebbe rendere le transazioni più veloci, dall'altro potrebbe causare fork più frequenti. Al contrario, un intervallo più ampio farebbe diminuire il numero delle fork ma renderebbe più lenti i pagamenti.\cite{antonopoulos2014mastering}
 
 \section{Le Transazioni}
 
@@ -193,9 +194,46 @@ Le transazioni sono come una riga in un registro di contabilità dove vengono sa
 
 La transazione contiene anche la firma digitale del destinatario dell'importo dei bitcoin, in modo da fungere come prova di proprietà dal momento che nessun altro all'infuori del proprietario può validare la transazione e prendersi gli stessi bitcoin. In termini tecnici, "spendere" significa firmare una transazione che trasferisce il valore da una transazione effettuata in precedenza ad un nuovo proprietario identificato tramite il suo indirizzo bitcoin.
 
-Le transazioni muovono ammontare di bitcoin da \textit{transazioni in input} a \textit{transazioni in output}. Un input è dove la moneta arriva da un output di una transazione effettuata in precedenza. Un output assegna un nuovo proprietario al valore scambiato, associandogli la chiave. La chiave di destinazione è chiamata \textit{encumbrance}(letteralmente "ingombro").
+Le transazioni muovono ammontare di bitcoin da \textit{transazioni in input} a \textit{transazioni in output}. Un input è dove la moneta arriva da un output di una transazione effettuata in precedenza. Un output assegna un nuovo proprietario al valore scambiato, associandogli la chiave. La chiave di destinazione è chiamata \textit{encumbrance}(letteralmente "impedimento"). Esso impone l'esigenza di avere una firma che serve a riscattare i fondi in transazioni future. Gli output di una transazione possono essere utilizzati come input in una nuova transazione, creando così una catena di proprietà che rappresenta il valore che si muove da indirizzo a indirizzo (\textit{figura \ref{fig:chaintxs}}).
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7 \linewidth]{figure/chaintxs}
+	\caption{\textit{Una catena di transazioni, dove l'output di una transazione viene utilizzato come input della transazione successiva} \label{fig:chaintxs}}
+\end{figure}
 
+Il pagamento di Alice al Bob's Cafe usa come input l'output di una precedente transazione. Infatti, prima di trasferire i suoi bitcoin a Bob, Alice li aveva ricevuti precedentemente da un suo amico Joe, che glieli aveva donati in cambio di una somma di denaro. Tale transazione ha un numero di bitcoin bloccati, che possono essere liberati solamente dalla chiave di Alice. La sua nuova transazione per pagare la tazza di caffè al bar di Bob fa riferimento come input alla transazione precedente e crea nuovi output grazie al pagamento. 
 
+Le transazioni formano una catena, dove gli input dell'ultima transazione corrispondono ad output della transazione precedente. La chiave di Alice ha la funzione di firma che sblocca gli output della transazione precedente, proprio per provare alla rete bitcoin che Alice possiede tali monete. Lei attribuisce il pagamento all'indirizzo di Bob, in tal modo bloccando l'output che poi successivamente sarà sbloccato dalla chiave di Bob. Tutto ciò rappresenta il trasferimento di bitcoin tra Alice e Bob. La catena di transazioni che parte da Joe e arriva a Bob è illustrata in \textit{figura \ref{fig:chaintxs}}.
+
+\subsubsection{Forma Comune delle Transazioni}
+
+La forma più comune di una transazione, è un semplice pagamento da un indirizzo ad un altro, in cui quasi sempre viene incluso il "resto" che ritorna al proprietario originale. Questo tipo di transazione ha un solo input e due output, di cui uno ha l'indirizzo pari all'indirizzo del mittente, tutto mostrato in \textit{figura \ref{fig:commontx}}.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{figure/commontx}
+	\caption{\textit{Una comune transazione} \label{fig:commontx}}
+\end{figure}
+
+Un'altra forma comune è quella che aggrega molti input in un singolo output (\textit{figura \ref{fig:aggregatingtxs}}). Questo rappresenta il reale scambio di diverse somme di denaro, in un singolo importo. Le transazioni come queste molto spesso sono generate da wallet per pulire piccoli importi che sono stati ricevuti come resto di altri pagamenti.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{figure/aggregatingtxs}
+	\caption{\textit{Aggregazione} \label{fig:aggregatingtxs}}
+\end{figure}
+
+Infine, un'altra forma può essere e quella che è il risultato di un'operazione in cui una singola transazione distribuisce il suo input su molti diversi output (\textit{figura \ref{fig:distributingtxs}}). Questo tipo di transazione viene utilizzata di solito da entità commerciali per distribuire i fondi, come quando un'azienda distribuisce il denaro come compenso ai propri dipendenti.	
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{figure/distributingtxs}
+	\caption{\textit{Distribuzione} \label{fig:distributingtxs}}
+\end{figure}
 
 \section{Grafo delle transazioni}
+
+testo testo
+testo 
+
 \section{Caratteristiche del grafo}
+
+testo testo 
+testo

@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{Ant14}
+
+\bibitem[Ant14]{antonopoulos2014mastering}
+Andreas~M Antonopoulos.
+\newblock {\em Mastering Bitcoin: unlocking digital cryptocurrencies}.
+\newblock " O'Reilly Media, Inc.", 2014.
 
 \end{thebibliography}
