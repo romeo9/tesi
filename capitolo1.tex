@@ -2,7 +2,7 @@
 \section{Cosa sono i Bitcoin?}
 
 Bitcoin è una valuta elettronica creata nel 2008 da Satoshi Nakamoto, uno pseudonimo dietro al quale non si sa ancora con la precisione chi si nasconde.
-Con il termine Bitcoin viene denotata sia la rete che consente il possesso e il trasferimento di denaro, sia la moneta. Per convenzione, Bitcoin si riferisce alla tecnologia della rete, mentre \textit{bitcoin} alla valuta stessa.
+Con il termine Bitcoin viene denotata sia la rete che consente il possesso e il trasferimento di denaro, sia la moneta. Per convenzione, Bitcoin si riferisce alla tecnologia della rete, mentre \textit{bitcoin} alla valuta stessa.\cite{wiki:bitcoin}
 
 Come ogni valuta, i bitcoin possono essere trasferiti tramite gli utenti, grazie ad un protocollo che viene rispettato all'interno della rete Internet, il quale può essere eseguito su differenti dispositivi, in modo tale da permettere la fruibilità del servizio anche attraverso gli smartphones.
  
@@ -12,13 +12,13 @@ A differenza delle altre valute, i bitcoin sono esclusivamente virtuali, dietro 
 Infatti, senza la chiave privata, chi riceve i bitcoin non può spenderli in nessun modo. Tali chiavi vengono conservate all'interno di un \textit{wallet}, letteralmente un "portafoglio". Ogni wallet è caratterizzato da un indirizzo Bitcoin il quale è univoco e ha la funzione di fare riferimento ad uno dei partecipanti alla transazione. In questo modo, quando viene effettuato uno scambio di bitcoin, vengono visualizzati solamente gli indirizzi dei wallet. Questa caratteristica permette quindi di rendere anonime le transazioni, dato che agli indirizzi non è connesso in nessun modo il nome o il cognome dell'individuo o dell'associazione che interviene nello scambio.
 
 La rete Bitcoin, oltre ad essere completamente virtuale, è priva di un'unità centralizzata, infatti essa è costituita da un sistema distribuito peer-to-peer.\\
-I bitcoin vengono creati tramite un processo, detto \textit{mining}, che permette a chiunque di mettersi in competizione per trovare una soluzione ad un problema matematico. Ogni persona che partecipa alla rete bitcoin, potrebbe operare come un \textit{miner}, ovvero colui che cerca di risolvere il problema matematico per generare bitcoin, usando le capacità del proprio computer messo a disposizione della computazione.\\
+I bitcoin vengono creati tramite un processo, detto \textit{mining}, che permette a chiunque di mettersi in competizione per trovare una soluzione ad un problema matematico. Ogni persona che partecipa alla rete bitcoin, potrebbe operare come un \textit{miner}, ovvero colui che cerca di risolvere il problema matematico per generare bitcoin, usando le capacità del proprio computer messo a disposizione della computazione.\cite{antonopoulos2014mastering}\\
 
 Quando viene effettuato uno scambio di bitcoin tra due o più wallet, viene creata una \textit{transazione}. Ogni transazione viene conservata in una struttura dati chiamata \textbf{blocco}, il quale a sua volta va a costituire la \textbf{Blockchain}.
 
 \subsection{Bitcoin: Panoramica}
 
-Nella \textit{figura\ref{fig:overview}}, si può notare che il sistema bitcoin comprende: utenti con wallet che contengono chiavi, transazioni che sono propagate attraverso la rete, e miner che forniscono (attraverso una computazione competitiva) il consenso alla blockchain, la quale è il libro mastro di tutte le transazioni. \cite{antonopoulos2014mastering}
+Nella \textit{figura\ref{fig:overview}}, si può notare che il sistema bitcoin comprende: utenti con wallet che contengono chiavi, transazioni che sono propagate attraverso la rete, e miner che forniscono (attraverso una computazione competitiva) il consenso alla blockchain, la quale è il libro mastro di tutte le transazioni. 
 
 In questo paragrafo si andrà a tracciare il percorso di una singola transazione quando viene propagata attraverso la rete, e le interazioni tra ogni componente del sistema, ad alto livello.
 
@@ -51,7 +51,7 @@ A differenza di un QR code che contiene semplicemente l'indirizzo bitcoin del de
 
 Quindi, Bob dice: "Sono un dollaro e 50, oppure 15 millibitcoin"
 
-Alice usa il suo smartphone per cansionare il codice e visualizzarlo sul display. Esso le mostra il pagamento di 0.015 BTC al Bob's Cafe e seleziona \textit{Invia} per autorizzare il pagamento. In pochi secondi (all'incirca lo stesso tempo che ci mette una comune carta di credito), Bob potrà vedere la transazione sul registratore di cassa, conclusa.
+Alice usa il suo smartphone per cansionare il codice e visualizzarlo sul display. Esso le mostra il pagamento di 0.015 BTC al Bob's Cafe e seleziona \textit{Invia} per autorizzare il pagamento. In pochi secondi (all'incirca lo stesso tempo che ci mette una comune carta di credito), Bob potrà vedere la transazione sul registratore di cassa, conclusa.\cite{antonopoulos2014mastering}
 
 \section{Cos'è la Blockchain?}
 La Blockchain, letteralmente \textit{catena di blocchi}, è una base di dati distribuita, che permette la memorizzazione delle transazioni raggruppate in blocchi connessi tra loro, ognuno con il suo successivo. Ogni blocco è una struttura dati che contiene un numero variabile di transazioni, inserite dal \textit{miner} che ha minato il blocco, fino ad un tetto massimo di 1MB per singolo blocco.\\
@@ -68,7 +68,7 @@ La Blockchain, come già sottolineato, è una struttura dati composta da diverse
 
 Quindi, tali blocchi vengono "incatenati", ovvero collegati tra loro tramite un protocollo ben definito nella struttura del sistema bitcoin. 
 
-Ogni blocco all'interno della blockchain, è identificato da un codice hash, generato applicando l'algoritmo di crittografia SHA256 all'header del blocco. Un singolo blocco è collegato al suo predecessore, conosciuto come "blocco genitore", attraverso il campo \textit{previous block hash} all'interno del proprio header. In altre parole, ogni blocco contiene l'hash del proprio blocco genitore all'interno dell'header. Infine, la sequenza dei vari hash genera una catena che collega tutti i blocchi all'indietro, fino al blocco numero zero.
+Ogni blocco all'interno della blockchain, è identificato da un codice hash, generato applicando l'algoritmo di crittografia SHA256 all'header del blocco. Un singolo blocco è collegato al suo predecessore, conosciuto come "blocco genitore", attraverso il campo \textit{previous block hash} all'interno del proprio header. In altre parole, ogni blocco contiene l'hash del proprio blocco genitore all'interno dell'header. Infine, la sequenza dei vari hash genera una catena che collega tutti i blocchi all'indietro, fino al blocco numero zero.\cite{antonopoulos2014mastering}
 
 \subsection{Mining}
 
@@ -203,9 +203,28 @@ Le transazioni muovono ammontare di bitcoin da \textit{transazioni in input} a \
 
 Il pagamento di Alice al Bob's Cafe usa come input l'output di una precedente transazione. Infatti, prima di trasferire i suoi bitcoin a Bob, Alice li aveva ricevuti precedentemente da un suo amico Joe, che glieli aveva donati in cambio di una somma di denaro. Tale transazione ha un numero di bitcoin bloccati, che possono essere liberati solamente dalla chiave di Alice. La sua nuova transazione per pagare la tazza di caffè al bar di Bob fa riferimento come input alla transazione precedente e crea nuovi output grazie al pagamento. 
 
-Le transazioni formano una catena, dove gli input dell'ultima transazione corrispondono ad output della transazione precedente. La chiave di Alice ha la funzione di firma che sblocca gli output della transazione precedente, proprio per provare alla rete bitcoin che Alice possiede tali monete. Lei attribuisce il pagamento all'indirizzo di Bob, in tal modo bloccando l'output che poi successivamente sarà sbloccato dalla chiave di Bob. Tutto ciò rappresenta il trasferimento di bitcoin tra Alice e Bob. La catena di transazioni che parte da Joe e arriva a Bob è illustrata in \textit{figura \ref{fig:chaintxs}}.
+Le transazioni formano una catena, dove gli input dell'ultima transazione corrispondono ad output della transazione precedente. La chiave di Alice ha la funzione di firma che sblocca gli output della transazione precedente, proprio per provare alla rete bitcoin che Alice possiede tali monete. Lei attribuisce il pagamento all'indirizzo di Bob, in tal modo bloccando l'output che poi successivamente sarà sbloccato dalla chiave di Bob. Tutto ciò rappresenta il trasferimento di bitcoin tra Alice e Bob. La catena di transazioni che parte da Joe e arriva a Bob è illustrata in \textit{figura \ref{fig:chaintxs}}.\cite{antonopoulos2014mastering}
 
-\subsubsection{Forma Comune delle Transazioni}
+\subsection{Transaction Mining}
+
+Quando viene fatta l'operazione di mining dei blocchi, vengono inserite le transazioni all'interno del nuovo blocco. In questa sezione viene mostrato il mining dal punto di vista della transazione.
+
+In media ogni 10 minuti, i miner generano un nuovo blocco che contiene tutte le transazioni che sono state generate dopo l'ultimo blocco inserito. Le nuove transazioni scorrono all'interno della rete dai wallet degli utenti e da altre applicazioni. Appena le transazioni incontrano la rete di nodi bitcoin, vengono aggiunte ad una struttura dati temporanea presente in ogni nodo dove vengono conservate tutte le transazioni che non sono ancora state verificate. Appena i miner generano un nuovo blocco, aggiungono le transazioni non verificate da tale struttura dati, al nuovo blocco e tentano quindi di trovare la proof of work.
+
+Prendendo in considerazione l'esempio precedente, la transazione di Alice quindi, viene prelevata dalla rete e inclusa all'interno della struttura dati temporanea. Essa viene aggiunta ad un blocco che accetta l'importo delle tasse pagate da Alice. All'incirca cinque minuti più tardi che la transazione è stata trasmessa dal wallet di Alice, un miner riesce a minare il blocco e pubblica il blocco contenente un certo numero di transazioni compresa quella di Alice. Il miner in questione pubblica il nuovo blocco sulla rete bitcoin, dove gli altri miner lo validano e possono continuare la corsa a trovare una nuova proof of work.
+
+Pochi minuti più tardi, un nuovo blocco viene minato da un altro miner. Dal momento che un nuovo blocco viene aggiunto come figlio del precedente, il quale contiene la transazione di Alice, tale transazione aumenta la difficoltà di computazione della soluzione, rafforzando la fiducia su tali transazioni. Il blocco che contiene la transazione di Alice è considerato come una "conferma" aggiunta alle conferme della transazione in questione. Ogni blocco minato, quindi funge come conferma addizionale ad ogni transazione che contiene. 
+
+Dal momento che i blocchi vengono impilati uno sopra l'altro, diventa esponenzialmente difficile invertire la transazione, in tal modo aumenta la fiducia della rete sulla Blockchain. 
+
+Nella \textit{figura \ref{fig:aliceblock}} si può osservare il blocco \#277316 che contiene la transazione di Alice.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{figure/aliceblock}
+	\caption{\textit{La transazione di Alice inclusa nel blocco \#277316} \label{fig:aliceblock}}
+\end{figure}
+
+\subsection{Forma Comune delle Transazioni}
 
 La forma più comune di una transazione, è un semplice pagamento da un indirizzo ad un altro, in cui quasi sempre viene incluso il "resto" che ritorna al proprietario originale. Questo tipo di transazione ha un solo input e due output, di cui uno ha l'indirizzo pari all'indirizzo del mittente, tutto mostrato in \textit{figura \ref{fig:commontx}}.
 \begin{figure}[htbp]
@@ -221,12 +240,26 @@ Un'altra forma comune è quella che aggrega molti input in un singolo output (\t
 	\caption{\textit{Aggregazione} \label{fig:aggregatingtxs}}
 \end{figure}
 
-Infine, un'altra forma può essere e quella che è il risultato di un'operazione in cui una singola transazione distribuisce il suo input su molti diversi output (\textit{figura \ref{fig:distributingtxs}}). Questo tipo di transazione viene utilizzata di solito da entità commerciali per distribuire i fondi, come quando un'azienda distribuisce il denaro come compenso ai propri dipendenti.	
+Infine, un'altra forma può essere e quella che è il risultato di un'operazione in cui una singola transazione distribuisce il suo input su molti diversi output (\textit{figura \ref{fig:distributingtxs}}). Questo tipo di transazione viene utilizzata di solito da entità commerciali per distribuire i fondi, come quando un'azienda distribuisce il denaro come compenso ai propri dipendenti.	\cite{antonopoulos2014mastering}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.5 \linewidth]{figure/distributingtxs}
 	\caption{\textit{Distribuzione} \label{fig:distributingtxs}}
 \end{figure}
+
+\subsection{Input e Output delle Transazioni}
+L'elemento fondamentale di una transazione bitcoin è l'\textbf{unspent transaction output} (lettralmente "output di transazione non speso"), nella forma contratta \textbf{UTXO}.
+
+Gli UTXO sono gruppi indivisibili di monete bitcoin che possono essere sbloccati solo dall'utente proprietario. Vengono registrati nella blockchain e riconosciuti come unità monetaria dall'intera rete.
+La rete bitcoin ha tracciato tutti gli UTXO disponibili, e corrisponderebbero a milioni di bitcoin. Ogni volta che un utente riceve dei bitcoin, tale ammontare è registrato all'interno della blockchain sottoforma di UTXO. Quindi, un utente bitcoin potrebbe seminare migliaia di UTXO attraverso migliaia di transazioni e centinaia di blocchi. in effetti, non c'è nessun tipo di bilancio tra indirizzi bitcoin e output non spesi; ci sono solamente UTXO, che fanno capo a specifici proprietari. Il concetto di bilancio dell'utente in termini di output non spesi è un costrutto creato dall'applicazione che governa il wallet. Il wallet infatti, calcola il bilancio dell'utente scansionando la blockchain e aggregando tutti gli UTXO che appartengono a tale utente.
+
+Un UTXO può avere un valore arbitrario che viene definito in termini di multipli di \textbraceleft{satoshi}. Come i dollari possono avere dei sottomultipli chiamati centesimi, i bitcoin possono essere divisi in satoshi. Ogni bitcoin corrispondono a $10^8$ satoshi.
+
+The UTXO consumed by a transaction are called transaction inputs, and the UTXO
+created by a transaction are called transaction outputs. This way, chunks of bitcoin value
+move forward from owner to owner in a chain of transactions consuming and creating
+UTXO. Transactions consume UTXO by unlocking it with the signature of the current
+owner and create UTXO by locking it to the bitcoin address of the new owner.
 
 \section{Grafo delle transazioni}
 
