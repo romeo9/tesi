@@ -224,6 +224,13 @@ Nella \textit{figura \ref{fig:aliceblock}} si può osservare il blocco \#277316 
 	\caption{\textit{La transazione di Alice inclusa nel blocco \#277316} \label{fig:aliceblock}}
 \end{figure}
 
+Ora che la transazione di Alice è inserita all'interno della blockchain, ogni client bitcoin può verificare se la transazione è valida e spendibile. Bob allora può spendere i bitcoin che ha ricevuto da Alice, prendendo tale output e usandolo come input per una nuova transazione. Appena Bob spende tali bitcoin, allunga la catena di transazioni. Si supponga che Bob paghi il suo web designer Gopesh, per un nuovo sito web. Quindi, la catena di transazioni viene mostrata in \textit{figura \ref{fig:abchaintxs}}.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{figure/abchaintxs}
+	\caption{\textit{La transazione di Alice come parte di una catena di transazioni che va da Joe a Gopesh} \label{fig:abchaintxs}}
+\end{figure}
+
 \subsection{Forma Comune delle Transazioni}
 
 La forma più comune di una transazione, è un semplice pagamento da un indirizzo ad un altro, in cui quasi sempre viene incluso il "resto" che ritorna al proprietario originale. Questo tipo di transazione ha un solo input e due output, di cui uno ha l'indirizzo pari all'indirizzo del mittente, tutto mostrato in \textit{figura \ref{fig:commontx}}.
@@ -247,24 +254,43 @@ Infine, un'altra forma può essere e quella che è il risultato di un'operazione
 	\caption{\textit{Distribuzione} \label{fig:distributingtxs}}
 \end{figure}
 
+\subsection{Struttura di una Transazione}
+Una transazione è una struttura dati che racchiude un trasferimento di valori da una sorgente di fondi, chiamata \textit{input}, ad una destinazione, chiamata \textit{output}. Gli input e gli output non fanno riferimento ad account o ad identità. Al contrario, si potrebbe pensare ad esse come delle quantità di bitcoin -- gruppi di bitcoin -- che sono bloccati da una chiave crittografica. Solo il proprietario, possessore di tale chiave, può sbloccarli. Una transazione contiene dei campi di informazioni, come è mostrato nella \textit{tabella \ref{tab:txstructure}}.
+\begin{table}[htbp]
+
+	\begin{tabular}{r|c|c|c|}
+		Size&Field &Description\\ \hline
+		4 bytes&Version&Specifica le regole seguite dalla transazione\\
+		1-9 byte (VarInt)&Input Counter&Numero degli input\\ 
+		Variable&Inputs&Transazioni in input\\ 
+		1-9 byte (VarInt)&Output Counter&Numero degli output\\
+		Variable&Outputs&Transazioni in output\\
+		4 bytes&Locktime&unix timestamp oppure il numero del blocco\\
+		\hline
+	\end{tabular}
+
+	\caption{\textit{La struttura di una transazione}\label{tab:txstructure}}
+\end{table}
+
+Il campo \textbf{Locktime} (letteralmente "tempo di chiusura") definisce il primo istante in cui una transazione può essere aggiunta alla blockchain. Quando è uguale a zero, indica l'immediata esecuzione. 
+
+Invece, se il locktime è maggiore di zero e minore di 500 milioni, è interpretato come l'altezza del blocco, ovvero significa che la transazione non è inclusa nella blockchain prima di specificare altezza del blocco. Se è maggiore di 500 milioni, è interpretato come un timestamp di tipo Unix Epoch (il numero di secondi dal primo Gennaio 1970) e la transazione non è inclusa nella blockchain prima di quell'istante specifico.
+
+
 \subsection{Input e Output delle Transazioni}
 L'elemento fondamentale di una transazione bitcoin è l'\textbf{unspent transaction output} (lettralmente "output di transazione non speso"), nella forma contratta \textbf{UTXO}.
 
 Gli UTXO sono gruppi indivisibili di monete bitcoin che possono essere sbloccati solo dall'utente proprietario. Vengono registrati nella blockchain e riconosciuti come unità monetaria dall'intera rete.
-La rete bitcoin ha tracciato tutti gli UTXO disponibili, e corrisponderebbero a milioni di bitcoin. Ogni volta che un utente riceve dei bitcoin, tale ammontare è registrato all'interno della blockchain sottoforma di UTXO. Quindi, un utente bitcoin potrebbe seminare migliaia di UTXO attraverso migliaia di transazioni e centinaia di blocchi. in effetti, non c'è nessun tipo di bilancio tra indirizzi bitcoin e output non spesi; ci sono solamente UTXO, che fanno capo a specifici proprietari. Il concetto di bilancio dell'utente in termini di output non spesi è un costrutto creato dall'applicazione che governa il wallet. Il wallet infatti, calcola il bilancio dell'utente scansionando la blockchain e aggregando tutti gli UTXO che appartengono a tale utente.
+La rete bitcoin ha tracciato tutti gli UTXO disponibili, e corrisponderebbero a milioni di bitcoin. Ogni volta che un utente riceve dei bitcoin, tale ammontare è registrato all'interno della blockchain sotto forma di UTXO. Quindi, un utente bitcoin potrebbe seminare migliaia di UTXO attraverso migliaia di transazioni e centinaia di blocchi. in effetti, non c'è nessun tipo di bilancio tra indirizzi bitcoin e output non spesi; ci sono solamente UTXO, che fanno capo a specifici proprietari. Il concetto di bilancio dell'utente in termini di output non spesi è un costrutto creato dall'applicazione che governa il wallet. Il wallet infatti, calcola il bilancio dell'utente scansionando la blockchain e aggregando tutti gli UTXO che appartengono a tale utente.
 
-Un UTXO può avere un valore arbitrario che viene definito in termini di multipli di \textbraceleft{satoshi}. Come i dollari possono avere dei sottomultipli chiamati centesimi, i bitcoin possono essere divisi in satoshi. Ogni bitcoin corrispondono a $10^8$ satoshi.
+Un UTXO può avere un valore arbitrario che viene definito in termini di multipli di \textbraceleft{satoshi}. Come i dollari possono avere dei sottomultipli chiamati centesimi, i bitcoin possono essere divisi in satoshi. Ogni bitcoin corrispondono a $10^8$ satoshi.\cite{antonopoulos2014mastering}
 
-The UTXO consumed by a transaction are called transaction inputs, and the UTXO
-created by a transaction are called transaction outputs. This way, chunks of bitcoin value
-move forward from owner to owner in a chain of transactions consuming and creating
-UTXO. Transactions consume UTXO by unlocking it with the signature of the current
-owner and create UTXO by locking it to the bitcoin address of the new owner.
 
 \section{Grafo delle transazioni}
 
-testo testo
-testo 
+Come sottolineato nelle sezioni precedenti, le transazioni sono collegate tra loro sotto forma di chain. Ogni output di ogni transazione diventa un input per la transazione successiva. In questo modo le transazioni formano catene che si possono intersecare tra di loro.
+
+Se consideriamo ogni transazione come un nodo e il collegamento input/output come gli archi, si ottiene un grafo, dove ogni componente connessa è una chain di transazioni connesse tra loro.
 
 \section{Caratteristiche del grafo}
 
