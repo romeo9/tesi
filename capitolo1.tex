@@ -97,6 +97,8 @@ La parola "mining", ovvero minare, potrebbe avere un significato ingannevole poi
 Sebbene il mining sia incentivato dal suo guadagno, il suo obiettivo principale non è il premio in denaro o la creazione di nuove monete.\\ 
 Mining è il processo principale per la decentralizzazione del sistema, nel quale le transazioni sono validate e chiare. Rappresenta una sicurezza per il sistema e permette lo sviluppo di una rete basata sul consenso, senza l'intervento di un'autorità centrale.\cite{antonopoulos2014mastering}
 
+Quando un blocco viene minato, ovvero viene aggiunto alla blockchain, viene etichettato con un timestamp, che rappresenta l'istante in cui viene ricevuto dal nodo bitcoin che ha la copia della blockchain.
+
 \subsection{Consenso Decentralizzato}
 
 La Blockchain non essendo creata da un'autorità centrale, è assemblata indipendentemente da ogni nodo all'interno della rete. Perciò, ogni nodo della rete, agendo sulle informazioni che vengono trasmesse attraverso delle connessioni di rete non sicure, può arrivare alla stessa conclusione e assemblare una copia della stessa blockchain, come ogni altro nodo.
@@ -178,6 +180,48 @@ L'intera rete, quindi, riconverge la blockchain in una catena singola che fa cap
 Teoricamente potrebbe essere possibile per una fork estendere due blocchi diversi, ma solamente se tali blocchi vengono creati quasi simultaneamente da miner che sono su "lati" diversi di una fork precedente. Tuttavia, la probabilità che ciò accada è molto bassa. Anche se ci fosse una fork ogni settimana, una fork a due blocchi è molto rara.
 
 L'intervallo tra un blocco e il suo successivo è all'incirca di 10 minuti, proprio perché è stato progettato per essere un compromesso tra la velocità dei tempi di ricezione delle conferme e la probabilità di una fork. Un intervallo più ristretto da un lato potrebbe rendere le transazioni più veloci, dall'altro potrebbe causare fork più frequenti. Al contrario, un intervallo più ampio farebbe diminuire il numero delle fork ma renderebbe più lenti i pagamenti.\cite{antonopoulos2014mastering}
+
+\subsection{Merkle Tree}
+
+Ogni blocco della blockchain contiene un riepilogo di tutte le transazioni nel blocco, sotto forma di un \textbf{merkle tree}.
+
+Un \textit{merkle tree}, altrimenti detto \textit{binary hash tree}, è una struttura dati usata per verificare e riepilogare efficientemente l'integrità dei dati. I merkle tree sono alberi binari composti da hash crittografici, dove ogni transazione è convertita in un hash, usando una funzione crittografica.
+
+Il merkle tree è un albero perfettamente bilanciato, dove le foglie corrispondono agli hash delle singole transazioni. I nodi intermedi invece, sono calcolati applicando la funzione di hash alla concatenazione dei valori dei due figli (\textit{figura} \ref{fig:merkletree}).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width= 0.5 \linewidth]{figure/merkletree}
+	\caption{\textit{Merkle tree} \label{fig:merkletree}}
+\end{figure}
+
+Nella figura si può notare una porzione di un albero merkle, che prende in considerazione quattro transazioni: Tx A, Tx B, Tx C e Tx D. L'albero in questione presenta delle caratteristiche diverse se il nodo è una foglia oppure è un nodo intermedio. Esso è costruito secondo l'approccio bottom-up, prima vengono calcolati gli hash delle foglie, poi man mano si arriva al calcolo della radice.
+
+Le foglie dell'albero, vengono calcolate come hash delle quattro transazioni, quindi si avranno le quattro foglie rispettivamente: 
+\begin{itemize}
+	\item H$_A$ = Hash(Tx A)
+	\item H$_B$ = Hash(Tx B)
+	\item H$_C$ = Hash(Tx C)
+	\item H$_D$ = Hash(Tx D)
+\end{itemize}
+
+Successivamente si calcola il valore dei genitori delle foglie. Infatti, ogni nodo tra di essi, viene calcolato facendo l'hash della concatenazione dei valori contenuti nelle foglie. Quindi per ogni nodo intermedio si avrà:
+\begin{itemize}
+	\item H$_{AB}$ = Hash(H$_A$+H$_B$) \footnote{In questo caso il simbolo + rappresenta la concatenazione}
+	\item H$_{CD}$ = Hash(H$_C$+H$_D$)
+\end{itemize}
+
+Infine, la radice si ottiene facendo lo stesso procedimento dei nodi intermedi, ossia facendo la concatenazione dei valori contenuti nei nodi figli. In questo caso si otterrà:
+
+H$_{ABCD}$ = Hash(H$_{AB}$+H$_{CD}$)
+
+Nell'esempio appena visto, l'albero era un albero binario, dove il numero di transazioni risultava essere un numero pari. Se ci fosse un numero dispari di transazioni da considerare nel merkle tree, l'ultima transazione verrebbe duplicata ottenendo così un numero pari di transazioni. Si otterrà quindi un albero \textit{bilanciato}. In \textit{figura \ref{fig:merkletreedup}} viene mostrata la duplicazione della transazione Tx C, e di conseguenza della foglia a cui appartiene. \cite{antonopoulos2014mastering}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width= 0.5 \linewidth]{figure/merkletreedup}
+	\caption{\textit{Merkle tree con elemento duplicato} \label{fig:merkletreedup}}
+\end{figure}
 
 \section{Le Transazioni}
 
@@ -290,7 +334,18 @@ Un UTXO può avere un valore arbitrario che viene definito in termini di multipl
 
 Come sottolineato nelle sezioni precedenti, le transazioni sono collegate tra loro sotto forma di chain. Ogni output di ogni transazione diventa un input per la transazione successiva. In questo modo le transazioni formano catene che si possono intersecare tra di loro.
 
-Se consideriamo ogni transazione come un nodo e il collegamento input/output come gli archi, si ottiene un grafo, dove ogni componente connessa è una chain di transazioni connesse tra loro.
+Se consideriamo ogni transazione come un nodo e il collegamento input/output come gli archi, si ottiene un grafo, dove ogni componente connessa è una chain di transazioni connesse tra loro. Per ciò ogni catena di transazioni viene rappresentata come un gruppo di nodi-archi.
+
+Si prenda in considerazione l'esempio visto in precedenza, della catena generata dalle transazioni di Joe, Alice, Bob e Gopesh (\textit{figura} \ref{fig:abchaintxs} di pagina \pageref{fig:abchaintxs}). Alice riceve i bitcoin da Joe, poi li usa per pagare il caffè al bar di Bob, infine quest'ultimo utilizza una parte di tali bitcoin per pagare il suo web designer Gopesh.
+
+In \textit{figura \ref{fig:threenodes}} si può vedere come una catena di transazioni viene convertita in un grafo. In questo caso il grafo è un cammino, ovvero una sequenza di nodi collegati da archi, dove ogni nodo ha un solo predecessore ed un solo successore.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{figure/threenodes}
+	\caption{\textit{Grafo delle transazioni} \label{fig:threenodes}}
+\end{figure}
+
 
 \section{Caratteristiche del grafo}
 

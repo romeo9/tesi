@@ -1,12 +1,11 @@
-\begin{thebibliography}{Wik11}
+\begin{thebibliography}{Ant14}
 
 \bibitem[Ant14]{antonopoulos2014mastering}
 Andreas~M Antonopoulos.
 \newblock {\em Mastering Bitcoin: unlocking digital cryptocurrencies}.
 \newblock " O'Reilly Media, Inc.", 2014.
 
-\bibitem[Wik11]{wiki:bitcoin}
-Wikipedia.
-\newblock Bitcoin --- wikipedia{,} l'enciclopedia libera, 2011.
+\bibitem[wik11]{wiki:bitcoin}
+Bitcoin --- wikipedia{,} l'enciclopedia libera, 2011.
 
 \end{thebibliography}

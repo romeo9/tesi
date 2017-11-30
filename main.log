@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  29 NOV 2017 17:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  30 NOV 2017 12:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1005,7 +1005,7 @@ LaTeX Info: Redefining \nameref on input line 21.
 \openout4 = `main.out'.
 
 
-<figure/uniroma3-logo.pdf, id=92, 196.735pt x 109.40875pt>
+<figure/uniroma3-logo.pdf, id=96, 196.735pt x 109.40875pt>
 File: figure/uniroma3-logo.pdf Graphic file (type pdf)
 
 <use figure/uniroma3-logo.pdf>
@@ -1034,7 +1034,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--16
 
  []
 
-<figure/overview.png, id=173, 1282.7925pt x 717.68124pt>
+<figure/overview.png, id=178, 1282.7925pt x 717.68124pt>
 File: figure/overview.png Graphic file (type png)
 
 <use figure/overview.png>
@@ -1044,7 +1044,7 @@ Package pdftex.def Info: figure/overview.png used on input line 27.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2] <figure/qrcode.png, id=182, 1126.2075pt x 480.79625pt>
+[2] <figure/qrcode.png, id=187, 1126.2075pt x 480.79625pt>
 File: figure/qrcode.png Graphic file (type png)
 
 <use figure/qrcode.png>
@@ -1073,107 +1073,129 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
  [6]
-[7] [8] <figure/fork1.png, id=223, 897.3525pt x 461.725pt>
+[7] [8] <figure/fork1.png, id=228, 897.3525pt x 461.725pt>
 File: figure/fork1.png Graphic file (type png)
 
 <use figure/fork1.png>
-Package pdftex.def Info: figure/fork1.png used on input line 133.
+Package pdftex.def Info: figure/fork1.png used on input line 135.
 (pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
- <figure/fork2.png, id=225, 898.35625pt x 461.725pt>
-File: figure/fork2.png Graphic file (type png)
-
-<use figure/fork2.png>
-Package pdftex.def Info: figure/fork2.png used on input line 145.
-(pdftex.def)             Requested size: 350.68274pt x 180.2411pt.
  [9 <./figure/fork1.png>]
-<figure/fork3.png, id=234, 898.35625pt x 462.72874pt>
+<figure/fork2.png, id=236, 898.35625pt x 461.725pt>
+File: figure/fork2.png Graphic file (type png)
+ <use figure/fork2.png>
+Package pdftex.def Info: figure/fork2.png used on input line 147.
+(pdftex.def)             Requested size: 350.68274pt x 180.2411pt.
+
+<figure/fork3.png, id=238, 898.35625pt x 462.72874pt>
 File: figure/fork3.png Graphic file (type png)
  <use figure/fork3.png>
-Package pdftex.def Info: figure/fork3.png used on input line 154.
+Package pdftex.def Info: figure/fork3.png used on input line 156.
 (pdftex.def)             Requested size: 350.68274pt x 180.63293pt.
 
-[10 <./figure/fork2.png>] <figure/fork4.png, id=242, 901.3675pt x 464.73625pt>
+[10 <./figure/fork2.png>] <figure/fork4.png, id=247, 901.3675pt x 464.73625pt>
 File: figure/fork4.png Graphic file (type png)
 
 <use figure/fork4.png>
-Package pdftex.def Info: figure/fork4.png used on input line 163.
+Package pdftex.def Info: figure/fork4.png used on input line 165.
 (pdftex.def)             Requested size: 350.68274pt x 180.80675pt.
- <figure/fork5.png, id=244, 897.3525pt x 461.725pt>
+ [11 <./figure/fork3.png>]
+<figure/fork5.png, id=255, 897.3525pt x 461.725pt>
 File: figure/fork5.png Graphic file (type png)
-
-<use figure/fork5.png>
-Package pdftex.def Info: figure/fork5.png used on input line 172.
+ <use figure/fork5.png>
+Package pdftex.def Info: figure/fork5.png used on input line 174.
 (pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
- [11 <./figure/fork3.png>] [12 <./figure/fork4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+
+[12 <./figure/fork4.png>] [13 <./figure/fork5.png>]
+<figure/merkletree.png, id=270, 849.1725pt x 421.575pt>
+File: figure/merkletree.png Graphic file (type png)
+
+<use figure/merkletree.png>
+Package pdftex.def Info: figure/merkletree.png used on input line 194.
+(pdftex.def)             Requested size: 206.28249pt x 102.4087pt.
+ [14 <./figure/merkletree.png>]
+<figure/merkletreedup.png, id=285, 847.165pt x 420.57124pt>
+File: figure/merkletreedup.png Graphic file (type png)
+
+<use figure/merkletreedup.png>
+Package pdftex.def Info: figure/merkletreedup.png used on input line 222.
+(pdftex.def)             Requested size: 206.28249pt x 102.40874pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
-<figure/bookkeeping.png, id=259, 898.35625pt x 627.34375pt>
+<figure/bookkeeping.png, id=287, 898.35625pt x 627.34375pt>
 File: figure/bookkeeping.png Graphic file (type png)
 
 <use figure/bookkeeping.png>
-Package pdftex.def Info: figure/bookkeeping.png used on input line 191.
+Package pdftex.def Info: figure/bookkeeping.png used on input line 235.
 (pdftex.def)             Requested size: 288.79422pt x 201.67305pt.
- [13 <./figure/fork5.png>]
-<figure/chaintxs.png, id=267, 1074.0125pt x 674.52pt>
+ [15 <./figure/merkletreedup.png>]
+<figure/chaintxs.png, id=295, 1074.0125pt x 674.52pt>
 File: figure/chaintxs.png Graphic file (type png)
 
 <use figure/chaintxs.png>
-Package pdftex.def Info: figure/chaintxs.png used on input line 200.
+Package pdftex.def Info: figure/chaintxs.png used on input line 244.
 (pdftex.def)             Requested size: 288.79422pt x 181.37149pt.
- [14 <./figure/bookkeeping.png>] [15 <./figure/chaintxs.png>] [16] <figure/alic
-eblock.png, id=287, 458.71375pt x 415.5525pt>
+ [16 <./figure/bookkeeping.png>] [17 <./figure/chaintxs.png>] <figure/alicebloc
+k.png, id=312, 458.71375pt x 415.5525pt>
 File: figure/aliceblock.png Graphic file (type png)
 
 <use figure/aliceblock.png>
-Package pdftex.def Info: figure/aliceblock.png used on input line 223.
+Package pdftex.def Info: figure/aliceblock.png used on input line 267.
 (pdftex.def)             Requested size: 206.28249pt x 186.87642pt.
-
-<figure/abchaintxs.png, id=289, 442.65375pt x 273.02pt>
+ [18]
+<figure/abchaintxs.png, id=319, 442.65375pt x 273.02pt>
 File: figure/abchaintxs.png Graphic file (type png)
 
 <use figure/abchaintxs.png>
-Package pdftex.def Info: figure/abchaintxs.png used on input line 230.
+Package pdftex.def Info: figure/abchaintxs.png used on input line 274.
 (pdftex.def)             Requested size: 206.28249pt x 127.2321pt.
 
-<figure/commontx.png, id=291, 529.98pt x 308.15125pt>
+<figure/commontx.png, id=321, 529.98pt x 308.15125pt>
 File: figure/commontx.png Graphic file (type png)
 
 <use figure/commontx.png>
-Package pdftex.def Info: figure/commontx.png used on input line 239.
+Package pdftex.def Info: figure/commontx.png used on input line 283.
 (pdftex.def)             Requested size: 206.28249pt x 119.93869pt.
- [17 <./figure/aliceblock.png> <./figure/abchaintxs.png>] <figure/aggregatingtx
-s.png, id=301, 526.96875pt x 286.06876pt>
+ [19 <./figure/aliceblock.png> <./figure/abchaintxs.png>] <figure/aggregatingtx
+s.png, id=331, 526.96875pt x 286.06876pt>
 File: figure/aggregatingtxs.png Graphic file (type png)
 
 <use figure/aggregatingtxs.png>
-Package pdftex.def Info: figure/aggregatingtxs.png used on input line 246.
+Package pdftex.def Info: figure/aggregatingtxs.png used on input line 290.
 (pdftex.def)             Requested size: 206.28249pt x 111.98103pt.
 
-<figure/distributingtxs.png, id=304, 528.97626pt x 286.06876pt>
+<figure/distributingtxs.png, id=334, 528.97626pt x 286.06876pt>
 File: figure/distributingtxs.png Graphic file (type png)
 
 <use figure/distributingtxs.png>
-Package pdftex.def Info: figure/distributingtxs.png used on input line 253.
+Package pdftex.def Info: figure/distributingtxs.png used on input line 297.
 (pdftex.def)             Requested size: 206.28249pt x 111.55763pt.
- [18 <./figure/commontx.png> <./figure/aggregatingtxs.png>] [19 <./figure/distr
-ibutingtxs.png>]) [20] [21] (./capitolo2.tex)
-[22
+ [20 <./figure/commontx.png> <./figure/aggregatingtxs.png>] [21 <./figure/distr
+ibutingtxs.png>] [22]
+<figure/threenodes.png, id=361, 533.995pt x 156.585pt>
+File: figure/threenodes.png Graphic file (type png)
 
-] (./capitolo3.tex) [23
+<use figure/threenodes.png>
+Package pdftex.def Info: figure/threenodes.png used on input line 345.
+(pdftex.def)             Requested size: 412.56497pt x 120.98177pt.
+) [23 <./figure/threenodes.png>] (./capitolo2.tex)
+[24
 
-] (./capitolo4.tex) [24
+] (./capitolo3.tex) [25
 
-] (./capitolo5.tex) [25
+] (./capitolo4.tex) [26
+
+] (./capitolo5.tex) [27
 
 ]
-(./conclusioni.tex) [26
+(./conclusioni.tex) [28
 
 
 ] (./main.bbl
 bibitemlist
-) [27
+) [29
 
 ]
 \tf@toc=\write5
@@ -1185,36 +1207,40 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 169F4772635082F8A81E0CC4415B375B;1457.
+(rerunfilecheck)             Checksum: 856631DDB6C52E1EC851B1477ABAF706;1522.
  ) 
 Here is how much of TeX's memory you used:
- 12369 strings out of 493014
- 169776 string characters out of 6133352
- 302551 words of memory out of 5000000
- 15662 multiletter control sequences out of 15000+600000
- 16854 words of font info for 40 fonts, out of 8000000 for 9000
+ 12408 strings out of 493014
+ 170416 string characters out of 6133352
+ 302775 words of memory out of 5000000
+ 15685 multiletter control sequences out of 15000+600000
+ 20214 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,45p,983b,999s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (33 pages, 2842389 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2016/texmf-dis
+t/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on main.pdf (35 pages, 3096766 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 345 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
- 252 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 477 PDF objects out of 1000 (max. 8388607)
+ 380 compressed objects within 4 object streams
+ 87 named destinations out of 1000 (max. 500000)
+ 275 words of extra memory for PDF output out of 10000 (max. 10000000)
 
