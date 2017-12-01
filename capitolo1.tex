@@ -358,4 +358,15 @@ Ogni input e output sono associati ad un identificatore crittografico, chiamato 
 Siano gli output di $tx$ denotati con $txos$. Ad un certo istante $T$, ogni txo di una transazione $t$ potrebbe essere stato speso ($stxo$) oppure no ($utxo$). L'unico modo per spendere un certo $utxo$ $o_t$ di $t$, è usarlo come input $i_{t'}$ della transazione $t'$ (con $t \ne t'$). In questo modo, come è stato già sottolineato nei paragrafi precedenti, il flusso dei bitcoin da una tx ad un'altra, crea un entità chiamata \textit{chain of ownership} (letteralmente "catena di proprietà"). \cite{ddp-ltcbh-17}
 
 Il \textit{Transaction graph}("grafo delle transazioni") è un grafo diretto in cui i nodi sono le transazioni e viene indicato con \textit{tx-graph}. I nodi $t$ e $t'$ sono collegati tra loro dall'arco ($t,t'$), se l'output $o_t$ di $t$ è usato come input $i_t$ di $t'$. Più nel dettaglio, il \textit{tx-graph} è aciclico, poiché esse vengono generate una volta soltanto, ed è un multigrafo, dal momento che più output di $t$ possono corrispondere a più input di $t'$ (relazione molti-a-molti).
+Un esempio di tx-graph è illustrato nella figura \ref{fig:iotxs}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{figure/iotxs}
+	\caption{\textit{Un esempio di tx-graph con 3 tx(1,2 e 3)} \label{fig:iotxs}}
+\end{figure}
+
+La transazione (1) ha un input $i_1$ e tre output($o_1,o_2$ e $o_3$). Tali output sono spesi nelle transazioni 2 e 3. Per quanto riguarda gli input delle transazioni (2) e (3) (come $x1, y1, y2$), si può notare che provengano da altre tx, non considerate all'interno della figura d'esempio. \cite{ddp-ltcbh-17}
+
+Considerando che ogni blocco della blockchain può contenere un numero variabile di transazioni -- si valuti la possibilità di avere dei blocchi composti all'incirca da 1000 o 2000 txs -- prendendo in esame una gran quantità di blocchi, si potrebbe creare un grafo di grandi dimensioni. Avendo a disposizione una tale mole di dati, si può ragionare su alcune tematiche trattate nei prossimi capitoli.
 
