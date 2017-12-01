@@ -329,7 +329,6 @@ La rete bitcoin ha tracciato tutti gli UTXO disponibili, e corrisponderebbero a 
 
 Un UTXO può avere un valore arbitrario che viene definito in termini di multipli di \textbraceleft{satoshi}. Come i dollari possono avere dei sottomultipli chiamati centesimi, i bitcoin possono essere divisi in satoshi. Ogni bitcoin corrispondono a $10^8$ satoshi.\cite{antonopoulos2014mastering}
 
-
 \section{Grafo delle transazioni}
 
 Come sottolineato nelle sezioni precedenti, le transazioni sono collegate tra loro sotto forma di chain. Ogni output di ogni transazione diventa un input per la transazione successiva. In questo modo le transazioni formano catene che si possono intersecare tra di loro.
@@ -346,8 +345,17 @@ In \textit{figura \ref{fig:threenodes}} si può vedere come una catena di transa
 	\caption{\textit{Grafo delle transazioni} \label{fig:threenodes}}
 \end{figure}
 
+Quindi, ogni transazione corrisponde ad un nodo, il quale è collegato agli altri nodi (alle transazioni) tramite flussi di denaro. Questi ultimi, sono gli output che vengono utilizzate come input da altre transazioni.
+\\
 
-\section{Caratteristiche del grafo}
+Per definizione, una transazione $tx$ è caratterizzata da:
+\begin{itemize}
+	\item un insieme di input $i_t^1,\cdots,i_t^h$
+	\item un insieme di output $o_t^1,\cdots,o_t^k$
+\end{itemize}
+Ogni input e output sono associati ad un identificatore crittografico, chiamato \textit{indirizzo} e un importo in bitcoin. La transazione $tx$ trasferisce bitcoin dai suoi input ai suoi output.
 
-testo testo 
-testo
+Siano gli output di $tx$ denotati con $txos$. Ad un certo istante $T$, ogni txo di una transazione $t$ potrebbe essere stato speso ($stxo$) oppure no ($utxo$). L'unico modo per spendere un certo $utxo$ $o_t$ di $t$, è usarlo come input $i_{t'}$ della transazione $t'$ (con $t \ne t'$). In questo modo, come è stato già sottolineato nei paragrafi precedenti, il flusso dei bitcoin da una tx ad un'altra, crea un entità chiamata \textit{chain of ownership} (letteralmente "catena di proprietà"). \cite{ddp-ltcbh-17}
+
+Il \textit{Transaction graph}("grafo delle transazioni") è un grafo diretto in cui i nodi sono le transazioni e viene indicato con \textit{tx-graph}. I nodi $t$ e $t'$ sono collegati tra loro dall'arco ($t,t'$), se l'output $o_t$ di $t$ è usato come input $i_t$ di $t'$. Più nel dettaglio, il \textit{tx-graph} è aciclico, poiché esse vengono generate una volta soltanto, ed è un multigrafo, dal momento che più output di $t$ possono corrispondere a più input di $t'$ (relazione molti-a-molti).
+
