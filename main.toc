@@ -19,9 +19,11 @@
 \contentsline {chapter}{\chapternumberline {2}I comportamenti automatici}{25}{chapter.2}
 \contentsline {section}{\numberline {2.1}Anonimia delle transazioni}{25}{section.2.1}
 \contentsline {section}{\numberline {2.2}Bitcoin Mixing}{28}{section.2.2}
-\contentsline {section}{\numberline {2.3}Lunghe catene di transazioni}{29}{section.2.3}
-\contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{30}{chapter.3}
-\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{31}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{32}{chapter.5}
-\contentsline {chapter}{Conclusioni e sviluppi futuri}{33}{chapter*.26}
-\contentsline {chapter}{Bibliografia}{34}{section*.28}
+\contentsline {subsection}{\numberline {2.2.1}Mixing nel dettaglio}{29}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Tor}{30}{subsection.2.2.2}
+\contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{32}{chapter.3}
+\contentsline {section}{\numberline {3.1}Lunghe catene di transazioni}{32}{section.3.1}
+\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{33}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{34}{chapter.5}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{35}{chapter*.27}
+\contentsline {chapter}{Bibliografia}{36}{section*.29}

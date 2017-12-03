@@ -64,16 +64,40 @@ Il software che offre tale servizio è chiamato \textbf{mixer} (letteralmente "m
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width = \linewidth]{figure/mixingschema}
-	\caption{Il mixing di bitcoin}\label{fig:mixingschema}
+	\caption{Il mixing di bitcoin \cite{coinmixer}}\label{fig:mixingschema}
 \end{figure}
 
 Inizialmente, l'utente intenzionato a usufruire di questo servizio, mette a disposizione del mixer, il denaro che vuole pulire. All'interno di un'interfaccia utente, egli inserisce il proprio indirizzo, l'importo dei bitcoin da riciclare e l'indirizzo di destinazione. Inoltre viene inserito anche un parametro numerico che sta a indicare il numero di ore di ritardo che si può tollerare per ricevere i bitcoin puliti. Ad esempio, se si inserisce 2, il ritardo con cui si riceveranno i soldi sarà pari a 2 ore. Tale parametro rappresenta quindi il tempo necessario affinché il mixer riesca a riciclare i soldi. Più il ritardo è maggiore, maggiormente i bitcoin saranno mixati e resi anonimi, più è vicino a zero, più le transazioni del mixer saranno più facilmente presenti all'interno dello stesso blocco della blockchain.
 Esistono dei siti di mixing in cui, nel caso di una grossa quantità di denaro, il ritardo da specificare rappresenta l'intervallo di tempo con cui si vuole riceve ogni fetta dell'intero importo. In questo modo, ogni intervallo di tempo, si riceverà una parte dei soldi riciclati. Così facendo si eluderà maggiormente qualsiasi tentativo di controllo sulle transazioni e sull'automatismo di tali processi.
 
-Il processo che compie un mixer per riciclare i bitcoin, è quello di creare tante transazioni collegate tra loro in una chain, automaticamente, ovvero seguendo un certo algoritmo. Esso prende in input la cifra da riciclare, e distribuisce il denaro tra gli utenti che fanno parte della rete di "riciclatori" del mixer. Successivamente crea ulteriori transazioni da tali utenti verso l'indirizzo indicato come output. E' possibile che il servizio che svolge il riciclaggio abbia un pool di indirizzi dove temporaneamente salva gli importi e, quando richiesto, crea solamente le transazioni di output verso il destinatario. In questo modo non sarà mai possibile collegare il mittente con il destinatario. 
+Il processo che compie un mixer per riciclare i bitcoin, è quello di creare tante transazioni collegate tra loro in una chain, automaticamente, ovvero seguendo un certo algoritmo. Esso prende in input la cifra da riciclare, e distribuisce il denaro tra gli utenti che fanno parte della rete di "riciclatori" del mixer. Successivamente crea ulteriori transazioni da tali utenti verso l'indirizzo indicato come output. E' possibile che il servizio che svolge il riciclaggio abbia un pool di indirizzi dove temporaneamente salva gli importi e, quando richiesto, crei solamente le transazioni di output verso il destinatario. In questo modo non sarà mai possibile collegare il mittente con l'indirizzo di output. 
 
-Ciò è proprio l'obiettivo dei siti di mixing, ovvero riciclare denaro attraverso transazioni che sembrano "normali", mantenendo l'anonimato e sfruttando la struttura della rete e gli utenti connessi.
+Questo è proprio l'obiettivo dei siti di mixing, ovvero rendere il denaro più anonimo attraverso transazioni che sembrano "normali", mantenendo l'anonimato e sfruttando la struttura della rete e gli utenti connessi. Il termine "mixing" non assume una accezione negativa nel caso in cui si abbia lo scopo di rendere maggiormente anonime le proprie transazioni. Tuttavia, tale termine potrebbe significare che i bitcoin vengono riciclati esattamente come avviene il riciclaggio del denaro sporco nel mondo reale, creando transazioni irrintracciabili e caratterizzate da una forte anonimia.
+\subsection{Mixing nel dettaglio}
+L'idea base del mixing è quella di assicurare comunicazioni anonime tra due utenti o indirizzi.
 
-%tor
+ La \textit{figura \ref{fig:mixingschema}} mostra l'idea di base, la relazione tra Alice e Bob viene nascosta dal servizio di mixing.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 0.7 \linewidth]{figure/moesermixservice}
+	\caption{\textit{Un servizio di mixing, che nasconde la relazione tra Alice e Bob}}\label{moesermixservice}
+\end{figure}
 
-\section{Lunghe catene di transazioni}
+Un mixer prende un insieme di input, che sono stati criptati con la chiave pubblica $c_M$ del mixer e contiene un messaggio criptato $c_A(z_0,m)$, un indirizzo A di destinazione, e una stringa random $z_1$ che serve per mantenere la dimensione del messaggio in arrivo uguale a quella del messaggio in uscita.
+
+Ricevute le informazioni, il mixer decripta il messaggio, rimuove la stringa random (equazione \eqref{eq:mixingequation}) ottenendo il messaggio di lunghezza giusta, e lo cripta di nuovo in base all'indirizzo associato a cui deve mandarlo.
+
+\begin{equation}
+	\centering
+	c_M(z_1,c_A(z_0,m),A) \to c_A(z_0,m),A
+	\label{eq:mixingequation}
+\end{equation}
+
+Al fine di ridurre il pericolo che un singolo mixer venga attaccato da un hacker, che potrebbe conoscere la relazione tra gli input e gli output, molti mixer potrebbero essere collegati insieme, creando un mixing a cascata. L'utente successivamente dovrà decriptare il messaggio con tutte le chiavi pubbliche dei vari mixer, e ciò assicura che ogni mixer ha ricevuto solamente il messaggio criptato e il successivo indirizzo di destinazione.\cite{moser2013anonymity}
+
+
+
+\subsection{Tor}
+A causa di questo processo, tutto ciò non è praticabile all'interno di una rete internet standard. Infatti, per usufruire dei software di mixing occorre essere connessi ad internet tramite il browser Tor.
+
+In informatica \textbf{Tor}(acronimo di The Onion Router) è un sistema di comunicazione anonima per Internet basato sul protocollo di rete di \textit{onion routing}. Tramite l'utilizzo di Tor è molto più difficile tracciare l'attività Internet dell'utente; difatti l'uso di Tor è finalizzato a proteggere la privacy degli utenti, la loro libertà e la possibilità di condurre delle comunicazioni confidenziali senza che vengano monitorate. \cite{wiki:tor}

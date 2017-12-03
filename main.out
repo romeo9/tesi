@@ -17,9 +17,11 @@
 \BOOKMARK [0][-]{chapter.2}{I comportamenti automatici}{}% 17
 \BOOKMARK [1][-]{section.2.1}{Anonimia delle transazioni}{chapter.2}% 18
 \BOOKMARK [1][-]{section.2.2}{Bitcoin Mixing}{chapter.2}% 19
-\BOOKMARK [1][-]{section.2.3}{Lunghe catene di transazioni}{chapter.2}% 20
-\BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 21
-\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 22
-\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 23
-\BOOKMARK [0][-]{chapter*.26}{Conclusioni e sviluppi futuri}{}% 24
-\BOOKMARK [0][-]{section*.28}{Bibliografia}{}% 25
+\BOOKMARK [2][-]{subsection.2.2.1}{Mixing nel dettaglio}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.2}{Tor}{section.2.2}% 21
+\BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 22
+\BOOKMARK [1][-]{section.3.1}{Lunghe catene di transazioni}{chapter.3}% 23
+\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 24
+\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 25
+\BOOKMARK [0][-]{chapter*.27}{Conclusioni e sviluppi futuri}{}% 26
+\BOOKMARK [0][-]{section*.29}{Bibliografia}{}% 27
