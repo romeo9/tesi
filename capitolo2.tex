@@ -1,1 +1,79 @@
-Questo è il capitolo 2
+Per "comportamenti automatici" si intende quegli schemi metodologici che vengono generati automaticamente. In questo caso specifico, la parola "comportamento" va a sottolineare la generazione di catene di transazioni, ovvero la creazione di transazioni collegate tra loro mediante il riutilizzo degli output come input (come è stato visto nel capitolo precedente). Con il termine "automatico" si vuole andare a sottolineare un qualcosa che non è "manuale", ovvero non implica l'intervento dell'uomo.
+
+\section{Anonimia delle transazioni}
+
+Come è stato già sottolineato, le transazioni hanno diverse configurazioni a seconda di quanti input e output intervengono nello scambio. Infatti, è largamente probabile che una transazione abbia un solo input, e molteplici output. Oltre a questa struttura, però, la caratteristica più importante di questo sistema è però il completo anonimato delle transazioni. Sebbene all'interno di una transazione possiamo notare gli indirizzi hash tra cui viene effettuato lo scambio, essi non possono essere riconducibili ad un utente reale. Perciò, se si ha una transazione con un input e due output, si noterà uno scambio tra indirizzi bitcoin. 
+
+Per esempio, andando a visualizzare una transazione sul sito \cite{blockchainInfo}, si ottiene quello che si può notare in \textit{figura \ref{fig:realtx}}.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = \linewidth]{figure/realtx}
+	\caption{\textit{Una transazione del sito Blockchain.info \cite{blockchaininfo} \label{fig:realtx}}}
+\end{figure}
+Osservando la transazione \textit{(4)}, si osserva che il numero degli output è maggiore del numero degli input. Infatti viene effettuato uno scambio di bitcoin tra l'input \textit{(1)} e gli output \textit{(2) (3)}. Inoltre, al lato della figura sono presenti due bottoni: uno blu, che indica il numero delle conferme che ha ottenuto la transazione, ed uno verde, che indica l'importo bitcoin che viene scambiato. Sopra al bottone verde, gli importi bitcoin ripartiti per i vari indirizzi.
+
+Come ci si aspettava, la transazione identifica degli scambi esclusivamente tra indirizzi bitcoin, rappresentati tramite codici hash. Per andare più a fondo, cliccando su tali codici, si cerca di trovare qualche informazione in più riguardo gli agenti che intervengono nella transazione. Il risultato ottenuto è la \textit{figura \ref{fig:realtxdetails}}
+\newline
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[b]{0.8\textwidth}
+		\includegraphics[width=\textwidth]{figure/realtxinput}
+		\caption{Input}
+		\label{fig:realtxinput}
+	\end{subfigure}
+	\\
+	 %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.8 \textwidth}
+		\includegraphics[width=\textwidth]{figure/realtxoutput1}
+		\caption{Output 1}
+		\label{fig:realtxoutput1}
+	\end{subfigure}
+	\\
+	 %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.8 \textwidth}
+		\includegraphics[width=\textwidth]{figure/realtxoutput2}
+		\caption{Output 2}
+		\label{fig:realtxoutput2}
+	\end{subfigure}
+	\caption{Dettagli degli input/output}\label{fig:realtxdetails}
+\end{figure}
+
+Le tre figure soprastanti, rappresentano i dettagli che si possono estrapolare dal sito, riguardo gli indirizzi che intervengono nella transazione. 
+
+Per ogni indirizzo viene indicato il suo identificatore (nel caso di \ref{fig:realtxinput} l'indirizzo è \\ $3CrtVSfkPJbGwssh9mgXTwuWWDW3EMrc5k$) e il suo Hash 160. L'indirizzo stesso è un codice hash, ma non va confuso con il campo \textit{Hash 160}. Quest'ultimo, invece, rappresenta l'hash della chiave pubblica. Più nello specifico, quindi, viene indicato non solo il nome dell'indirizzo, ma anche la chiave pubblica di tale indirizzo, trasformata tramite la funzione hash di crittografia \textit{sha256}.
+
+Il sito \textit{Blockchain.info} mostra, per ogni indirizzo, anche delle statistiche sulle transazioni in cui è stato coinvolto. Infatti, sotto il campo "transazioni" si può osservare che \textit{Nr. transazioni} indica in quante transazioni è implicato tale indirizzo, il campo \textit{Totale Ricevuto} rappresenta il totale di denaro ricevuto e il campo \textit{Bilancio Finale} dovrebbe corrispondere a quanto denaro è rimasto "non speso" ovvero corrisponde ad un UTXO.
+
+Inoltre, ogni volta che si visualizzano tali dettagli, a lato vengono visualizzati anche i corrispondenti QR code, che servono per richiedere ed effettuare i pagamenti.\\
+
+L'anonimia delle transazioni e degli indirizzi bitcoin, viene così sottolineata, in modo tale da mostrare che il sistema bitcoin e la blockchain sono stati pensati per rendere gli scambi di denaro sicuri, veloci, ma anche pubblici, in modo da dare possibilità a chiunque di effettuare una transazione senza utilizzare i propri dati personali. Tutto ciò, visto dal lato generale del sistema complessivo. Prendendo ovviamente in considerazione un esempio in cui, due amici si scambiano denaro in una transazione (come nell'esempio di Alice che compra il caffè al bar di Bob), intuitivamente Alice saprà che tale indirizzo appartiene a Bob e solo a lui, perché potrà verificarlo fisicamente. Perciò, nel più comune caso d'uso di due persone che si conoscono, che si scambiano bitcoin, l'anonimia delle transazioni non viene resa nella misura in cui si vuole far sapere il proprio indirizzo alla persona con cui si sta scambiando denaro. Per esempio, dopo che Alice e Bob hanno fatto la loro transazione, si pensi all'intervento di una persona esterna, Charlie, che non conosce nè Alice nè Bob di persona. Charlie vuole conoscere chi sono i proprietari degli indirizzi della transazione fatta da Alice a Bob, ma non essendoci una corrispondenza diretta tra l'utente fisico e l'indirizzo bitcoin, Charlie non potrà mai scoprire di chi sono tali indirizzi. L'unico caso in cui Charlie li possa scoprire è quello in cui Bob o Alice glieli riveli spontaneamente.
+
+Perciò grazie a questa caratteristica che distingue le transazioni bitcoin da tutte le forme di scambio di denaro fisico, si è portati ad immaginare un altro possibile scenario che verrà trattato nel paragrafo successivo.
+
+\section{Bitcoin Mixing}
+
+Grazie all'anonimia che contraddistingue gli utenti che intervengono nelle transazioni di bitcoin, è possibile pensare che questa caratteristica faciliti lo scambio di denaro all'interno della rete bitcoin. Il rovescio della medaglia però, viene rappresentato da tutti gli utenti che utilizzano la rete per operazioni illecite.
+
+L'anonimia in questione, permette anche allo stesso utente di possedere due o più indirizzi bitcoin diversi. Gli utenti in questione, possedendo ad esempio due indirizzi diversi, vorranno effettuare un certo spostamento di denaro da un indirizzo all'altro. Supponendo che un utente voglia trasmettere una grande quantità di denaro da un indirizzo ad un altro e rendere le transazioni ancora più anonime, egli si rivolge ad un servizio di \textbf{Bitcoin Mixing}.
+
+Il software che offre tale servizio è chiamato \textbf{mixer} (letteralmente "miscelatore"). Un mixer svolge quindi l'attività di riciclaggio di bitcoin. Infatti, prendendo in input una certa quantità di bitcoin "sporchi", li "miscela", ovvero crea delle catene di transazioni fittizie con lo scopo di restituire tali soldi "puliti" al mittente (oppure ad un certo indirizzo indicato come output). Il processo viene mostrato nella \textit{figura \ref{fig:mixingschema}}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = \linewidth]{figure/mixingschema}
+	\caption{Il mixing di bitcoin}\label{fig:mixingschema}
+\end{figure}
+
+Inizialmente, l'utente intenzionato a usufruire di questo servizio, mette a disposizione del mixer, il denaro che vuole pulire. All'interno di un'interfaccia utente, egli inserisce il proprio indirizzo, l'importo dei bitcoin da riciclare e l'indirizzo di destinazione. Inoltre viene inserito anche un parametro numerico che sta a indicare il numero di ore di ritardo che si può tollerare per ricevere i bitcoin puliti. Ad esempio, se si inserisce 2, il ritardo con cui si riceveranno i soldi sarà pari a 2 ore. Tale parametro rappresenta quindi il tempo necessario affinché il mixer riesca a riciclare i soldi. Più il ritardo è maggiore, maggiormente i bitcoin saranno mixati e resi anonimi, più è vicino a zero, più le transazioni del mixer saranno più facilmente presenti all'interno dello stesso blocco della blockchain.
+Esistono dei siti di mixing in cui, nel caso di una grossa quantità di denaro, il ritardo da specificare rappresenta l'intervallo di tempo con cui si vuole riceve ogni fetta dell'intero importo. In questo modo, ogni intervallo di tempo, si riceverà una parte dei soldi riciclati. Così facendo si eluderà maggiormente qualsiasi tentativo di controllo sulle transazioni e sull'automatismo di tali processi.
+
+Il processo che compie un mixer per riciclare i bitcoin, è quello di creare tante transazioni collegate tra loro in una chain, automaticamente, ovvero seguendo un certo algoritmo. Esso prende in input la cifra da riciclare, e distribuisce il denaro tra gli utenti che fanno parte della rete di "riciclatori" del mixer. Successivamente crea ulteriori transazioni da tali utenti verso l'indirizzo indicato come output. E' possibile che il servizio che svolge il riciclaggio abbia un pool di indirizzi dove temporaneamente salva gli importi e, quando richiesto, crea solamente le transazioni di output verso il destinatario. In questo modo non sarà mai possibile collegare il mittente con il destinatario. 
+
+Ciò è proprio l'obiettivo dei siti di mixing, ovvero riciclare denaro attraverso transazioni che sembrano "normali", mantenendo l'anonimato e sfruttando la struttura della rete e gli utenti connessi.
+
+%tor
+
+\section{Lunghe catene di transazioni}

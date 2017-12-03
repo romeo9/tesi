@@ -15,8 +15,11 @@
 \BOOKMARK [2][-]{subsection.1.3.4}{Input e Output delle Transazioni}{section.1.3}% 15
 \BOOKMARK [1][-]{section.1.4}{Grafo delle transazioni}{chapter.1}% 16
 \BOOKMARK [0][-]{chapter.2}{I comportamenti automatici}{}% 17
-\BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 18
-\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 19
-\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 20
-\BOOKMARK [0][-]{chapter*.4}{Conclusioni e sviluppi futuri}{}% 21
-\BOOKMARK [0][-]{section*.6}{Bibliografia}{}% 22
+\BOOKMARK [1][-]{section.2.1}{Anonimia delle transazioni}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.2}{Bitcoin Mixing}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.3}{Lunghe catene di transazioni}{chapter.2}% 20
+\BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 21
+\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 22
+\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 23
+\BOOKMARK [0][-]{chapter*.26}{Conclusioni e sviluppi futuri}{}% 24
+\BOOKMARK [0][-]{section*.28}{Bibliografia}{}% 25

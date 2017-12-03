@@ -5,6 +5,9 @@ Andreas~M Antonopoulos.
 \newblock {\em Mastering Bitcoin: unlocking digital cryptocurrencies}.
 \newblock " O'Reilly Media, Inc.", 2014.
 
+\bibitem[blo17]{blockchainInfo}
+Bitcoin block explorer - blockchain, 2017.
+
 \bibitem[DDP17]{ddp-ltcbh-17}
 Giuseppe {Di Battista}, Valentino {Di Donato}, and Maurizio Pizzonia.
 \newblock Long transaction chains and the bitcoin heartbeat.
