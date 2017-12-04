@@ -2,7 +2,7 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{tesi}[2017/11/04 v1.0 Tesi]
 
-\LoadClass[a4paper,11pt,oneside,italian]{memoir}
+\LoadClass[a4paper,12pt,oneside,italian]{memoir}
 
 % Si utilizza la sillabazione italiana
 \RequirePackage[italian]{babel}
@@ -124,7 +124,10 @@
 	%\fancyhead[L]{\textbf{\leftmark}}
 }
 %\newcommand{\generaIndiceTabelle}{\newpage \listoftables}
-%\newcommand{\generaIndiceFigure}{\newpage \listoffigures}
+\newcommand{\generaIndiceFigure}{
+	\newpage 
+	\listoffigures
+}
 
 % Bibliografia in ordine alfabetico
 \let \OldBib \bibliography

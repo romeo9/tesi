@@ -1,1 +1,32 @@
-\select@language {english}
+\select@language {italian}
+\select@language {italian}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \textit {Bitcoin overview} \relax }}{3}{figure.caption.5}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \textit {Payment request QR code} \relax }}{4}{figure.caption.6}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces \textit {Visualizzazione di un evento fork--prima della fork} \relax }}{10}{figure.caption.7}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces \textit {Visualizzazione di un evento fork: due blocchi minati simultaneamente} \relax }}{11}{figure.caption.8}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces \textit {Visualizzazione di un evento fork: due blocchi propagati, la rete biforca} \relax }}{12}{figure.caption.9}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces \textit {Visualizzazione di un evento fork: un nuovo blocco estende un ramo della fork} \relax }}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces \textit {Visualizzazione di un evento fork: la rete si riunisce in un'unica catena pi\IeC {\`u} lunga} \relax }}{14}{figure.caption.11}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces \textit {Merkle tree} \relax }}{15}{figure.caption.12}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces \textit {Merkle tree con elemento duplicato} \relax }}{17}{figure.caption.13}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces \textit {Una transazione come una riga del registro di contabilit\IeC {\`a}} \relax }}{18}{figure.caption.14}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces \textit {Una catena di transazioni, dove l'output di una transazione viene utilizzato come input della transazione successiva} \relax }}{19}{figure.caption.15}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces \textit {La transazione di Alice inclusa nel blocco \#277316} \relax }}{21}{figure.caption.16}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces \textit {La transazione di Alice come parte di una catena di transazioni che va da Joe a Gopesh} \relax }}{22}{figure.caption.17}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces \textit {Una comune transazione} \relax }}{22}{figure.caption.18}
+\contentsline {figure}{\numberline {1.15}{\ignorespaces \textit {Aggregazione} \relax }}{22}{figure.caption.19}
+\contentsline {figure}{\numberline {1.16}{\ignorespaces \textit {Distribuzione} \relax }}{23}{figure.caption.20}
+\contentsline {figure}{\numberline {1.17}{\ignorespaces \textit {Grafo delle transazioni} \relax }}{25}{figure.caption.22}
+\contentsline {figure}{\numberline {1.18}{\ignorespaces \textit {Un esempio di tx-graph con 3 tx(1,2 e 3)} \relax }}{27}{figure.caption.23}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Una transazione del sito Blockchain.info \cite {blockchaininfo} }\relax }}{29}{figure.caption.24}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Dettagli degli input/output\relax }}{30}{figure.caption.25}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Il mixing di bitcoin \cite {coinmixer}\relax }}{32}{figure.caption.26}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Un servizio di mixing, che nasconde la relazione tra Alice e Bob}\relax }}{33}{figure.caption.27}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {Esempio di tx-graph reale}\relax }}{35}{figure.caption.28}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
