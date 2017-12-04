@@ -23,7 +23,8 @@
 \BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 23
 \BOOKMARK [1][-]{section.3.1}{Esempio di grafo reale}{chapter.3}% 24
 \BOOKMARK [1][-]{section.3.2}{Lunghe catene di transazioni}{chapter.3}% 25
-\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 26
-\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 27
-\BOOKMARK [0][-]{chapter*.29}{Conclusioni e sviluppi futuri}{}% 28
-\BOOKMARK [0][-]{section*.31}{Bibliografia}{}% 29
+\BOOKMARK [1][-]{section.3.3}{Frequenza delle transazioni}{chapter.3}% 26
+\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 27
+\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 28
+\BOOKMARK [0][-]{chapter*.30}{Conclusioni e sviluppi futuri}{}% 29
+\BOOKMARK [0][-]{section*.32}{Bibliografia}{}% 30

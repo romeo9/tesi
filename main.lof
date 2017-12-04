@@ -21,12 +21,13 @@
 \contentsline {figure}{\numberline {1.17}{\ignorespaces \textit {Grafo delle transazioni} \relax }}{25}{figure.caption.22}
 \contentsline {figure}{\numberline {1.18}{\ignorespaces \textit {Un esempio di tx-graph con 3 tx(1,2 e 3)} \relax }}{27}{figure.caption.23}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Una transazione del sito Blockchain.info \cite {blockchaininfo} }\relax }}{29}{figure.caption.24}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Dettagli degli input/output\relax }}{30}{figure.caption.25}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Il mixing di bitcoin \cite {coinmixer}\relax }}{32}{figure.caption.26}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Una transazione del sito Blockchain.info} \cite {blockchainInfo} \relax }}{29}{figure.caption.24}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Dettagli degli input/output}\relax }}{30}{figure.caption.25}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {Il mixing di bitcoin }\cite {coinmixer}\relax }}{32}{figure.caption.26}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Un servizio di mixing, che nasconde la relazione tra Alice e Bob}\relax }}{33}{figure.caption.27}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {Esempio di tx-graph reale}\relax }}{35}{figure.caption.28}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {Zoom di una chain}\relax }}{38}{figure.caption.29}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

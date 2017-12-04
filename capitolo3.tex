@@ -1,5 +1,5 @@
 \section{Esempio di grafo reale}
-Per analizzare meglio il sistema Bitcoin, viene creato un grafo delle transazioni, utilizzando dei dati reali. Nella \textit{figura \ref{fig:txgraph}} è visualizzato il grafo generato dall'elaborazione solo di 5 blocchi, in particolare dal blocco 417113 al 417117.
+Per analizzare meglio il sistema Bitcoin, viene creato un grafo delle transazioni, utilizzando dei dati reali. Nella \textit{figura \ref{fig:txgraph}} è visualizzato il grafo generato dall'elaborazione solo di 5 blocchi, in particolare dal blocco \textit{\#417113} al \textit{\#417117}.
 
 \begin{figure}[htbp]
 	\centering
@@ -22,3 +22,49 @@ Sulla base di ciò, si pensa che le organizzazioni con interessi sui Bitcoin, ge
 Queste considerazioni vengono trattate approfonditamente nel paper \cite{ddp-ltcbh-17}. L'argomento principale di tale documento è il parametro \textit{LLC}, acronimo di \textit{lenght of the longest chain}, ovvero "lunghezza della catena più lunga". Ogni transazione viene etichettata con un LLC, ovvero un numero che rappresenta la catena più lunga a cui appartiene la transazione. Per assegnare questo parametro, viene precedentemente effettuata un'analisi sul grafo delle transazioni. Quindi, per ogni transazione, ovvero per ogni nodo, viene calcolato l'LLC e assegnato alla singola transazione. Infine vengono fatte delle analisi sui dati e sulla distribuzione del parametro rispetto ai blocchi considerati nell'esecuzione dell'algoritmo.
 
 Capire se una chain di transazioni è stata generata automaticamente o riflette una chain creata da acquisti reali di umani, è una sfida stimolante. Infatti, la \textit{chain of ownership} ("catena di proprietà") introduce naturalmente lunghe chain di transazioni nel tx-graph. Quello che non è naturale è la velocità con cui tali chain vengono generate. 
+
+\section{Frequenza delle transazioni}
+
+Dal momento che tali catene di transazioni vengono generate automaticamente, esse vengono emesse ad una velocità elevata. Come si è già sottolineato nel capitolo precedente, un bitcoin mixer prende in input l'importo in bitcoin, l'indirizzo di destinazione e il tempo di ritardo con cui si vogliono ricevere tali bitcoin. In base al tempo inserito, il mixer creerà una certa quantità di transazioni collegate; più è maggiore il tempo, più transazioni verranno emesse, più è minore, meno si otterrà un anonimato su tali bitcoin.
+
+Proprio per questo motivo, il mixer impiegherà una certa quantità di tempo per creare le transazioni che mischiano i bitcoin. Essendo un software programmato, esso genera le transazioni velocemente e ad intervalli regolari. Perciò, le catene generate da un mixer in modo automatico, verranno emesse in modo molto rapido ed ogni transazione di tali catene risulterà essere alla stessa distanza di tempo tra la sua precedente (se è presente) e la sua successiva nella catena.
+
+Nella \textit{figura \ref{fig:zoomchain}} si osserva lo zoom su una catena del grafo di pagina \pageref*{fig:txgraph}.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{figure/zoomchain1}
+		\caption{tx-graph}
+		\label{fig:zoomchain1}
+	\end{subfigure}\quad \qquad
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.4 \textwidth}
+		\includegraphics[width=\textwidth]{figure/zoomchain2}
+		\caption{chain}
+		\label{fig:zoomchain2}
+	\end{subfigure}
+	\caption{\textit{Zoom di una chain}}\label{fig:zoomchain}
+\end{figure}
+
+Dal momento che le chain vengono generate ad un'elevata velocità, si può pensare allo studio della densità temporale di tali transazioni. A partire da queste considerazioni, si può definire il concetto di \textbf{frequenza}.
+
+La frequenza $f_T$ tra le $n$ transazioni $t_0,\cdots,t_n$, perciò, viene definita nella formula \ref{eq:freqtot}.
+\begin{equation}
+\centering
+f_T = \frac{n}{ts(t_n) - ts(t_0)}
+\label{eq:freqtot}
+\end{equation}
+Dove $f_T$ è la frequenza totale tra un numero $n$ di transazioni. $ts(t_0)$ è il timestamp della transazione iniziale $t_0$, mentre $ts(t_n)$ è il timestamp dell'ennesima transazione $t_n$. Tramite questa formula si ottiene la frequenza totale delle transazioni emesse in un certo intervallo di tempo.
+
+Il concetto di frequenza totale, deriva dal concetto di frequenza fisica. Si definisca la \textbf{frequenza istantanea} come:
+\begin{equation}
+\centering
+f_{ist}(t_n) = \frac{1}{T}
+\quad con \quad
+T = ts(t_n) - ts(t_{n-1})
+\label{eq:freqist}
+\end{equation}
+
+La definizione di frequenza istantanea viene ripresa da quella della frequenza in fisica. In fisica la frequenza di un fenomeno, viene data dal numero degli eventi che vengono ripetuti in una data unità di tempo. Si misura l'intervallo di tempo tra due eventi come $T$, presente nella formula \ref{eq:freqist}.

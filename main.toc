@@ -25,7 +25,8 @@
 \contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{35}{chapter.3}
 \contentsline {section}{\numberline {3.1}Esempio di grafo reale}{35}{section.3.1}
 \contentsline {section}{\numberline {3.2}Lunghe catene di transazioni}{36}{section.3.2}
-\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{38}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{39}{chapter.5}
-\contentsline {chapter}{Conclusioni e sviluppi futuri}{40}{chapter*.29}
-\contentsline {chapter}{Bibliografia}{41}{section*.31}
+\contentsline {section}{\numberline {3.3}Frequenza delle transazioni}{37}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{40}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{41}{chapter.5}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{42}{chapter*.30}
+\contentsline {chapter}{Bibliografia}{43}{section*.32}

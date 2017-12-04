@@ -8,7 +8,7 @@ Per esempio, andando a visualizzare una transazione sul sito \cite{blockchainInf
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width = \linewidth]{figure/realtx}
-	\caption{\textit{Una transazione del sito Blockchain.info \cite{blockchaininfo} \label{fig:realtx}}}
+	\caption{\textit{Una transazione del sito Blockchain.info} \cite{blockchainInfo} \label{fig:realtx}}
 \end{figure}
 Osservando la transazione \textit{(4)}, si osserva che il numero degli output è maggiore del numero degli input. Infatti viene effettuato uno scambio di bitcoin tra l'input \textit{(1)} e gli output \textit{(2) (3)}. Inoltre, al lato della figura sono presenti due bottoni: uno blu, che indica il numero delle conferme che ha ottenuto la transazione, ed uno verde, che indica l'importo bitcoin che viene scambiato. Sopra al bottone verde, gli importi bitcoin ripartiti per i vari indirizzi.
 
@@ -38,7 +38,7 @@ Come ci si aspettava, la transazione identifica degli scambi esclusivamente tra 
 		\caption{Output 2}
 		\label{fig:realtxoutput2}
 	\end{subfigure}
-	\caption{Dettagli degli input/output}\label{fig:realtxdetails}
+	\caption{\textit{Dettagli degli input/output}}\label{fig:realtxdetails}
 \end{figure}
 
 Le tre figure soprastanti, rappresentano i dettagli che si possono estrapolare dal sito, riguardo gli indirizzi che intervengono nella transazione. 
@@ -57,14 +57,14 @@ Perciò grazie a questa caratteristica che distingue le transazioni bitcoin da t
 
 Grazie all'anonimia che contraddistingue gli utenti che intervengono nelle transazioni di bitcoin, è possibile pensare che questa caratteristica faciliti lo scambio di denaro all'interno della rete bitcoin. Il rovescio della medaglia però, viene rappresentato da tutti gli utenti che utilizzano la rete per operazioni illecite.
 
-L'anonimia in questione, permette anche allo stesso utente di possedere due o più indirizzi bitcoin diversi. Gli utenti in questione, possedendo ad esempio due indirizzi diversi, vorranno effettuare un certo spostamento di denaro da un indirizzo all'altro. Supponendo che un utente voglia trasmettere una grande quantità di denaro da un indirizzo ad un altro e rendere le transazioni ancora più anonime, egli si rivolge ad un servizio di \textbf{Bitcoin Mixing}.
+L'anonimia in questione, permette anche allo stesso utente di possedere due o più indirizzi bitcoin diversi. Gli utenti, possedendo ad esempio due indirizzi diversi, vorranno effettuare un certo spostamento di denaro da un indirizzo all'altro. Supponendo che un utente voglia trasmettere una grande quantità di denaro da un indirizzo ad un altro e rendere le transazioni ancora più anonime, egli si rivolge ad un servizio di \textbf{Bitcoin Mixing}.
 
 Il software che offre tale servizio è chiamato \textbf{mixer} (letteralmente "miscelatore"). Un mixer svolge quindi l'attività di riciclaggio di bitcoin. Infatti, prendendo in input una certa quantità di bitcoin "sporchi", li "miscela", ovvero crea delle catene di transazioni fittizie con lo scopo di restituire tali soldi "puliti" al mittente (oppure ad un certo indirizzo indicato come output). Il processo viene mostrato nella \textit{figura \ref{fig:mixingschema}}.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width = \linewidth]{figure/mixingschema}
-	\caption{Il mixing di bitcoin \cite{coinmixer}}\label{fig:mixingschema}
+	\caption{\textit{Il mixing di bitcoin }\cite{coinmixer}}\label{fig:mixingschema}
 \end{figure}
 
 Inizialmente, l'utente intenzionato a usufruire di questo servizio, mette a disposizione del mixer, il denaro che vuole pulire. All'interno di un'interfaccia utente, egli inserisce il proprio indirizzo, l'importo dei bitcoin da riciclare e l'indirizzo di destinazione. Inoltre viene inserito anche un parametro numerico che sta a indicare il numero di ore di ritardo che si può tollerare per ricevere i bitcoin puliti. Ad esempio, se si inserisce 2, il ritardo con cui si riceveranno i soldi sarà pari a 2 ore. Tale parametro rappresenta quindi il tempo necessario affinché il mixer riesca a riciclare i soldi. Più il ritardo è maggiore, maggiormente i bitcoin saranno mixati e resi anonimi, più è vicino a zero, più le transazioni del mixer saranno più facilmente presenti all'interno dello stesso blocco della blockchain.
@@ -103,4 +103,4 @@ Al fine di ridurre il pericolo che un singolo mixer venga attaccato da un hacker
 \end{wrapfigure}
 A causa di questo processo, tutto ciò non è praticabile all'interno di una rete internet standard. Infatti, per usufruire dei software di mixing occorre essere connessi ad internet tramite il browser Tor.
 
-In informatica \textbf{Tor}(acronimo di The Onion Router) è un sistema di comunicazione anonima per Internet basato sul protocollo di rete di \textit{onion routing}. Tramite l'utilizzo di Tor è molto più difficile tracciare l'attività Internet dell'utente; difatti l'uso di Tor è finalizzato a proteggere la privacy degli utenti, la loro libertà e la possibilità di condurre delle comunicazioni confidenziali senza che vengano monitorate. \cite{wiki:tor}
+In informatica \textbf{Tor}(acronimo di The Onion Router) è un sistema di comunicazione anonima per Internet basato sul protocollo di rete di \textit{onion routing}. Tramite l'utilizzo di Tor è molto più difficile tracciare l'attività Internet dell'utente; difatti l'uso di Tor è finalizzato a proteggere la privacy degli utenti, la loro libertà e la possibilità di condurre delle comunicazioni confidenziali senza che vengano monitorate. \textit{Onion routing} è una tecnica per rendere anonime le comunicazioni all'interno della rete. In una rete onion (letteralmente "cipolla"), i messaggi sono incapsulati in "strati" di crittografia che vengono paragonati agli strati di una cipolla. \cite{wiki:tor}

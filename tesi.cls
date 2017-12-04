@@ -47,7 +47,7 @@
 \newcommand{\@autore}{Claudia Romeo}
 \newcommand{\autore}[1]{\renewcommand{\@autore}{#1}}
 % Titolo
-\newcommand{\@titolo}{Strumenti di analisi per la rete delle transazioni Bitcoin}
+\newcommand{\@titolo}{Bitcoin: Riconoscimento di comportamenti periodici nella Blockchain}
 \newcommand{\titolo}[1]{\renewcommand{\@titolo}{#1}}
 % Matricola 
 \newcommand{\@matricola}{461963}
