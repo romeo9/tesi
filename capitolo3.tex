@@ -67,4 +67,50 @@ T = ts(t_n) - ts(t_{n-1})
 \label{eq:freqist}
 \end{equation}
 
-La definizione di frequenza istantanea viene ripresa da quella della frequenza in fisica. In fisica la frequenza di un fenomeno, viene data dal numero degli eventi che vengono ripetuti in una data unità di tempo. Si misura l'intervallo di tempo tra due eventi come $T$, presente nella formula \ref{eq:freqist}.
+La definizione di frequenza istantanea viene ripresa da quella della frequenza in fisica. In fisica la frequenza di un fenomeno, viene data dal numero degli eventi che vengono ripetuti in una data unità di tempo. L'unità di tempo $T$ in fisica è chiamata periodo, ed è l'intervallo temporale tra due eventi.
+
+Nel caso del tx-graph, gli eventi sono le transazioni, e il periodo è calcolato tramite la differenza tra il timestamp dell'ultima transazione e quello della transazione iniziale, come si può notare nell'equazione \ref{eq:freqist}. La frequenza istantanea rappresenta il singolo valore di frequenza calcolato su due transazioni e su un singolo intervallo di tempo. Tale parametro non ha un ruolo significativo, se viene considerato a sè stante. Esso può essere inserito come parte della formula del calcolo della frequenza totale $f_T$. 
+
+Nell'equazione \ref{eq:freqtot} la frequenza totale viene rappresentata come il rapporto tra la cardinalità delle transazioni diviso l'intervallo totale di tempo, ovvero il tempo che intercorre tra la transazione iniziale e quella finale. Allo stesso modo, se si riscrive la formula tenendo conto della media delle frequenze istantanee si otterrà:
+
+
+\begin{eqnarray}
+	f_T = \frac{f_{ist}(t_1)+\cdots+f_{ist}(t_n)}{n} = \label{eq:freqriga1} \\[20pt]
+	= \left( \frac{1}{ts(t_1) - ts(t_0)}+\cdots+\frac{1}{ ts(t_n) - ts(t_{n-1})} \right) \cdot \frac{1}{n} = \label{eq:freqriga2}\\[20pt]
+	= \frac{n}{( ts(t_1) - ts(t_0))+\cdots+(ts(t_n) - ts(t_{n-1}) )} \label{eq:freqriga3}
+\end{eqnarray}
+\\
+dove il denominatore dell'equazione alla riga \ref{eq:freqriga3} è la somma di tutti i singoli intervalli di tempo tra le transazioni $t_0$ e $t_n$. Empiricamente, da tale somma si ottiene quindi l'intero intervallo di tempo tra la prima e l'ultima transazione, quindi il periodo totale sarà pari a $ts(t_n) - ts(t_0)$. 
+
+L'equazione al punto \ref{eq:freqriga3} si può scrivere:
+
+\begin{equation}
+	f_T =  \frac{n}{ts(t_n) - ts(t_0)}
+	\label{eq:freqfinal}
+\end{equation}
+
+Quindi, si ottiene la formula \ref{eq:freqtot} di pagina \pageref{eq:freqtot}. Sebbene le formule di frequenza totale e istantanea siano diverse tra loro, concatenando le varie frequenze istantanee si può arrivare a ottenere la formula $f_T$. 
+
+Tutto ciò, al fine di sottolineare come la frequenza influenzi lo studio e l'analisi del grafo delle transazioni. Per ogni singola catena di transazioni viene calcolata la frequenza media tramite la formula \ref{eq:freqfinal}. Dalla frequenza, viene estrapolato un ulteriore parametro, la varianza, di cui si tratterà nella successiva sezione.
+
+\section{Varianza}
+Per analizzare meglio il grafo delle transazioni viene introdotto un ulteriore parametro la \textbf{varianza}, che dipende direttamente dalla frequenza. 
+La nozione di varianza viene ripresa dalla nozione di varianza statistica. infatti per definizione la varianza fornisce una misura della variabilità dei valori assunti da una certa variabile, ovvero di quanto i valori di tale variabile si discostino dalla loro media aritmetica. \cite{wiki:varianza}
+
+Dal punto di vista statistico, la varianza viene calcolata come la media quadratica dei discostamenti delle variabili prese in considerazione con la media aritmetica delle variabili stesse. Più generalmente la varianza va a misurare la variazione di un certo parametro rispetto al suo andamento medio.
+
+Per adattare il concetto di varianza allo studio del tx-graph, si è deciso di utilizzare la formula \ref{eq:var} per il calcolo della varianza.
+
+\begin{equation}
+v =  \frac{ \sum_{i=1}^n (f_{ist}(t_i) - \mu )^2 }{n}
+\label{eq:var}
+\end{equation}
+
+In questa formula, al denominatore è presente una sommatoria che sta a significare la somma delle varie quantità $f_{ist}(t_i) - \mu$ cioè i singoli discostamenti delle frequenze istantanee dalla media $\mu$.
+
+La media infatti può essere calcolata con la formula standard della media aritmetica, sulle frequenze istantanee, ottenendo così:
+\begin{equation}
+	\mu = \frac{\sum_{i=1}^{n} f_{ist}(t_i)}{n}
+\end{equation}
+
+Gli studi che sono stati effettuati sul grafo delle transazioni, hanno tutti alla base queste nozioni di matematica. Infatti, la varianza viene calcolata in base alle frequenze istantanee, e quest'ultime vengono calcolate attraverso i timestamp delle singole transazioni. Le singole $f_{ist}$ rappresentano la frequenza con cui viene emessa una transazione, ovvero l'intervallo di tempo con cui una singola transazione viene effettuata. In questo modo si può capire quanto velocemente è stata emessa, e se eventualmente superi una certa soglia, si potrebbe intuire che essa è stata generata automaticamente. Empiricamente si può dedurre che un mixer può generare transazioni a intervalli regolari e velocemente. L'intervallo regolare è possibilmente deducibile con il calcolo della varianza, poichè più la varianza è bassa, più è possibile che le frequenze seguino un andamento regolare, uguale all'andamento del valor medio, ovvero del valore che più esprime la regolarità di una variabile.
