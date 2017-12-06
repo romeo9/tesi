@@ -18,14 +18,16 @@
 \BOOKMARK [0][-]{chapter.2}{I comportamenti automatici}{}% 18
 \BOOKMARK [1][-]{section.2.1}{Anonimia delle transazioni}{chapter.2}% 19
 \BOOKMARK [1][-]{section.2.2}{Bitcoin Mixing}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.1}{Mixing nel dettaglio}{section.2.2}% 21
-\BOOKMARK [2][-]{subsection.2.2.2}{Tor}{section.2.2}% 22
-\BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 23
-\BOOKMARK [1][-]{section.3.1}{Esempio di grafo reale}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.2}{Lunghe catene di transazioni}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.3}{Frequenza delle transazioni}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.4}{Varianza}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 28
-\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 29
-\BOOKMARK [0][-]{chapter*.30}{Conclusioni e sviluppi futuri}{}% 30
-\BOOKMARK [0][-]{section*.32}{Bibliografia}{}% 31
+\BOOKMARK [2][-]{subsection.2.2.1}{I Mixer: cosa sono?}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.2}{Mixing nel dettaglio}{section.2.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.3}{Tor}{section.2.2}% 23
+\BOOKMARK [0][-]{chapter.3}{Analisi sul grafo delle transazioni}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Esempio di grafo reale}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.2}{Lunghe catene di transazioni}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.3}{Analisi sul tx-graph}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Frequenza delle transazioni}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.5}{Varianza}{chapter.3}% 29
+\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 30
+\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 31
+\BOOKMARK [0][-]{chapter*.30}{Conclusioni e sviluppi futuri}{}% 32
+\BOOKMARK [0][-]{section*.32}{Bibliografia}{}% 33

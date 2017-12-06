@@ -20,14 +20,16 @@
 \contentsline {chapter}{\chapternumberline {2}I comportamenti automatici}{28}{chapter.2}
 \contentsline {section}{\numberline {2.1}Anonimia delle transazioni}{28}{section.2.1}
 \contentsline {section}{\numberline {2.2}Bitcoin Mixing}{31}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Mixing nel dettaglio}{33}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Tor}{34}{subsection.2.2.2}
-\contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{36}{chapter.3}
-\contentsline {section}{\numberline {3.1}Esempio di grafo reale}{36}{section.3.1}
-\contentsline {section}{\numberline {3.2}Lunghe catene di transazioni}{37}{section.3.2}
-\contentsline {section}{\numberline {3.3}Frequenza delle transazioni}{38}{section.3.3}
-\contentsline {section}{\numberline {3.4}Varianza}{41}{section.3.4}
-\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{43}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{44}{chapter.5}
-\contentsline {chapter}{Conclusioni e sviluppi futuri}{45}{chapter*.30}
-\contentsline {chapter}{Bibliografia}{46}{section*.32}
+\contentsline {subsection}{\numberline {2.2.1}I Mixer: cosa sono?}{32}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Mixing nel dettaglio}{33}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Tor}{34}{subsection.2.2.3}
+\contentsline {chapter}{\chapternumberline {3}Analisi sul grafo delle transazioni}{37}{chapter.3}
+\contentsline {section}{\numberline {3.1}Esempio di grafo reale}{37}{section.3.1}
+\contentsline {section}{\numberline {3.2}Lunghe catene di transazioni}{38}{section.3.2}
+\contentsline {section}{\numberline {3.3}Analisi sul tx-graph}{39}{section.3.3}
+\contentsline {section}{\numberline {3.4}Frequenza delle transazioni}{40}{section.3.4}
+\contentsline {section}{\numberline {3.5}Varianza}{43}{section.3.5}
+\contentsline {chapter}{\chapternumberline {4}Approccio utilizzato}{45}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{46}{chapter.5}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{47}{chapter*.30}
+\contentsline {chapter}{Bibliografia}{48}{section*.32}
