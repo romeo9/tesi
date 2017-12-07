@@ -33,9 +33,11 @@ Così facendo si potrebbe analizzare la frequenza delle singole catene di transa
 
 Un altro parametro definito per l'analisi del grafo, è la varianza, ovvero la misura di quanto ci si discosta dalla media delle frequenze. Sebbene, la varianza debba essere calcolata istantaneamente, e la frequenza globalmente, si può fare una analisi "online". Infatti, man mano che si visita il grafo topologicamente e si scoprono nuove chain, si può calcolare la frequenza della chain fino alla transazione corrente, poi si calcola la varianza, e si potrebbe scegliere il cammino più lungo a varianza minima. In questo modo si potrebbe trovare una catena di transazioni generata automaticamente.
 
-Dell'approccio utilizzato se ne parlerà nel capitolo 3.
+\section{Formalizzazione delle definizioni}
 
-\section{Frequenza delle transazioni}
+In questa sezione si tratterà di come sono state definiti alcuni parametri per lo studio e l'analisi che ha portato poi alla formulazione di una tesi sul comportamento automatico del tx-graph. In particolare vengono formalizzate alcune definizioni per il calcolo della frequenza e della varianza, due parametri che intervengono di pari passo nell'analisi delle lunghe catene di transazioni.
+
+\subsection{Frequenza delle transazioni}
 
 Dal momento che tali catene di transazioni vengono generate automaticamente, esse vengono emesse ad una velocità elevata. Come si è già sottolineato nel capitolo precedente, un bitcoin mixer prende in input l'importo in bitcoin, l'indirizzo di destinazione e il tempo di ritardo con cui si vogliono ricevere tali bitcoin. In base al tempo inserito, il mixer creerà una certa quantità di transazioni collegate; più è maggiore il tempo, più transazioni verranno emesse, più è minore, meno si otterrà un anonimato su tali bitcoin.
 
@@ -105,7 +107,7 @@ Quindi, si ottiene la formula \ref{eq:freqtot} di pagina \pageref{eq:freqtot}. S
 
 Tutto ciò, al fine di sottolineare come la frequenza influenzi lo studio e l'analisi del grafo delle transazioni. Per ogni singola catena di transazioni viene calcolata la frequenza media tramite la formula \ref{eq:freqfinal}. Dalla frequenza, viene estrapolato un ulteriore parametro, la varianza, di cui si tratterà nella successiva sezione.
 
-\section{Varianza}
+\subsection{Varianza}
 Per analizzare meglio il grafo delle transazioni viene introdotto un ulteriore parametro la \textbf{varianza}, che dipende direttamente dalla frequenza. 
 La nozione di varianza viene ripresa dalla nozione di varianza statistica. infatti per definizione la varianza fornisce una misura della variabilità dei valori assunti da una certa variabile, ovvero di quanto i valori di tale variabile si discostino dalla loro media aritmetica. \cite{wiki:varianza}
 
@@ -125,4 +127,4 @@ La media infatti può essere calcolata con la formula standard della media aritm
 	\mu = \frac{\sum_{i=1}^{n} f_{ist}(t_i)}{n}
 \end{equation}
 
-Gli studi che sono stati effettuati sul grafo delle transazioni, hanno tutti alla base queste nozioni di matematica. Infatti, la varianza viene calcolata in base alle frequenze istantanee, e quest'ultime vengono calcolate attraverso i timestamp delle singole transazioni. Le singole $f_{ist}$ rappresentano la frequenza con cui viene emessa una transazione, ovvero l'intervallo di tempo con cui una singola transazione viene effettuata. In questo modo si può capire quanto velocemente è stata emessa, e se eventualmente superi una certa soglia, si potrebbe intuire che essa è stata generata automaticamente. Empiricamente si può dedurre che un mixer può generare transazioni a intervalli regolari e velocemente. L'intervallo regolare è possibilmente deducibile con il calcolo della varianza, poichè più la varianza è bassa, più è possibile che le frequenze seguino un andamento regolare, uguale all'andamento del valor medio, ovvero del valore che più esprime la regolarità di una variabile.
+Gli studi che sono stati effettuati sul grafo delle transazioni, hanno tutti alla base queste nozioni di matematica. Infatti, la varianza viene calcolata in base alle frequenze istantanee, e quest'ultime vengono calcolate attraverso i timestamp delle singole transazioni. Le singole $f_{ist}$ rappresentano la frequenza con cui viene emessa una transazione, ovvero l'intervallo di tempo con cui una singola transazione viene effettuata. In questo modo si può capire quanto velocemente è stata emessa, e se eventualmente superi una certa soglia, si potrebbe intuire che essa è stata generata automaticamente. Empiricamente si può dedurre che un mixer può generare transazioni a intervalli regolari e velocemente. L'intervallo regolare è possibilmente deducibile con il calcolo della varianza, poichè più la varianza è bassa, più è possibile che le frequenze seguino un andamento regolare, uguale all'andamento del valor medio, ovvero del valore che più esprime la regolarità di una variabile. 

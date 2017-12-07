@@ -1,2 +1,132 @@
-testo testo 
-testo
+In questo capitolo verranno trattate le metodologie con cui si è deciso di approfondire con l'analisi del tx-graph. In particolare si è preferito adottare un approccio più incentrato sullo studio degli andamenti e della frequenza delle varie catene di transazioni.
+
+\section{Networkx per la creazione di grafi}
+
+Per questo progetto, si è deciso di utilizzare il linguaggio di programmazione Python, in aggiunta con l'utilizzo di varie librerie, in particolare \textit{Networkx}, la quale permette la creazione, la gestione e l'analisi dei grafi. 
+
+Alcune caratteristiche di tale libreria sono:
+\begin{itemize}
+	\item Strutture dati per grafi diretti, indiretti
+	\item Molti algoritmi standard per la gestione dei grafi
+	\item Software open soruce
+\end{itemize}
+
+Per la gestione di un grafo come il tx-graph, ovvero un grafo generato da tutte le transazioni dei blocchi che vengono considerati nel dataset, si è deciso di utilizzare un \textit{MultiDiGraph}, un grafo diretto con auto archi ed archi paralleli.
+
+\section{Dataset}
+
+Il dataset utilizzato è un insieme di blocchi reali. Essi sono stati scaricati precedentemente e salvati su file in formato json. Ogni singolo blocco è caratterizzato da un numero, il numero che caratterizza l'ordine nella blockchain, e il file che rappresenta i dati di tale blocco ha il nome che corrisponde a tale numero con l'estensione \textit{.json}.
+
+\subsection{Struttura dati di un blocco}
+Per ogni blocco, esiste un file \textit{<numblocco>.json}, con determinate caratteristiche. 
+
+\begin{lstlisting}[basicstyle=\tiny, caption = \textit{Prime righe del file 417113.json}, label=417113]
+{"txs": [{
+	"valueOut": 25.29311068,
+	"isCoinBase": true,
+	"vout": [{ ... }],	
+	"blockhash": "000000000000000002fa1d0daee52356ca68a5964efc389e237a5cf589fe82d6",
+	"vin": [{ ... }],
+	"txid": "c4be4eda4bb0fce550f89b7ed00d1202a8dd41bb62c2a1254b61b96b0c3e627b",
+	"blocktime": 1466381104,
+	"version": 1,
+	"confirmations": 59748,
+	"time": 1466381104,
+	"blockheight": 417113,
+	"locktime": 863856133,
+	"size": 185
+},
+{
+	"valueOut": 2.39,	
+	"vout": [{ ... }],	
+	"blockhash": "000000000000000002fa1d0daee52356ca68a5964efc389e237a5cf589fe82d6",
+	"valueIn": 2.4,
+	"fees": 0.01,	
+	"vin": [{ ... },{ ... }],
+	"txid": "d064980449192201f5d23cf8f6a4fec1dddff58ec9d6692c8996c1007b98250a",	
+	"blocktime": 1466381104,
+	"version": 1,
+	"confirmations": 59748,
+	"time": 1466381104,
+	"blockheight": 417113,
+	"locktime": 0,
+	"size": 339
+},
+\end{lstlisting}
+
+Nel codice \ref{417113}, vengono indicate solamente le prime righe del file 417113.json. Dal momento che un file di questo tipo rappresenta un singolo blocco, al suo interno si potrà trovare una lista di transazioni. Il file, essendo ti tipo json, viene rappresentato come un dizionario in cui i dati sono rappresentati nel formato chiave-valore.
+
+Nella riga 1, al corrispondere dell'attributo "txs" si ha una lista di transazioni. Dal momento che queste sono le prime righe del file, la prima transazione di un blocco è essenzialmente quella generata dal miner quando il blocco viene minato. Di conseguenza come prima transazione si troverà sempre un oggetto che avrà il campo "isCoinBase" uguale a True, che sta a significare che tale transazione è la prima del blocco e non ha transazioni in entrata.
+
+Dal secondo oggetto della lista in poi, si ha una configurazione standard per tutte le altre transazioni che fanno parte del blocco. Come primo campo si ha "valueOut", il quale indica il valore totale di bitcoin che vengono emessi dalla transazione. Il campo "vout" rappresenta invece la lista di transazioni verso le quali gli output vengono spesi. Esiste anche il campo "vin" che raccoglie la lista delle transazioni di cui gli output vengono spesi dalla transazione in questione. 
+
+Il campo "txid" rappresenta l'id della transazione, ovvero il principale identificativo dell'oggetto preso in considerazione. 
+
+Nella singola transazione, si possono notare anche parametri che indicano attributi legati all'appartenenza al blocco:
+\begin{itemize}
+	\item "blockhash" rappresenta l'identificativo hash del blocco di appartenenza della transazione
+	\item "blocktime" è il timestamp del blocco
+	\item "blockheight" è il numero che identifica il blocco all'interno della blockchain (in questo caso "blockheight" = 417113)
+\end{itemize}
+Inoltre, si può notare anche il campo "fees" che rappresenta appunto le fee (cioè le tasse), che tale transazione versa al miner che è riuscito a minare la blockchain.
+
+Nell'esempio del codice sopra citato, vengono riscritte le prime righe del file json, che comprendono le prime due transazioni del blocco. In realtà, come si è già sottolineato, la il primo oggetto della lista è la transazione che fornisce la ricompensa al miner, non è una transazione vera e propria. Perciò il codice visualizza solamente la prima transazione vera e propria, che è la seconda nella lista di oggetti.
+
+Per ogni transazione sono conservati anche i parametri del blocco di appartenenza, come il numero del blocco, il suo codice hash e il suo timestamp. Naturalmente tali parametri sono uguali per tutte le transazioni dello stesso blocco. Tutto ciò facilita molto l'analisi e la creazione del tx-graph poichè ogni transazione ha già il parametro del blocco di appartenenza, senza bisogno di creare ulteriori strutture dati.
+
+Questo esempio riguarda solamente una transazione di un blocco, ma l'analisi in questione viene fatta prendendo in considerazione al più 1000 blocchi, che vengono tutti letti come file json.
+
+Si considerino due possibili situazioni: inizialmente è stata fatta un'analisi su un primo dataset che comprende i blocchi dal 417113 al 417256, proprio come nel paper \cite{ddp-ltcbh-17}. Successivamente, come nel suddetto paper, vengono considerati i blocchi dal 413000 al 419143. I due dataset hanno lo scopo di rappresentare intervalli di tempo diversi. Infatti il primo, sta a rappresentare l'attività di emissione di transazioni che comprende 24 ore. Il secondo invece, rappresenta quanto una macchina può computare al livello di memoria. Per motivi di efficienza e mancanza di risorse computazionali elevate, il secondo dataset è stato ridotto a solamente 1000 blocchi, ovvero dal 413000 al 414000. In questo modo, anche con il secondo dataset è stato possibile generare dei risultati adeguati che poi sono stati infine graficati, per osservare meglio gli andamenti e le periodicità più importanti.
+
+Perciò vengono definiti due dataset $D1=(417113,417256)$ e $D2=(413000,414000)$, che successivamente verranno utilizzati per creare i grafi $G1=G(417113,417256)$ e $G2=G(413000,414000)$.
+
+\section{Cammino più lungo a varianza minima}
+
+Come è stato ampiamente illustrato nel capitolo precedente, l'analisi del grafo delle transazioni verte specialmente sul problema di trovare un cammino, ovvero una catena di transazioni, tale che sia il più lungo e contemporaneamente sia a varianza minima.
+
+Si è deciso di considerare questi parametri, proprio perchè è possibile che il risultato restituito sia proprio corrispondente ad una catena di transazioni generate automaticamente da un mixer. Purtroppo questo processo di verifica, non permette di essere certi di quello che si sta valutando, ma potrebbe porre le fondamenta per un successivo studio approfondito di tali comportamenti.
+
+Per calcolare il cammino più lungo a varianza minima è stato definito un algoritmo. Esso effettua un'analisi sul grafo delle transazioni che viene creato nel prossimo paragrafo.
+
+\subsection{Creazione grafo delle transazioni}
+Prima di parlare dell'algoritmo, verrà illustrato come sono stati letti i dati e come viene creato il grafo.
+
+Utilizzando le funzioni di networkx, diventa semplice costruire un grafo in python. Infatti basta usufruire delle funzioni di tale libreria.
+
+Il metodo che crea il grafo prende in input i numeri dei blocchi come range, e legge, in ordine, tutti i file json. Leggendo i singoli json, crea una lista di oggetti, dove ogni oggetto è un blocco con la rispettiva lista di transazioni. Dopo la lettura, viene iterato sulla lista di blocchi, viene presa la lista di transazioni, e vengono creati i nodi del grafo, dove ogni nodo corrisponde ad una transazione. Per creare gli archi, si cicla su tutte le transazioni e si legge il campo "vin" e "vout". Rispettivamente, il primo indica gli archi entranti in quella transazione,e il secondo gli archi uscenti. In base a questi campi, si cicla sulle due liste "vin" e "vout" e si verifica che le transazioni presenti in tali liste siano corrisposte da una loro rappresentazione all'interno del grafo sotto forma di nodi. Ovviamente, se si considera un numero limitato di blocchi, è molto probabile, che singole transazioni vengano rappresentate esclusivamente da un singolo nodo che costituisce singolarmente una componente a sè stante. Infatti è importante gestire le eccezioni in questo caso specifico.
+
+Nel codice seguente, si può osservare la modalità di creazione del grafo.
+
+
+\begin{lstlisting}[basicstyle=\tiny]
+	def create_graph(start_block, end_block):
+	blocks = read_blocks(start_block, end_block)	
+	G = nx.MultiDiGraph()
+	count = 0
+	ts = blocks[0]['ts']
+	dic = {} 	
+	for i in blocks:
+		for j in i['txs']:
+		count = count+1
+		temptxid = j['txid']
+		G.add_node(count, txid=temptxid, blockhash=i['blockhash'], 
+				numblock=i['numblock'],blocktime=i['blocktime'], ts=0)
+		dic[temptxid] = count
+		for j in i['txs']:
+			currId = dic[j['txid']]
+			for k in j['vout']:
+				try:
+					outNodeId = dic[k['spentTxId']]	
+					if not G.has_edge(currId, outNodeId):
+						G.add_edge(currId, outNodeId)
+				except KeyError:
+					break	
+			for h in j['vin']:
+				try:
+					inNodeId = dic[h['txid']]
+					if not G.has_edge(inNodeId, currId):
+						G.add_edge(inNodeId, currId)
+				except KeyError:
+					break
+	
+\end{lstlisting}

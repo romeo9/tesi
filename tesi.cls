@@ -16,6 +16,8 @@
 \usepackage{listings}
 \lstset{
 	basicstyle=\ttfamily, 
+	numbers=left,
+	stepnumber=1,
 }
 \usepackage[utf8]{inputenc}
 % pacchetti per i font

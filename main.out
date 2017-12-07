@@ -25,9 +25,15 @@
 \BOOKMARK [1][-]{section.3.1}{Esempio di grafo reale}{chapter.3}% 25
 \BOOKMARK [1][-]{section.3.2}{Lunghe catene di transazioni}{chapter.3}% 26
 \BOOKMARK [1][-]{section.3.3}{Analisi sul tx-graph}{chapter.3}% 27
-\BOOKMARK [1][-]{section.3.4}{Frequenza delle transazioni}{chapter.3}% 28
-\BOOKMARK [1][-]{section.3.5}{Varianza}{chapter.3}% 29
-\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 30
-\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 31
-\BOOKMARK [0][-]{chapter*.30}{Conclusioni e sviluppi futuri}{}% 32
-\BOOKMARK [0][-]{section*.32}{Bibliografia}{}% 33
+\BOOKMARK [1][-]{section.3.4}{Formalizzazione delle definizioni}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.4.1}{Frequenza delle transazioni}{section.3.4}% 29
+\BOOKMARK [2][-]{subsection.3.4.2}{Varianza}{section.3.4}% 30
+\BOOKMARK [0][-]{chapter.4}{Approccio utilizzato}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Networkx per la creazione di grafi}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.2}{Dataset}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.2.1}{Struttura dati di un blocco}{section.4.2}% 34
+\BOOKMARK [1][-]{section.4.3}{Cammino pi\371 lungo a varianza minima}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.3.1}{Creazione grafo delle transazioni}{section.4.3}% 36
+\BOOKMARK [0][-]{chapter.5}{Sperimentazione \046 Risultati}{}% 37
+\BOOKMARK [0][-]{chapter*.30}{Conclusioni e sviluppi futuri}{}% 38
+\BOOKMARK [0][-]{section*.32}{Bibliografia}{}% 39
