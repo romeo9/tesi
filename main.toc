@@ -39,6 +39,7 @@
 \contentsline {subsection}{\numberline {4.3.2}Assegnamento timestamp alle transazioni}{52}{subsection.4.3.2}
 \contentsline {subsubsection}{\numberline {4.3.2.1}Timestamp blocchi}{52}{subsubsection.4.3.2.1}
 \contentsline {subsubsection}{\numberline {4.3.2.2}Algoritmo per assegnare i timestamp}{54}{subsubsection.4.3.2.2}
-\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{57}{chapter.5}
-\contentsline {chapter}{Conclusioni e sviluppi futuri}{58}{chapter*.31}
-\contentsline {chapter}{Bibliografia}{59}{section*.33}
+\contentsline {subsection}{\numberline {4.3.3}Dettagli dell'algoritmo per il calcolo del cammino pi\IeC {\`u} lungo a varianza minima}{57}{subsection.4.3.3}
+\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{58}{chapter.5}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{59}{chapter*.31}
+\contentsline {chapter}{Bibliografia}{60}{section*.33}
