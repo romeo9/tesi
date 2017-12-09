@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  7 DEC 2017 20:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.9)  9 DEC 2017 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1281,7 +1281,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-<figure/uniroma3-logo.pdf, id=160, 196.735pt x 109.40875pt>
+<figure/uniroma3-logo.pdf, id=164, 196.735pt x 109.40875pt>
 File: figure/uniroma3-logo.pdf Graphic file (type pdf)
 
 <use figure/uniroma3-logo.pdf>
@@ -1303,7 +1303,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--32
 
 
 ] (./main.lof [7]) [8] (./capitolo1.tex
-<figure/btcicon.png, id=312, 32.12pt x 32.12pt>
+<figure/btcicon.png, id=317, 32.12pt x 32.12pt>
 File: figure/btcicon.png Graphic file (type png)
  <use figure/btcicon.png>
 Package pdftex.def Info: figure/btcicon.png used on input line 6.
@@ -1317,14 +1317,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
 
-[2] <figure/overview.png, id=329, 1282.7925pt x 717.68124pt>
+[2] <figure/overview.png, id=335, 1282.7925pt x 717.68124pt>
 File: figure/overview.png Graphic file (type png)
 
 <use figure/overview.png>
 Package pdftex.def Info: figure/overview.png used on input line 32.
 (pdftex.def)             Requested size: 412.56497pt x 230.81253pt.
 
-<figure/qrcode.png, id=331, 1126.2075pt x 480.79625pt>
+<figure/qrcode.png, id=337, 1126.2075pt x 480.79625pt>
 File: figure/qrcode.png Graphic file (type png)
  <use figure/qrcode.png>
 Package pdftex.def Info: figure/qrcode.png used on input line 41.
@@ -1354,47 +1354,47 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
  [6] [7]
-[8] [9] <figure/fork1.png, id=376, 897.3525pt x 461.725pt>
+[8] [9] <figure/fork1.png, id=381, 897.3525pt x 461.725pt>
 File: figure/fork1.png Graphic file (type png)
 
 <use figure/fork1.png>
 Package pdftex.def Info: figure/fork1.png used on input line 140.
 (pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
  [10 <./figure/fork1.png>]
-<figure/fork2.png, id=383, 898.35625pt x 461.725pt>
+<figure/fork2.png, id=388, 898.35625pt x 461.725pt>
 File: figure/fork2.png Graphic file (type png)
  <use figure/fork2.png>
 Package pdftex.def Info: figure/fork2.png used on input line 152.
 (pdftex.def)             Requested size: 350.68274pt x 180.2411pt.
 
-<figure/fork3.png, id=385, 898.35625pt x 462.72874pt>
+<figure/fork3.png, id=390, 898.35625pt x 462.72874pt>
 File: figure/fork3.png Graphic file (type png)
  <use figure/fork3.png>
 Package pdftex.def Info: figure/fork3.png used on input line 161.
 (pdftex.def)             Requested size: 350.68274pt x 180.63293pt.
 
-[11 <./figure/fork2.png>] <figure/fork4.png, id=393, 901.3675pt x 464.73625pt>
+[11 <./figure/fork2.png>] <figure/fork4.png, id=398, 901.3675pt x 464.73625pt>
 File: figure/fork4.png Graphic file (type png)
 
 <use figure/fork4.png>
 Package pdftex.def Info: figure/fork4.png used on input line 170.
 (pdftex.def)             Requested size: 350.68274pt x 180.80675pt.
  [12 <./figure/fork3.png>]
-<figure/fork5.png, id=400, 897.3525pt x 461.725pt>
+<figure/fork5.png, id=405, 897.3525pt x 461.725pt>
 File: figure/fork5.png Graphic file (type png)
  <use figure/fork5.png>
 Package pdftex.def Info: figure/fork5.png used on input line 179.
 (pdftex.def)             Requested size: 350.68274pt x 180.43839pt.
 
 [13 <./figure/fork4.png>] [14 <./figure/fork5.png>]
-<figure/merkletree.png, id=413, 849.1725pt x 421.575pt>
+<figure/merkletree.png, id=418, 849.1725pt x 421.575pt>
 File: figure/merkletree.png Graphic file (type png)
 
 <use figure/merkletree.png>
 Package pdftex.def Info: figure/merkletree.png used on input line 199.
 (pdftex.def)             Requested size: 206.28249pt x 102.4087pt.
  [15 <./figure/merkletree.png>]
-<figure/merkletreedup.png, id=422, 847.165pt x 420.57124pt>
+<figure/merkletreedup.png, id=427, 847.165pt x 420.57124pt>
 File: figure/merkletreedup.png Graphic file (type png)
 
 <use figure/merkletreedup.png>
@@ -1405,49 +1405,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
-<figure/bookkeeping.png, id=433, 898.35625pt x 627.34375pt>
+<figure/bookkeeping.png, id=438, 898.35625pt x 627.34375pt>
 File: figure/bookkeeping.png Graphic file (type png)
 
 <use figure/bookkeeping.png>
 Package pdftex.def Info: figure/bookkeeping.png used on input line 240.
 (pdftex.def)             Requested size: 288.79422pt x 201.67305pt.
  [17 <./figure/merkletreedup.png>]
-<figure/chaintxs.png, id=441, 1074.0125pt x 674.52pt>
+<figure/chaintxs.png, id=446, 1074.0125pt x 674.52pt>
 File: figure/chaintxs.png Graphic file (type png)
 
 <use figure/chaintxs.png>
 Package pdftex.def Info: figure/chaintxs.png used on input line 249.
 (pdftex.def)             Requested size: 288.79422pt x 181.37149pt.
  [18 <./figure/bookkeeping.png>] [19 <./figure/chaintxs.png>] [20] <figure/alic
-eblock.png, id=459, 458.71375pt x 415.5525pt>
+eblock.png, id=464, 458.71375pt x 415.5525pt>
 File: figure/aliceblock.png Graphic file (type png)
 
 <use figure/aliceblock.png>
 Package pdftex.def Info: figure/aliceblock.png used on input line 272.
 (pdftex.def)             Requested size: 206.28249pt x 186.87642pt.
 
-<figure/abchaintxs.png, id=461, 442.65375pt x 273.02pt>
+<figure/abchaintxs.png, id=466, 442.65375pt x 273.02pt>
 File: figure/abchaintxs.png Graphic file (type png)
 
 <use figure/abchaintxs.png>
 Package pdftex.def Info: figure/abchaintxs.png used on input line 279.
 (pdftex.def)             Requested size: 206.28249pt x 127.2321pt.
 
-<figure/commontx.png, id=463, 529.98pt x 308.15125pt>
+<figure/commontx.png, id=468, 529.98pt x 308.15125pt>
 File: figure/commontx.png Graphic file (type png)
 
 <use figure/commontx.png>
 Package pdftex.def Info: figure/commontx.png used on input line 288.
 (pdftex.def)             Requested size: 206.28249pt x 119.93869pt.
 
-<figure/aggregatingtxs.png, id=465, 526.96875pt x 286.06876pt>
+<figure/aggregatingtxs.png, id=470, 526.96875pt x 286.06876pt>
 File: figure/aggregatingtxs.png Graphic file (type png)
 
 <use figure/aggregatingtxs.png>
 Package pdftex.def Info: figure/aggregatingtxs.png used on input line 295.
 (pdftex.def)             Requested size: 206.28249pt x 111.98103pt.
  [21 <./figure/aliceblock.png>]
-<figure/distributingtxs.png, id=474, 528.97626pt x 286.06876pt>
+<figure/distributingtxs.png, id=479, 528.97626pt x 286.06876pt>
 File: figure/distributingtxs.png Graphic file (type png)
 
 <use figure/distributingtxs.png>
@@ -1460,7 +1460,7 @@ Overfull \hbox (23.44168pt too wide) in paragraph at lines 310--320
  []
 
 [23 <./figure/distributingtxs.png>] [24]
-<figure/threenodes.png, id=498, 533.995pt x 156.585pt>
+<figure/threenodes.png, id=503, 533.995pt x 156.585pt>
 File: figure/threenodes.png Graphic file (type png)
 
 <use figure/threenodes.png>
@@ -1472,14 +1472,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 353--355
  []
 
 [25 <./figure/threenodes.png>]
-<figure/iotxs.png, id=508, 678.03313pt x 445.665pt>
+<figure/iotxs.png, id=513, 678.03313pt x 445.665pt>
 File: figure/iotxs.png Graphic file (type png)
  <use figure/iotxs.png>
 Package pdftex.def Info: figure/iotxs.png used on input line 370.
 (pdftex.def)             Requested size: 412.56497pt x 271.17522pt.
 
 [26]) [27 <./figure/iotxs.png>] (./capitolo2.tex
-<figure/realtx.png, id=525, 1165.35374pt x 211.79124pt>
+<figure/realtx.png, id=530, 1165.35374pt x 211.79124pt>
 File: figure/realtx.png Graphic file (type png)
 
 <use figure/realtx.png>
@@ -1492,21 +1492,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-<figure/realtxinput.png, id=533, 1110.1475pt x 212.795pt>
+<figure/realtxinput.png, id=538, 1110.1475pt x 212.795pt>
 File: figure/realtxinput.png Graphic file (type png)
 
 <use figure/realtxinput.png>
 Package pdftex.def Info: figure/realtxinput.png used on input line 21.
 (pdftex.def)             Requested size: 330.05322pt x 63.26427pt.
 
-<figure/realtxoutput1.png, id=534, 1108.64188pt x 215.30438pt>
+<figure/realtxoutput1.png, id=539, 1108.64188pt x 215.30438pt>
 File: figure/realtxoutput1.png Graphic file (type png)
 
 <use figure/realtxoutput1.png>
 Package pdftex.def Info: figure/realtxoutput1.png used on input line 29.
 (pdftex.def)             Requested size: 330.05322pt x 64.09573pt.
 
-<figure/realtxoutput2.png, id=535, 1097.60063pt x 210.7875pt>
+<figure/realtxoutput2.png, id=540, 1097.60063pt x 210.7875pt>
 File: figure/realtxoutput2.png Graphic file (type png)
 
 <use figure/realtxoutput2.png>
@@ -1518,28 +1518,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
  []
 
 [30 <./figure/realtxinput.png> <./figure/realtxoutput1.png> <./figure/realtxout
-put2.png>] [31] <figure/mixingschema.png, id=556, 847.165pt x 166.6225pt>
+put2.png>] [31] <figure/mixingschema.png, id=561, 847.165pt x 166.6225pt>
 File: figure/mixingschema.png Graphic file (type png)
 
 <use figure/mixingschema.png>
 Package pdftex.def Info: figure/mixingschema.png used on input line 70.
 (pdftex.def)             Requested size: 412.56497pt x 81.14487pt.
  [32 <./figure/mixingschema.png>]
-<figure/moesermixservice.png, id=565, 565.11125pt x 193.72375pt>
+<figure/moesermixservice.png, id=570, 565.11125pt x 193.72375pt>
 File: figure/moesermixservice.png Graphic file (type png)
 
 <use figure/moesermixservice.png>
 Package pdftex.def Info: figure/moesermixservice.png used on input line 86.
 (pdftex.def)             Requested size: 288.79422pt x 99.00175pt.
  [33] [34 <./figure/moesermixservice.png>]
-<figure/torlogo.png, id=579, 1204.5pt x 727.71875pt>
+<figure/torlogo.png, id=584, 1204.5pt x 727.71875pt>
 File: figure/torlogo.png Graphic file (type png)
  <use figure/torlogo.png>
 Package pdftex.def Info: figure/torlogo.png used on input line 108.
 (pdftex.def)             Requested size: 61.88222pt x 37.37633pt.
 
 [35 <./figure/torlogo.png>]) [36] (./capitolo3.tex
-<figure/txgraph.png, id=593, 707.64375pt x 507.8975pt>
+<figure/txgraph.png, id=598, 707.64375pt x 507.8975pt>
 File: figure/txgraph.png Graphic file (type png)
 
 <use figure/txgraph.png>
@@ -1553,14 +1553,14 @@ Overfull \hbox (0.18143pt too wide) in paragraph at lines 22--23
 ta-men-te nel pa-per [[]].
  []
 
-[39] [40] <figure/zoomchain1.png, id=614, 289.08pt x 270.00874pt>
+[39] [40] <figure/zoomchain1.png, id=619, 289.08pt x 270.00874pt>
 File: figure/zoomchain1.png Graphic file (type png)
 
 <use figure/zoomchain1.png>
 Package pdftex.def Info: figure/zoomchain1.png used on input line 51.
 (pdftex.def)             Requested size: 165.02347pt x 154.13316pt.
 
-<figure/zoomchain2.png, id=615, 513.92pt x 474.77374pt>
+<figure/zoomchain2.png, id=620, 513.92pt x 474.77374pt>
 File: figure/zoomchain2.png Graphic file (type png)
 
 <use figure/zoomchain2.png>
@@ -1598,18 +1598,18 @@ cmr/m/n/12 414000)$\T1/cmr/m/n/12 ,
  []
 
 [49]
-Overfull \hbox (25.93188pt too wide) in paragraph at lines 113--114
+Overfull \hbox (25.93188pt too wide) in paragraph at lines 115--116
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[50]) [51] (./capitolo5.tex) [52
+[50] [51]) [52] (./capitolo5.tex) [53
 
-] (./conclusioni.tex) [53
+] (./conclusioni.tex) [54
 
 
 ] (./main.bbl
 bibitemlist
-) [54
+) [55
 
 ]
 \tf@toc=\write5
@@ -1624,44 +1624,47 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 52.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 52.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 52.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FFF19AE4B3BBB48DB518C63172B7A65F;2668.
+(rerunfilecheck)             Checksum: CFE4C98ECAF5617F1464964CD059F594;2744.
  ) 
 Here is how much of TeX's memory you used:
- 21179 strings out of 493014
- 338153 string characters out of 6133352
- 448707 words of memory out of 5000000
- 24276 multiletter control sequences out of 15000+600000
- 18811 words of font info for 44 fonts, out of 8000000 for 9000
+ 21182 strings out of 493014
+ 338191 string characters out of 6133352
+ 447707 words of memory out of 5000000
+ 24279 multiletter control sequences out of 15000+600000
+ 19497 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  45i,11n,45p,10355b,1889s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-d
-ist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dis
-t/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2016/texmf-dist/
-fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2016/texmf-dist/font
-s/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/
-type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (62 pages, 3763561 bytes).
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dis
+t/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2016/texmf-dist/font
+s/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/
+type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2016/texmf-dist/fonts/ty
+pe1/public/cm-super/sfti1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
+1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
+public/cm-super/sftt1200.pfb>
+Output written on main.pdf (63 pages, 3803854 bytes).
 PDF statistics:
- 885 PDF objects out of 1000 (max. 8388607)
- 727 compressed objects within 8 object streams
- 212 named destinations out of 1000 (max. 500000)
- 463 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 904 PDF objects out of 1000 (max. 8388607)
+ 742 compressed objects within 8 object streams
+ 211 named destinations out of 1000 (max. 500000)
+ 471 words of extra memory for PDF output out of 10000 (max. 10000000)
 

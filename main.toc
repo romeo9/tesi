@@ -36,6 +36,8 @@
 \contentsline {subsection}{\numberline {4.2.1}Struttura dati di un blocco}{46}{subsection.4.2.1}
 \contentsline {section}{\numberline {4.3}Cammino pi\IeC {\`u} lungo a varianza minima}{49}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Creazione grafo delle transazioni}{49}{subsection.4.3.1}
-\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{52}{chapter.5}
-\contentsline {chapter}{Conclusioni e sviluppi futuri}{53}{chapter*.30}
-\contentsline {chapter}{Bibliografia}{54}{section*.32}
+\contentsline {subsection}{\numberline {4.3.2}Assegnamento timestamp}{52}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Problema timestamp blocchi}{52}{subsubsection.4.3.2.1}
+\contentsline {chapter}{\chapternumberline {5}Sperimentazione \& Risultati}{53}{chapter.5}
+\contentsline {chapter}{Conclusioni e sviluppi futuri}{54}{chapter*.30}
+\contentsline {chapter}{Bibliografia}{55}{section*.32}

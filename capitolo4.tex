@@ -93,18 +93,20 @@ Prima di parlare dell'algoritmo, verrà illustrato come sono stati letti i dati 
 
 Utilizzando le funzioni di networkx, diventa semplice costruire un grafo in python. Infatti basta usufruire delle funzioni di tale libreria.
 
-Il metodo che crea il grafo prende in input i numeri dei blocchi come range, e legge, in ordine, tutti i file json. Leggendo i singoli json, crea una lista di oggetti, dove ogni oggetto è un blocco con la rispettiva lista di transazioni. Dopo la lettura, viene iterato sulla lista di blocchi, viene presa la lista di transazioni, e vengono creati i nodi del grafo, dove ogni nodo corrisponde ad una transazione. Per creare gli archi, si cicla su tutte le transazioni e si legge il campo "vin" e "vout". Rispettivamente, il primo indica gli archi entranti in quella transazione,e il secondo gli archi uscenti. In base a questi campi, si cicla sulle due liste "vin" e "vout" e si verifica che le transazioni presenti in tali liste siano corrisposte da una loro rappresentazione all'interno del grafo sotto forma di nodi. Ovviamente, se si considera un numero limitato di blocchi, è molto probabile, che singole transazioni vengano rappresentate esclusivamente da un singolo nodo che costituisce singolarmente una componente a sè stante. Infatti è importante gestire le eccezioni in questo caso specifico.
+Il metodo che crea il grafo prende in input i numeri dei blocchi come range, e legge, in ordine, tutti i file json. Leggendo i singoli json, crea una lista di oggetti, dove ogni oggetto è un blocco con la rispettiva lista di transazioni. Dopo la lettura, viene iterato sulla lista di blocchi, viene presa la lista di transazioni, e vengono creati i nodi del grafo, dove ogni nodo corrisponde ad una transazione.
+
+Per creare gli archi, si cicla su tutte le transazioni e si legge il campo "vin" e "vout". Rispettivamente, il primo indica gli archi entranti in quella transazione,e il secondo gli archi uscenti. In base a questi campi, si cicla sulle due liste "vin" e "vout" e si verifica che le transazioni presenti in tali liste siano corrisposte da una loro rappresentazione all'interno del grafo sotto forma di nodi. 
+
+Ovviamente, se si considera un numero limitato di blocchi, è molto probabile, che singole transazioni vengano rappresentate esclusivamente da un singolo nodo che costituisce una componente a sè stante. Infatti è importante gestire le eccezioni in questo caso specifico.
 
 Nel codice seguente, si può osservare la modalità di creazione del grafo.
 
 
 \begin{lstlisting}[basicstyle=\tiny]
-	def create_graph(start_block, end_block):
+def create_graph(start_block, end_block):
 	blocks = read_blocks(start_block, end_block)	
 	G = nx.MultiDiGraph()
-	count = 0
-	ts = blocks[0]['ts']
-	dic = {} 	
+	ts = blocks[0]['ts'], dic ={}
 	for i in blocks:
 		for j in i['txs']:
 		count = count+1
@@ -112,21 +114,38 @@ Nel codice seguente, si può osservare la modalità di creazione del grafo.
 		G.add_node(count, txid=temptxid, blockhash=i['blockhash'], 
 				numblock=i['numblock'],blocktime=i['blocktime'], ts=0)
 		dic[temptxid] = count
-		for j in i['txs']:
-			currId = dic[j['txid']]
+		currId = dic[j['txid']]
 			for k in j['vout']:
 				try:
 					outNodeId = dic[k['spentTxId']]	
 					if not G.has_edge(currId, outNodeId):
 						G.add_edge(currId, outNodeId)
-				except KeyError:
-					break	
+				except KeyError: break	
 			for h in j['vin']:
 				try:
 					inNodeId = dic[h['txid']]
 					if not G.has_edge(inNodeId, currId):
 						G.add_edge(inNodeId, currId)
-				except KeyError:
-					break
-	
+				except KeyError: break	
 \end{lstlisting}
+
+Nella riga 2, viene richiamato il metodo che legge i file .json che corrispondono ai blocchi, e restituisce un file di tipo lista. Infatti la variabile "blocks" corrisponde ad una lista di oggetti, dove per ogni oggetto si ha un blocco, con le sue caratteristiche e la sua lista di transazioni. Come si può notare, infatti, nella riga 5, si fa un'iterazione su tale lista, in modo da creare il grafo. Per ogni blocco, quindi, si itera sulla lista di transazioni e, come già detto in precedenza, si crea un nodo del grafo per ogni transazione. 
+
+Come già sottolineato nei paragrafi precedenti, si è preferito utilizzare la libreria Networkx, per la creazione di grafi. Nella riga 3 viene inizializzata la variabile che corrisponde al grafo. Tale libreria, per aggiungere i nodi al grafo, utilizza il metodo "add_node", riga 9, che prende come input l'id con cui viene identificato il nodo dalla libreria stessa e diversi parametri che si vogliono aggiungere al nodo. Infatti "count" in questo caso è l'id del nodo all'interno del grafo G, ed è un contatore che rappresenta il numero di tutte le transazioni all'interno di tutti i blocchi letti. Perciò, in ordine di lettura, ogni transazione avrà un id corrispondente ad un contatore che conta nel complessivo tutti i nodi del grafo.
+
+Così facendo i nodi risultano numerati da 1 ad un numero pari alla cardinalità di G. Per creare gli archi invece, per ogni transazione appartenente alla lista di transazioni del blocco,esiste una lista di archi entranti e uscenti. Per trovare una corrispondenza con tali transazioni collegate, occorre utilizzare un dizionario "dic" che ha lo scopo di stabilire una corrispondenza diretta tra l'id del nodo del grafo e l'id della transazione. Purtroppo questo procedimento si è reso necessario poichè non è presente un metodo che fa questa cosa, nella libreria Networkx.
+
+Infine, vengono creati gli archi che collegano i nodi del grafo, con il metodo "add_edge", che prende in input gli id dei nodi da collegare. Infatti, è proprio per questo motivo che si utilizza il dizionario, perché nell'aggiunta degli archi, il metodo prende come input gli id dei nodi, invece degli id delle transazioni.
+
+\subsection{Assegnamento timestamp}
+Per implementare l'algoritmo principale del progetto, ovvero quello che calcola il cammino più lungo a varianza minima, occorre conoscere i singoli timestamp delle transazioni. Purtroppo, data la sua struttura, la blockchain non prevede l'assegnamento di timestamp alle transazioni, solamente ai blocchi. Perciò si è deciso di implementare un algoritmo anche per l'assegnamento dei timestamp alle transazioni.
+
+Tale algoritmo prevede di ricavare i vari timestamp delle singole transazioni, dai timestamp del blocco di appartenenza. Sebbene si potrebbe fare una banale divisione tra il tempo che è presente tra i blocchi e il numero delle transazioni del blocco, l'algoritmo non è stato pensato in modo così semplice.
+
+Per ogni blocco, si definisce un intervallo di tempo con il blocco successivo. Infatti, il timestamp del blocco che viene salvato dalla blockchain, sarebbe l'istante finale con cui vengono salvate le transazioni nel blocco. Perciò per calcolare l'intervallo di tempo che si è impiegato per definire tale blocco, occorre fare una sottrazione tra il timestamp del blocco e quello del blocco precedente. Nel caso particolare del primo blocco invece, si prende come considerazione un intervallo di tempo prestabilito uguale a 10 minuti. Ogni dieci minuti viene creato un blocco, perciò il primo blocco come intervallo di tempo, sceglierà il suo timestamp, a cui vengono sottratti 600 secondi. \footnote{il timestamp del blocco è nel formato \textit{unixstamp} e viene rappresentato in secondi a partire dalla mezzanotte del $1^o$ Gennaio 1970. Per esempio, per il blocco \textit{417113} il timestamp è 1466381104 che corrisponde al 20 Giugno 2016 alle ore 00:05:04.}
+
+
+\subsubsection{Problema timestamp blocchi}
+Per assegnare i timestamp alle transazioni, l'algoritmo da implementare necessita di un campo principale: il timestamp del blocco. Tramite l'osservazione dei vari timestamp ci si è resi conto che l'ordine numerico dei blocchi può non corrispondere all'ordine temporale con cui i blocchi vengono emessi. 
+
+
