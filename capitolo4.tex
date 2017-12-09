@@ -128,7 +128,7 @@ def create_graph(start_block, end_block):
 						G.add_edge(inNodeId, currId)
 				except KeyError: break	
 \end{lstlisting}
-
+\newpage
 Nella riga 2, viene richiamato il metodo che legge i file .json che corrispondono ai blocchi, e restituisce un file di tipo lista. Infatti la variabile "blocks" corrisponde ad una lista di oggetti, dove per ogni oggetto si ha un blocco, con le sue caratteristiche e la sua lista di transazioni. Come si può notare, infatti, nella riga 5, si fa un'iterazione su tale lista, in modo da creare il grafo. Per ogni blocco, quindi, si itera sulla lista di transazioni e, come già detto in precedenza, si crea un nodo del grafo per ogni transazione. 
 
 Come già sottolineato nei paragrafi precedenti, si è preferito utilizzare la libreria Networkx, per la creazione di grafi. Nella riga 3 viene inizializzata la variabile che corrisponde al grafo. Tale libreria, per aggiungere i nodi al grafo, utilizza il metodo "add_node", riga 9, che prende come input l'id con cui viene identificato il nodo dalla libreria stessa e diversi parametri che si vogliono aggiungere al nodo. Infatti "count" in questo caso è l'id del nodo all'interno del grafo G, ed è un contatore che rappresenta il numero di tutte le transazioni all'interno di tutti i blocchi letti. Perciò, in ordine di lettura, ogni transazione avrà un id corrispondente ad un contatore che conta nel complessivo tutti i nodi del grafo.
@@ -137,15 +137,88 @@ Così facendo i nodi risultano numerati da 1 ad un numero pari alla cardinalità
 
 Infine, vengono creati gli archi che collegano i nodi del grafo, con il metodo "add_edge", che prende in input gli id dei nodi da collegare. Infatti, è proprio per questo motivo che si utilizza il dizionario, perché nell'aggiunta degli archi, il metodo prende come input gli id dei nodi, invece degli id delle transazioni.
 
-\subsection{Assegnamento timestamp}
+\subsection{Assegnamento timestamp alle transazioni}
 Per implementare l'algoritmo principale del progetto, ovvero quello che calcola il cammino più lungo a varianza minima, occorre conoscere i singoli timestamp delle transazioni. Purtroppo, data la sua struttura, la blockchain non prevede l'assegnamento di timestamp alle transazioni, solamente ai blocchi. Perciò si è deciso di implementare un algoritmo anche per l'assegnamento dei timestamp alle transazioni.
 
 Tale algoritmo prevede di ricavare i vari timestamp delle singole transazioni, dai timestamp del blocco di appartenenza. Sebbene si potrebbe fare una banale divisione tra il tempo che è presente tra i blocchi e il numero delle transazioni del blocco, l'algoritmo non è stato pensato in modo così semplice.
 
 Per ogni blocco, si definisce un intervallo di tempo con il blocco successivo. Infatti, il timestamp del blocco che viene salvato dalla blockchain, sarebbe l'istante finale con cui vengono salvate le transazioni nel blocco. Perciò per calcolare l'intervallo di tempo che si è impiegato per definire tale blocco, occorre fare una sottrazione tra il timestamp del blocco e quello del blocco precedente. Nel caso particolare del primo blocco invece, si prende come considerazione un intervallo di tempo prestabilito uguale a 10 minuti. Ogni dieci minuti viene creato un blocco, perciò il primo blocco come intervallo di tempo, sceglierà il suo timestamp, a cui vengono sottratti 600 secondi. \footnote{il timestamp del blocco è nel formato \textit{unixstamp} e viene rappresentato in secondi a partire dalla mezzanotte del $1^o$ Gennaio 1970. Per esempio, per il blocco \textit{417113} il timestamp è 1466381104 che corrisponde al 20 Giugno 2016 alle ore 00:05:04.}
 
+\subsubsection{Timestamp blocchi}
+Per assegnare i timestamp alle transazioni, l'algoritmo da implementare necessita di un campo principale: il timestamp del blocco. Tramite l'osservazione dei vari timestamp ci si è resi conto che l'ordine numerico dei blocchi può non corrispondere all'ordine temporale con cui i blocchi vengono emessi.
+Si prenda come esempio il range di blocchi (417113,$\cdots$, 417116), con i seguenti timestamp:
+\begin{itemize}
+	\item 417113 ts=1466381104 (20/06/16 00:05:04)
+	\item 417114 ts=1466381748 (20/06/16 00:15:48)
+	\item 417115 ts=1466381660 (20/06/16 00:14:20)
+	\item 417116 ts=1466382461 (20/06/16 00:27:41)
+\end{itemize} 
+Si nota immediatamente come il timestamp del blocco 417114 è maggiore del blocco 417115, ovvero è stato ricevuto dopo il blocco 417115. Quindi in questo caso, l'ordine numerico dei blocchi non corrisponde all'ordine cronologico. 
 
-\subsubsection{Problema timestamp blocchi}
-Per assegnare i timestamp alle transazioni, l'algoritmo da implementare necessita di un campo principale: il timestamp del blocco. Tramite l'osservazione dei vari timestamp ci si è resi conto che l'ordine numerico dei blocchi può non corrispondere all'ordine temporale con cui i blocchi vengono emessi. 
+Le cause per cui si sia verificata tale situazione possono essere molteplici. Probabilmente il blocco è stato sincronizzato in un secondo momento, magari a causa di qualche guasto tecnico che non ha permesso la perfetta ricezione e distribuzione di informazioni attraverso la rete. Potrebbe anche essersi verificata una fork, dove il blocco 417115 è stato ricevuto prima della scelta della catena principale a cui apparteneva anche il blocco 417114.
 
+Questa situazione genera un uteriore interrogativo: è possibile che i timestamp assegnati non siano corrispondenti alla reale ricezione dei blocchi? Assumendo di poter rispondere affermativamente, ci si rende conto che si potrebbero quindi mettere in discussione tutti i valori di timestamp di quasi tutti i blocchi. Perciò le informazioni ottenute dalla blockchain, possono anche non essere certe.
+
+Sulla base di questa assunzione, si è pensato quindi di assegnare arbitrariamente i timestamp ai blocchi. Così facendo si potrebbe ovviare al problema dell'ordine numerico dei blocchi. Infatti, si è deciso di rispettare l'ordine numerico per correggere le informazioni sul tempo di ricezione dei blocchi.
+
+Per fare ciò, viene preso l'intervallo dei blocchi, calcolato il tempo totale che intercorre tra un blocco e l'ultimo della lista, e si calcolano i singoli intervalli da assegnare a ciascun blocco. Tali intervalli singoli vengono quindi calcolati dividendo semplicemente il tempo totale per il numero dei blocchi. Come risultato i blocchi hanno tutti lo stesso intervallo di tempo.
+
+\begin{lstlisting}[basicstyle=\tiny]
+def set_blocks_timestamp(blocks):
+	numblocks = len(blocks)
+	start_interval = blocks[0]['blocktime']
+	end_interval = blocks[numblocks-1]['blocktime']
+	full_interval =  end_interval - start_interval 
+	single_interval = full_interval/float(numblocks-1)
+	count = 0
+	for i in range(numblocks-1):
+		blocks[i]['blocktime'] = start_interval + (count*single_interval)
+		count = count+1	
+\end{lstlisting}
+
+il metodo void \textit{set_blocks_timestamp} prende come parametro la lista di blocchi e assegna i timestamp corretti ad ogni blocco. La variabile \textit{single_interval} rappresenta il singolo intervallo che viene assegnato da un blocco ad un altro.
+
+Così facendo, per ogni blocco si otterrà un nuovo timestamp calcolato arbitrariamente. Si potrebbe pensare che in questo modo l'analisi non potrebbe coincidere con i dati reali. Si è pensato infatti anche a questa eventualità. Sebbene i blocchi siano "spaziati" temporalmente in modo equivalente, ogni blocco contiene un numero qualsiasi di transazioni, che può andare da poche centinaia fino ad arrivare ad alcune migliaia (almeno per quello che si è riusciti a visionare). In questo modo, l'analisi sarebbe comunque corretta, se si analizza in base al numero di transazioni.
+
+\subsubsection{Algoritmo per assegnare i timestamp}
+Dopo aver assegnato i corretti timestamp ai vari blocchi, è stato formulato un algoritmo per meglio etichettare le transazioni, anche in base al numero di transazioni contenute in un blocco, e in base anche alle chain di nodi che vengono comprese tra due o più blocchi. 
+
+L'idea di base è quella di considerare tutte le possibili catene di transazioni, ordinarle in base al numero di elementi e assegnare i timestamp. Ogni nodo della chain più lunga avrà come intervallo di tempo tra un nodo e l'altro, l'intervallo di tempo in cui è compreso il blocco, diviso il numero di elementi della chain. Dopo tale assegnazione, viene successivamente considerata la seconda catena più lunga. Si itera su tale catena, e per ogni nodo, si va a esplorare il nodo precedente nella catena. Se il nodo non ha predecessori, allora gli verrà assegnato il timestamp del blocco precedente, ovvero l'istante iniziale del tempo di spaziatura del blocco di appartenenza. Se invece il nodo avesse dei predecessori, si assegnerebbe la media dell'intervallo di tempo tra il successore e il predecessore. Nel caso di considerazione di tali catene, normalmente il predecessore, se è presente, è unico.
+
+In seguito verrà mostrato il dettaglio dell'algoritmo.
+\\
+\begin{algorithm}[h]
+	\caption{Algoritmo per l'assegnazione dei timestamp ai nodi del grafo} \label{algo:tsnodigraph}
+
+\For{ b in blocks}{ 
+	%\Comment{crea sottografo con i nodi appartenenti al blocco i}
+	S = sottografo corrispondente ad un blocco b\\
+	esegue il metodo label_llc(S)\\
+	%\Comment{calcola intervallo di tempo dell'intero blocco i}
+	interval = intervallo di tempo del blocco	\\
+	paths = chain in ordine decrescente in base alla lunghezza\\
+	\For{ p in paths}{
+		per ogni nodo\\
+		\If{il primo elemento di p non ha predecessori}{
+			assegna il timestamp alla chain\\
+			\For{ j in p[1]}{
+				salva il nodo con il timestamp in un dizionario
+			}
+		}
+		\Else{
+			se il nodo ha un predecessore presente nel dizionario\\
+			calcolo il timestamp con istante iniziale pari a quella del predecessore
+		}
+	}	
+}
+\end{algorithm}
+
+Nell'algoritmo \ref{algo:tsnodigraph} si nota come la lista path, corrisponda alla lista di tutte le chain del grafo. In particolare tali chain sono le componenti connesse del grafo e potrebbero essere composte da tante transazioni oppure solo da un nodo. Infatti per classificare le catene in base alla loro lunghezza si è deciso di utilizzare un metodo che calcola il valore \textbf{LLC}, ovvero la lunghezza della catena più lunga di appartenenza. In parole povere, il valore llc rappresenta il cammino più lungo che passa attraverso quel nodo.
+Tale algoritmo per il calcolo dell'LLC, viene ripreso dal paper \cite{ddp-ltcbh-17}, e viene riportato in questo paragrafo in \textit{figura \ref{fig:llcalgo}}.
+\\
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = \linewidth]{figure/llcalgo}
+	\caption{\textit{Algoritmo assegnazione LLC} \cite{ddp-ltcbh-17} \label{fig:llcalgo}}
+\end{figure}
 
