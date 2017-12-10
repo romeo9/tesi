@@ -189,28 +189,31 @@ In seguito verrà mostrato il dettaglio dell'algoritmo.
 \\
 \begin{algorithm}[h]
 	\caption{Algoritmo per l'assegnazione dei timestamp ai nodi del grafo} \label{algo:tsnodigraph}
+	\begin{algorithmic}
 
-\For{ b in blocks}{ 
-	%\Comment{crea sottografo con i nodi appartenenti al blocco i}
-	S = sottografo corrispondente ad un blocco b\\
-	esegue il metodo label_llc(S)\\
-	%\Comment{calcola intervallo di tempo dell'intero blocco i}
-	interval = intervallo di tempo del blocco	\\
-	paths = chain in ordine decrescente in base alla lunghezza\\
-	\For{ p in paths}{
-		per ogni nodo\\
-		\If{il primo elemento di p non ha predecessori}{
-			assegna il timestamp alla chain\\
-			\For{ j in p[1]}{
-				salva il nodo con il timestamp in un dizionario
-			}
-		}
-		\Else{
-			se il nodo ha un predecessore presente nel dizionario\\
-			calcolo il timestamp con istante iniziale pari a quella del predecessore
-		}
-	}	
-}
+	\For{ b in blocks}
+		%\Comment{crea sottografo con i nodi appartenenti al blocco i}
+		S = sottografo corrispondente ad un blocco b\\
+		esegue il metodo label_llc(S)\\
+		%\Comment{calcola intervallo di tempo dell'intero blocco i}
+		interval = intervallo di tempo del blocco	\\
+		paths = chain in ordine decrescente in base alla lunghezza\\
+		\For{ p in paths}
+			per ogni nodo\\
+			\If{il primo elemento di p non ha predecessori}
+				assegna il timestamp alla chain\\
+				\For{ j in p[1]}
+					salva il nodo con il timestamp in un dizionario
+				\EndFor
+			
+			\Else{
+				se il nodo ha un predecessore presente nel dizionario\\
+				calcolo il timestamp con istante iniziale pari a quella del predecessore}
+			\EndIf
+		\EndFor
+	\EndFor
+		
+	\end{algorithmic}
 \end{algorithm}
 
 Nell'algoritmo \ref{algo:tsnodigraph} si nota come la lista path, corrisponda alla lista di tutte le chain del grafo. In particolare tali chain sono le componenti connesse del grafo e potrebbero essere composte da tante transazioni oppure solo da un nodo. Infatti per classificare le catene in base alla loro lunghezza si è deciso di utilizzare un metodo che calcola il valore \textbf{LLC}, ovvero la lunghezza della catena più lunga di appartenenza. In parole povere, il valore llc rappresenta il cammino più lungo che passa attraverso quel nodo.
@@ -225,4 +228,91 @@ Tale algoritmo per il calcolo dell'LLC, viene ripreso dal paper \cite{ddp-ltcbh-
 Il campo LLC, quindi serve per ordinare i vari cammini dei nodi, per assegnare i timestamp. Tale algoritmo si serve di due attributi: b, e f. "b" corrisponde all'attributo \textit{backward} che rappresenta il numero dei predecessori, "f" corrisponde all'attributo \textit{forward} che indica invece il numero dei successori. Visitando prima il grafo in "avanti" si etichettano i nodi secondo l'attributo b. Visitandolo poi a ritroso, si riescono a calcolare tutti gli attributi f. Infine, per ogni nodo si sommano gli attributi b e f e si ottiene il numero LLC. Ovviamente questo processo è reso possibile se il grafo viene visitato in ordine topologico. Tale ordine indica per primi i nodi che non hanno archi entranti, poi vengono visitati i nodi indicati dagli archi uscenti. In poche parole l'ordinamento topologico guida una visita dal nodo "sorgente" al nodo "destinazione" passando per tutti i nodi del grafo. 
 
 \subsection{Dettagli dell'algoritmo per il calcolo del cammino più lungo a varianza minima}
+La parte principale del progetto, si basa sull'algoritmo per il calcolo del cammino più lungo a varianza minima. Tale algorimo, è stato pensato ed implementato per cercare di capire quali sono le transazioni che vengono generate automaticamente e quali no. 
+
+Come è stato già sottolineato in precedenza, una catena automatica di transazioni, viene generata a velocità e frequenza elevati. Contemporaneamente, una chain creata tramite un software, seguirà un andamento sempre costane. Grazie a questa caratteristica, si può quindi pensare di utilizzare la nozione di varianza, che misura quanto un evento si discosta dal suo andamento medio. Infatti, cercando di capire quali sono le catene più lunghe a varianza minima, si potrebbero trovare alcuni riscontri per quanto riguarda gli andamenti automatici.
+
+L'algoritmo in questione, visita il grafo in ordine topologico, ossia dai nodi sorgenti ai quelli target, e visita ogni nodo. Durante questa visita iterativa, la prima cosa che viene fatta è quella di calcolare il cammino a varianza minima che porta al nodo che si sta considerando. Ovvero la sequenza di nodi che arriva al nodo corrente, che non soddisfa le condizioni di varianza minima. 
+
+\begin{algorithm}[h]
+	\caption{Algoritmo per il cammino a varianza minima} \label{algo:getpath}
+	\begin{algorithmic}
+		\For{ n in \textit{topological_sort(G.nodes())}}
+		 	\State{path = get_path(G,n)}
+			\If {path.length() == 0} 
+					\State{freq(n) = 0}
+					\State{v(n) = 0}
+			 	\Else{
+			 		\State{f\_ist(n) = calcola freq istantanea del nodo}
+			 		\State{freq(n) = calcola freq media del path}
+			 		\State{v(n) = calcola varianza del path}}
+			 \EndIf	 
+		\EndFor	
+	\end{algorithmic}	
+\end{algorithm} 
+
+Per ogni nodo del grafo in ordine topologico, viene calcolata la variabile $path$ che rappresenta il cammino a varianza minima. Se il path ha lunghezza uguale a 0, vuol dire che n è il nodo iniziale, e gli vengono assegnati i valori iniziali di frequenza e varianza. Altrimenti, viene calcolata la frequenza istantanea del nodo rispetto al predecessore, poi viene calcolata la frequenza media di tutto il path, e infine la varianza, che si serve dei singoli valori di frequenza istantanea. Ogni volta, la variabile path viene salvata in un oggetto temporaneo che rappresenta il path che fino a quel momento presenta i valori di lunghezza massimo e varianza minima. Alla fine dell'algoritmo, il path viene aggiornato se e solo se la sua lunghezza è maggiore di quello precedente e la varianza è minore rispetto a quella del path precedente.
+
+in questo metodo, l'ordinamento topologico è garantito dai metodi di base della libreria Networkx di python.
+
+Il metodo $get\_path$ che interviene nell'algoritmo \ref{algo:getpath}, prende come input il grafo, il nodo e ritorna il cammino a varianza minima e viene mostrato nell'algoritmo \ref{algo:getpathdetails}.
+\begin{algorithm}[h]
+	\caption{get_path(G,n)} \label{algo:getpathdetails}
+	\begin{algorithmic}
+		\Function{get_path}{graph G,node n}
+			\State{ \Return get_path_ric(G,n,[])}
+		\EndFunction \\
+		\Function{get_path_ric}{G,n,path}
+			\If {not G.has_node(n)}
+				\State{\Return []}
+			\Else{
+				\State{path.append(n)}	
+				\State{pred = get_pred(G,n)}
+				\State{temp = path con var min tra i predecessori}
+				\State{\Return [temp] + get_path_ric(G,temp,path, lenp-1)	}
+			}
+				\EndIf	
+		\EndFunction		
+	\end{algorithmic}	
+\end{algorithm} 
+
+L'algoritmo \ref{algo:getpathdetails} si serve di una funzione ricorsiva per calcolare il path, poichè di norma nella visita dei grafi si utilizzano metodi ricorsivi come la DFS("Depth First Search"). Alla fine, la funzione ritornerà il path corrispondente.
+
+Per quanto riguarda invece il calcolo della frequenza istantanea e della varianza, gli algoritmi sono mostrati nelle figure \ref{algo:freqist} e \ref{algo:var}.
+La frequenza media invece, viene semplicemente calcolata come media tra i diversi valori di frequenze istantanee, direttamente nell'algoritmo get\_path.
+
+\begin{algorithm}[h]
+	\caption{Frequenza istantanea} \label{algo:freqist}
+	\begin{algorithmic}
+		\Function{calculate_f_ist}{tsn, tsnprev}
+			\If{tsn - tsnprev == 0}:
+				\State{\Return 0}
+			\EndIf
+			\State{\Return 1/(tsn-tsnprev)}
+		\EndFunction
+	\end{algorithmic}	
+\end{algorithm} 
+
+\begin{algorithm}[h]
+	\caption{Varianza} \label{algo:var}
+	\begin{algorithmic}
+		\Function{calculate_v}{G,path,n}
+			\For{i in path}
+				\State{v += math.pow(freq(i),2) }
+			\EndFor
+			\State{\Return v}
+		\EndFunction
+	\end{algorithmic}	
+\end{algorithm} 
+
+Negli algoritmi precedenti viene mostrato il calcolo dei due parametri chiave dell'algoritmo principale.
+
+Successivamente, è stata effettuata una modifica a tali algoritmi, specialmente al \ref{algo:getpathdetails}. Infatti, dal momento che vengono analizzati tantissimi dati, si rischia di incappare in catene lunghissime che difficilmente si riescono a gestire. Dal momento che l'obiettivo principale è di calcolare la varianza di tale catena, allora si è pensato di effettuare tale calcolo sugli ultimi $p$ elementi del path. Infatti, i primi elementi normalmente hanno valore di frequenza e varianza uguale all'inizializzazione, perciò andrebbero ad influenzare in modo negativo l'analisi finale. Perciò, prendendo man mano in considerazione gli ultimi $p$ nodi, si otterranno dei valori di varianza e di frequenza molto più realistici. 
+
+Per comodità, quindi viene passato come parametro anche tale valore \textbf{p}, e viene arbitrariamente inizializzato a p=100.
+
+Alla fine dell'esecuzione di tutti questi algoritmi, si ottiene un grafo dove per ogni nodo si hanno gli attributi di frequenza e di varianza, calcolati sui p nodi predecessori.
+
+%per ogni n, etichetto n con varianza dei suoi predecessori p(n) di lunghezza p con p fissato
+
 
