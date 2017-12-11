@@ -40,6 +40,8 @@ Inizialmente si è voluto graficare il primo dataset D1(417113, 417256), perchè
 \subsection{Al variare del Dataset}
 Prendendo successivamente in considerazione il dataset D2(413000, 414000), e di conseguenza il grafo generato da tale dataset, si è preferito creare dei grafici al variare della dimensione del dataset, per vedere quali erano i valori che si sarebbero aggiunti alla distribuzione.
 
+Nei grafici seguenti, si potranno vedere i grafici creati dalla distribuzione dei valori di frequenza, al variare della dimensione dell'input, ovvero del numero di blocchi processati. In figura \ref{fig:hist20b} il grafico viene fatto su 20 blocchi, e si può notare come abbia un andamento decrescente e infine un picco.
+
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.7\textwidth]{figure/hist20b}
@@ -75,9 +77,22 @@ Prendendo successivamente in considerazione il dataset D2(413000, 414000), e di 
 	\includegraphics[width=0.7\textwidth]{figure/hist250b}
 	\caption{\textit{250 blocchi}\label{fig:hist250b}}
 \end{figure}
+\newpage
+Con l'aumentare del numero di blocchi, la parte destra del grafico va a riempirsi di ulteriori valori. Infatti, è sempre presente un andamento decrescente sulla sinistra, e dopo la decrescita, si ha una stabilità di valori sulla destra.
+
+Nell'ultimo grafico, in \textit{figura \ref{fig:hist1000b}}, si può notare un tratto decrescente e poi una stabilità di valori, che mediamente mantengono lo stesso andamento. Si può quindi osservare che valori di frequenza più piccoli di $10_{-1}$ seguono una retta decrescente, con un picco finale e la decrescita si interrompe di colpo dando spazio agli altri valori.
+
+Si sono messi a confronto i grafici \ref{fig:hist1000b} e \ref{graphpaper} che rappresenta la frequenza dei valori di LLC. Il secondo grafico deriva dal paper \cite{ddp-ltcbh-17} e si può notare come la prima metà somigli, come andamento, al primo grafico. In questo caso, si può quindi sostenere che l'andamento appare molto simile, e quindi che la frequenza attribuita alle singole transazioni abbia una qualche connessione con i rispettivi valori di LLC.
+
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figure/hist1000b}
 	\caption{\textit{1000 blocchi}\label{fig:hist1000b}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6 \textwidth]{figure/graphpaper}
+	\caption{\textit{Grafico di valori llc \cite{ddp-ltcbh-17} }\label{graphpaper}}
 \end{figure}
