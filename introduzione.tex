@@ -18,6 +18,9 @@ Esistono dei software, chiamati mixer, che svolgono la funzione di rendere più 
 
 Lo scopo di questo progetto è stato identificare le catene di transazioni automatiche, ovvero generate da mixer, piuttosto che quelle manuali, create da normali transazioni per servizi o prodotti.
 
+Questo argomento viene affrontato nel paper \cite{ddp-ltcbh-17}, nel quale è stato definito un parametro chiamato "llc". Esso, assegnato ad ogni transazione, sta a rappresentare la lunghezza della catena di transazioni più lunghe a cui appartiene (llc = Lenght of Longest Chain). Utilizzando tale parametro per creare un grafico con la sua distribuzione sulle transazioni, si è riscontrato che i comportamenti automatici venivano rilevati, ma che c'era stata l'introduzione di alcuni \textit{bias} che non potevano essere corretti.
+In questa tesi, si può osservare un altro approccio di analisi per gli stessi comportamenti, creando ulteriori modelli di studio per nuove variabili formulate. Infatti, invece del parametro llc, vengono individuate le nozioni di frequenza e di varianza, che probabilmente riescono meglio a soddisfare e a rendere l'output più corrispondente al risultato che si vuole ottenere. 
+
 Nel primo capitolo viene approfondita la tecnologia bitcoin, la blockchain, i dettagli delle transazioni e come viene svolto il mining. 
 
 Nel capitolo successivo, il capitolo 2, si parlerà del dettaglio dei comportamenti automatici, ovvero cosa sono i mixer e come generano le chain di transazioni.
